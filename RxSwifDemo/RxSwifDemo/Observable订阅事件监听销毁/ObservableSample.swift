@@ -184,4 +184,33 @@ extension ObservableSample {
         //发送next事件 --- 被停止，不会再执行
         subject.onNext("333")
     }
+
+    func addtimeout()  {
+        //定义好每个事件里的值以及发送的时间
+            let times = [
+                [ "value": 1, "time": 0 ],
+                [ "value": 2, "time": 0.5 ],
+                [ "value": 3, "time": 1.5 ],
+                [ "value": 4, "time": 4 ],
+                [ "value": 5, "time": 5 ],
+                [ "value": 6, "time": 1.6 ]
+
+            ]
+
+            //生成对应的 Observable 序列并订阅
+            Observable.from(times)
+                .flatMap { item in
+                    return Observable.of(Int(item["value"]!))
+                        .delaySubscription(Double(item["time"]!),
+                                           scheduler: MainScheduler.instance)
+                }
+                .timeout(2, scheduler: MainScheduler.instance) //超过两秒没发出元素，则产生error事件
+                .subscribe(onNext: { element in
+                    print(element)
+                }, onError: { error in
+                    print(error)
+                })
+                .disposed(by: disposeBag)
+        
+    }
 }
