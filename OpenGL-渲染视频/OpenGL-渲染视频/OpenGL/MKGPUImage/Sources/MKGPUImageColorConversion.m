@@ -116,9 +116,15 @@ NSString *const kMKGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SH
  {
      mediump vec3 yuv;
      lowp vec3 rgb;
-     
-     yuv.x = texture2D(luminanceTexture, textureCoordinate).r - (16.0/255.0);
-     yuv.yz = texture2D(chrominanceTexture, textureCoordinate).ra - vec2(0.5, 0.5);
+
+     highp vec2 uv = textureCoordinate.xy;
+    if(uv.y >= 0.0 && uv.y <= 1.0/3.0){
+          uv.y = uv.y + 1.0 / 3.0;
+      }else if(uv.y >= 2.0 / 3.0){
+          uv.y = uv.y - 1.0/ 3.0 ;
+      }
+     yuv.x = texture2D(luminanceTexture, uv).r - (16.0/255.0);
+     yuv.yz = texture2D(chrominanceTexture, uv).ra - vec2(0.5, 0.5);
      rgb = colorConversionMatrix * yuv;
      
      gl_FragColor = vec4(rgb, 1);
