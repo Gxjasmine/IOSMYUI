@@ -15,6 +15,7 @@
 		AB2B6171237BD36100CCA6E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB2B616F237BD36100CCA6E2 /* LaunchScreen.storyboard */; };
 		AB2B617C237BD36100CCA6E2 /* ___UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2B617B237BD36100CCA6E2 /* ___UITests.swift */; };
 		AB2B6187237BD36100CCA6E2 /* ___UIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2B6186237BD36100CCA6E2 /* ___UIUITests.swift */; };
+		AB3CC64B238280CE000F3E90 /* 任务.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB3CC64A238280CE000F3E90 /* 任务.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AB2B6182237BD36100CCA6E2 /* 自定义UIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "自定义UIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2B6186237BD36100CCA6E2 /* ___UIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___UIUITests.swift"; sourceTree = "<group>"; };
 		AB2B6188237BD36100CCA6E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB3CC64A238280CE000F3E90 /* 任务.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "任务.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		AB2B6163237BD36000CCA6E2 /* 自定义UI */ = {
 			isa = PBXGroup;
 			children = (
+				AB3CC64A238280CE000F3E90 /* 任务.txt */,
 				AB2B6164237BD36000CCA6E2 /* AppDelegate.swift */,
 				AB2B6166237BD36000CCA6E2 /* SceneDelegate.swift */,
 				AB2B6168237BD36000CCA6E2 /* ViewController.swift */,
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3CC64B238280CE000F3E90 /* 任务.txt in Resources */,
 				AB2B6171237BD36100CCA6E2 /* LaunchScreen.storyboard in Resources */,
 				AB2B616E237BD36100CCA6E2 /* Assets.xcassets in Resources */,
 				AB2B616C237BD36000CCA6E2 /* Main.storyboard in Resources */,

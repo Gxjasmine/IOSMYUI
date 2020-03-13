@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB5FA490241B69AC00B7E51F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA48F241B69AC00B7E51F /* AppDelegate.m */; };
+		AB5FA493241B69AC00B7E51F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA492241B69AC00B7E51F /* SceneDelegate.m */; };
+		AB5FA496241B69AC00B7E51F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA495241B69AC00B7E51F /* ViewController.m */; };
+		AB5FA499241B69AC00B7E51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5FA497241B69AC00B7E51F /* Main.storyboard */; };
+		AB5FA49B241B69AE00B7E51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5FA49A241B69AE00B7E51F /* Assets.xcassets */; };
+		AB5FA49E241B69AE00B7E51F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5FA49C241B69AE00B7E51F /* LaunchScreen.storyboard */; };
+		AB5FA4A1241B69AE00B7E51F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4A0241B69AE00B7E51F /* main.m */; };
+		AB5FA4B6241B69D200B7E51F /* MKBaseVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4AA241B69D200B7E51F /* MKBaseVideoCamera.m */; };
+		AB5FA4B7241B69D200B7E51F /* MKShortVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4AD241B69D200B7E51F /* MKShortVideoCamera.m */; };
+		AB5FA4B8241B69D200B7E51F /* MKPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4B0241B69D200B7E51F /* MKPreviewView.m */; };
+		AB5FA4B9241B69D200B7E51F /* MKShootRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4B2241B69D200B7E51F /* MKShootRecordView.m */; };
+		AB5FA4BA241B69D200B7E51F /* MKRecordProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4B4241B69D200B7E51F /* MKRecordProgressView.m */; };
+		AB5FA4BB241B69D200B7E51F /* MKSegmentMovieWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4B5241B69D200B7E51F /* MKSegmentMovieWriter.m */; };
+		AB5FA4ED241B6A3F00B7E51F /* MKGLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4BD241B6A3F00B7E51F /* MKGLProgram.m */; };
+		AB5FA4F0241B6A3F00B7E51F /* MKGPUImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4C5241B6A3F00B7E51F /* MKGPUImageFilter.m */; };
+		AB5FA4F1241B6A3F00B7E51F /* MKGPUImageGaussianBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4C6241B6A3F00B7E51F /* MKGPUImageGaussianBlurFilter.m */; };
+		AB5FA4F2241B6A3F00B7E51F /* MKGPUImageTwoInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4C7241B6A3F00B7E51F /* MKGPUImageTwoInputFilter.m */; };
+		AB5FA4F3241B6A3F00B7E51F /* MKGPUImageLookupFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4C8241B6A3F00B7E51F /* MKGPUImageLookupFilter.m */; };
+		AB5FA4F7241B6A3F00B7E51F /* MKGPUImageFilterGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4D1241B6A3F00B7E51F /* MKGPUImageFilterGroup.m */; };
+		AB5FA4F8241B6A3F00B7E51F /* MKGPUImageFramebufferCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4D9241B6A3F00B7E51F /* MKGPUImageFramebufferCache.m */; };
+		AB5FA4F9241B6A3F00B7E51F /* MKGPUImageTextureInput.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4DD241B6A3F00B7E51F /* MKGPUImageTextureInput.m */; };
+		AB5FA4FA241B6A3F00B7E51F /* MKGPUImageColorConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4DF241B6A3F00B7E51F /* MKGPUImageColorConversion.m */; };
+		AB5FA4FB241B6A3F00B7E51F /* MKGPUImagePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4E2241B6A3F00B7E51F /* MKGPUImagePicture.m */; };
+		AB5FA4FC241B6A3F00B7E51F /* MKGPUImageOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4E3241B6A3F00B7E51F /* MKGPUImageOutput.m */; };
+		AB5FA4FE241B6A3F00B7E51F /* MKGPUImageFramebuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4E6241B6A3F00B7E51F /* MKGPUImageFramebuffer.m */; };
+		AB5FA4FF241B6A3F00B7E51F /* MKGPUImageTextureOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4E9241B6A3F00B7E51F /* MKGPUImageTextureOutput.m */; };
+		AB5FA500241B6A3F00B7E51F /* MKGPUImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4EB241B6A3F00B7E51F /* MKGPUImageView.m */; };
+		AB5FA501241B6A3F00B7E51F /* MKGPUImageContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4EC241B6A3F00B7E51F /* MKGPUImageContext.m */; };
+		AB5FA504241B757600B7E51F /* MultiVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA503241B757600B7E51F /* MultiVideoCamera.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AB5FA48B241B69AC00B7E51F /* OpenGL-渲染视频.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGL-渲染视频.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB5FA48E241B69AC00B7E51F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AB5FA48F241B69AC00B7E51F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AB5FA491241B69AC00B7E51F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		AB5FA492241B69AC00B7E51F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		AB5FA494241B69AC00B7E51F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AB5FA495241B69AC00B7E51F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AB5FA498241B69AC00B7E51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB5FA49A241B69AE00B7E51F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB5FA49D241B69AE00B7E51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AB5FA49F241B69AE00B7E51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB5FA4A0241B69AE00B7E51F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB5FA4A9241B69D200B7E51F /* MKShortVideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKShortVideoCamera.h; sourceTree = "<group>"; };
+		AB5FA4AA241B69D200B7E51F /* MKBaseVideoCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBaseVideoCamera.m; sourceTree = "<group>"; };
+		AB5FA4AB241B69D200B7E51F /* MKSegmentMovieWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSegmentMovieWriter.h; sourceTree = "<group>"; };
+		AB5FA4AC241B69D200B7E51F /* MKBaseVideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseVideoCamera.h; sourceTree = "<group>"; };
+		AB5FA4AD241B69D200B7E51F /* MKShortVideoCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKShortVideoCamera.m; sourceTree = "<group>"; };
+		AB5FA4AF241B69D200B7E51F /* MKShootRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKShootRecordView.h; sourceTree = "<group>"; };
+		AB5FA4B0241B69D200B7E51F /* MKPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPreviewView.m; sourceTree = "<group>"; };
+		AB5FA4B1241B69D200B7E51F /* MKRecordProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRecordProgressView.h; sourceTree = "<group>"; };
+		AB5FA4B2241B69D200B7E51F /* MKShootRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKShootRecordView.m; sourceTree = "<group>"; };
+		AB5FA4B3241B69D200B7E51F /* MKPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPreviewView.h; sourceTree = "<group>"; };
+		AB5FA4B4241B69D200B7E51F /* MKRecordProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRecordProgressView.m; sourceTree = "<group>"; };
+		AB5FA4B5241B69D200B7E51F /* MKSegmentMovieWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSegmentMovieWriter.m; sourceTree = "<group>"; };
+		AB5FA4BD241B6A3F00B7E51F /* MKGLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGLProgram.m; sourceTree = "<group>"; };
+		AB5FA4C0241B6A3F00B7E51F /* MKGPUImageLookupFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageLookupFilter.h; sourceTree = "<group>"; };
+		AB5FA4C4241B6A3F00B7E51F /* MKGPUImageFilterGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageFilterGroup.h; sourceTree = "<group>"; };
+		AB5FA4C5241B6A3F00B7E51F /* MKGPUImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageFilter.m; sourceTree = "<group>"; };
+		AB5FA4C6241B6A3F00B7E51F /* MKGPUImageGaussianBlurFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageGaussianBlurFilter.m; sourceTree = "<group>"; };
+		AB5FA4C7241B6A3F00B7E51F /* MKGPUImageTwoInputFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageTwoInputFilter.m; sourceTree = "<group>"; };
+		AB5FA4C8241B6A3F00B7E51F /* MKGPUImageLookupFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageLookupFilter.m; sourceTree = "<group>"; };
+		AB5FA4D1241B6A3F00B7E51F /* MKGPUImageFilterGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageFilterGroup.m; sourceTree = "<group>"; };
+		AB5FA4D2241B6A3F00B7E51F /* MKGPUImageGaussianBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageGaussianBlurFilter.h; sourceTree = "<group>"; };
+		AB5FA4D3241B6A3F00B7E51F /* MKGPUImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageFilter.h; sourceTree = "<group>"; };
+		AB5FA4D4241B6A3F00B7E51F /* MKGPUImageTwoInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageTwoInputFilter.h; sourceTree = "<group>"; };
+		AB5FA4D5241B6A3F00B7E51F /* MKGPUImageFramebufferCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageFramebufferCache.h; sourceTree = "<group>"; };
+		AB5FA4D6241B6A3F00B7E51F /* MKGPUImageFramebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageFramebuffer.h; sourceTree = "<group>"; };
+		AB5FA4D7241B6A3F00B7E51F /* MKGPUImageContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageContext.h; sourceTree = "<group>"; };
+		AB5FA4D8241B6A3F00B7E51F /* MKGPUImageConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageConstants.h; sourceTree = "<group>"; };
+		AB5FA4D9241B6A3F00B7E51F /* MKGPUImageFramebufferCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageFramebufferCache.m; sourceTree = "<group>"; };
+		AB5FA4DA241B6A3F00B7E51F /* MKGLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGLProgram.h; sourceTree = "<group>"; };
+		AB5FA4DC241B6A3F00B7E51F /* MKGPUImagePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImagePicture.h; sourceTree = "<group>"; };
+		AB5FA4DD241B6A3F00B7E51F /* MKGPUImageTextureInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageTextureInput.m; sourceTree = "<group>"; };
+		AB5FA4DE241B6A3F00B7E51F /* MKGPUImageOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageOutput.h; sourceTree = "<group>"; };
+		AB5FA4DF241B6A3F00B7E51F /* MKGPUImageColorConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageColorConversion.m; sourceTree = "<group>"; };
+		AB5FA4E1241B6A3F00B7E51F /* MKGPUImageTextureInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageTextureInput.h; sourceTree = "<group>"; };
+		AB5FA4E2241B6A3F00B7E51F /* MKGPUImagePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImagePicture.m; sourceTree = "<group>"; };
+		AB5FA4E3241B6A3F00B7E51F /* MKGPUImageOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageOutput.m; sourceTree = "<group>"; };
+		AB5FA4E5241B6A3F00B7E51F /* MKGPUImageColorConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageColorConversion.h; sourceTree = "<group>"; };
+		AB5FA4E6241B6A3F00B7E51F /* MKGPUImageFramebuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageFramebuffer.m; sourceTree = "<group>"; };
+		AB5FA4E8241B6A3F00B7E51F /* MKGPUImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageView.h; sourceTree = "<group>"; };
+		AB5FA4E9241B6A3F00B7E51F /* MKGPUImageTextureOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageTextureOutput.m; sourceTree = "<group>"; };
+		AB5FA4EA241B6A3F00B7E51F /* MKGPUImageTextureOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGPUImageTextureOutput.h; sourceTree = "<group>"; };
+		AB5FA4EB241B6A3F00B7E51F /* MKGPUImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageView.m; sourceTree = "<group>"; };
+		AB5FA4EC241B6A3F00B7E51F /* MKGPUImageContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageContext.m; sourceTree = "<group>"; };
+		AB5FA502241B757600B7E51F /* MultiVideoCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiVideoCamera.h; sourceTree = "<group>"; };
+		AB5FA503241B757600B7E51F /* MultiVideoCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiVideoCamera.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB5FA488241B69AC00B7E51F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB5FA482241B69AC00B7E51F = {
+			isa = PBXGroup;
+			children = (
+				AB5FA48D241B69AC00B7E51F /* OpenGL-渲染视频 */,
+				AB5FA48C241B69AC00B7E51F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB5FA48C241B69AC00B7E51F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA48B241B69AC00B7E51F /* OpenGL-渲染视频.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB5FA48D241B69AC00B7E51F /* OpenGL-渲染视频 */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA4A7241B69B300B7E51F /* OpenGL */,
+				AB5FA48E241B69AC00B7E51F /* AppDelegate.h */,
+				AB5FA48F241B69AC00B7E51F /* AppDelegate.m */,
+				AB5FA491241B69AC00B7E51F /* SceneDelegate.h */,
+				AB5FA492241B69AC00B7E51F /* SceneDelegate.m */,
+				AB5FA494241B69AC00B7E51F /* ViewController.h */,
+				AB5FA495241B69AC00B7E51F /* ViewController.m */,
+				AB5FA497241B69AC00B7E51F /* Main.storyboard */,
+				AB5FA49A241B69AE00B7E51F /* Assets.xcassets */,
+				AB5FA49C241B69AE00B7E51F /* LaunchScreen.storyboard */,
+				AB5FA49F241B69AE00B7E51F /* Info.plist */,
+				AB5FA4A0241B69AE00B7E51F /* main.m */,
+			);
+			path = "OpenGL-渲染视频";
+			sourceTree = "<group>";
+		};
+		AB5FA4A7241B69B300B7E51F /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA4BC241B6A3F00B7E51F /* MKGPUImage */,
+				AB5FA4A8241B69D200B7E51F /* Record */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
+		AB5FA4A8241B69D200B7E51F /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA502241B757600B7E51F /* MultiVideoCamera.h */,
+				AB5FA503241B757600B7E51F /* MultiVideoCamera.m */,
+				AB5FA4A9241B69D200B7E51F /* MKShortVideoCamera.h */,
+				AB5FA4AD241B69D200B7E51F /* MKShortVideoCamera.m */,
+				AB5FA4AC241B69D200B7E51F /* MKBaseVideoCamera.h */,
+				AB5FA4AA241B69D200B7E51F /* MKBaseVideoCamera.m */,
+				AB5FA4AB241B69D200B7E51F /* MKSegmentMovieWriter.h */,
+				AB5FA4AE241B69D200B7E51F /* View */,
+				AB5FA4B5241B69D200B7E51F /* MKSegmentMovieWriter.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		AB5FA4AE241B69D200B7E51F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA4AF241B69D200B7E51F /* MKShootRecordView.h */,
+				AB5FA4B0241B69D200B7E51F /* MKPreviewView.m */,
+				AB5FA4B1241B69D200B7E51F /* MKRecordProgressView.h */,
+				AB5FA4B2241B69D200B7E51F /* MKShootRecordView.m */,
+				AB5FA4B3241B69D200B7E51F /* MKPreviewView.h */,
+				AB5FA4B4241B69D200B7E51F /* MKRecordProgressView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB5FA4BC241B6A3F00B7E51F /* MKGPUImage */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA4BD241B6A3F00B7E51F /* MKGLProgram.m */,
+				AB5FA4BE241B6A3F00B7E51F /* Filters */,
+				AB5FA4D5241B6A3F00B7E51F /* MKGPUImageFramebufferCache.h */,
+				AB5FA4D6241B6A3F00B7E51F /* MKGPUImageFramebuffer.h */,
+				AB5FA4D7241B6A3F00B7E51F /* MKGPUImageContext.h */,
+				AB5FA4D8241B6A3F00B7E51F /* MKGPUImageConstants.h */,
+				AB5FA4D9241B6A3F00B7E51F /* MKGPUImageFramebufferCache.m */,
+				AB5FA4DA241B6A3F00B7E51F /* MKGLProgram.h */,
+				AB5FA4DB241B6A3F00B7E51F /* Sources */,
+				AB5FA4E6241B6A3F00B7E51F /* MKGPUImageFramebuffer.m */,
+				AB5FA4E7241B6A3F00B7E51F /* Outputs */,
+				AB5FA4EC241B6A3F00B7E51F /* MKGPUImageContext.m */,
+			);
+			path = MKGPUImage;
+			sourceTree = "<group>";
+		};
+		AB5FA4BE241B6A3F00B7E51F /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA4C0241B6A3F00B7E51F /* MKGPUImageLookupFilter.h */,
+				AB5FA4C4241B6A3F00B7E51F /* MKGPUImageFilterGroup.h */,
+				AB5FA4C5241B6A3F00B7E51F /* MKGPUImageFilter.m */,
+				AB5FA4C6241B6A3F00B7E51F /* MKGPUImageGaussianBlurFilter.m */,
+				AB5FA4C7241B6A3F00B7E51F /* MKGPUImageTwoInputFilter.m */,
+				AB5FA4C8241B6A3F00B7E51F /* MKGPUImageLookupFilter.m */,
+				AB5FA4D1241B6A3F00B7E51F /* MKGPUImageFilterGroup.m */,
+				AB5FA4D2241B6A3F00B7E51F /* MKGPUImageGaussianBlurFilter.h */,
+				AB5FA4D3241B6A3F00B7E51F /* MKGPUImageFilter.h */,
+				AB5FA4D4241B6A3F00B7E51F /* MKGPUImageTwoInputFilter.h */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		AB5FA4DB241B6A3F00B7E51F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA4DC241B6A3F00B7E51F /* MKGPUImagePicture.h */,
+				AB5FA4DD241B6A3F00B7E51F /* MKGPUImageTextureInput.m */,
+				AB5FA4DE241B6A3F00B7E51F /* MKGPUImageOutput.h */,
+				AB5FA4DF241B6A3F00B7E51F /* MKGPUImageColorConversion.m */,
+				AB5FA4E1241B6A3F00B7E51F /* MKGPUImageTextureInput.h */,
+				AB5FA4E2241B6A3F00B7E51F /* MKGPUImagePicture.m */,
+				AB5FA4E3241B6A3F00B7E51F /* MKGPUImageOutput.m */,
+				AB5FA4E5241B6A3F00B7E51F /* MKGPUImageColorConversion.h */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AB5FA4E7241B6A3F00B7E51F /* Outputs */ = {
+			isa = PBXGroup;
+			children = (
+				AB5FA4E8241B6A3F00B7E51F /* MKGPUImageView.h */,
+				AB5FA4E9241B6A3F00B7E51F /* MKGPUImageTextureOutput.m */,
+				AB5FA4EA241B6A3F00B7E51F /* MKGPUImageTextureOutput.h */,
+				AB5FA4EB241B6A3F00B7E51F /* MKGPUImageView.m */,
+			);
+			path = Outputs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB5FA48A241B69AC00B7E51F /* OpenGL-渲染视频 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB5FA4A4241B69AE00B7E51F /* Build configuration list for PBXNativeTarget "OpenGL-渲染视频" */;
+			buildPhases = (
+				AB5FA487241B69AC00B7E51F /* Sources */,
+				AB5FA488241B69AC00B7E51F /* Frameworks */,
+				AB5FA489241B69AC00B7E51F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OpenGL-渲染视频";
+			productName = "OpenGL-渲染视频";
+			productReference = AB5FA48B241B69AC00B7E51F /* OpenGL-渲染视频.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB5FA483241B69AC00B7E51F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = fuzhongw;
+				TargetAttributes = {
+					AB5FA48A241B69AC00B7E51F = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = AB5FA486241B69AC00B7E51F /* Build configuration list for PBXProject "OpenGL-渲染视频" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB5FA482241B69AC00B7E51F;
+			productRefGroup = AB5FA48C241B69AC00B7E51F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB5FA48A241B69AC00B7E51F /* OpenGL-渲染视频 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB5FA489241B69AC00B7E51F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB5FA49E241B69AE00B7E51F /* LaunchScreen.storyboard in Resources */,
+				AB5FA49B241B69AE00B7E51F /* Assets.xcassets in Resources */,
+				AB5FA499241B69AC00B7E51F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB5FA487241B69AC00B7E51F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB5FA4F1241B6A3F00B7E51F /* MKGPUImageGaussianBlurFilter.m in Sources */,
+				AB5FA4F7241B6A3F00B7E51F /* MKGPUImageFilterGroup.m in Sources */,
+				AB5FA496241B69AC00B7E51F /* ViewController.m in Sources */,
+				AB5FA490241B69AC00B7E51F /* AppDelegate.m in Sources */,
+				AB5FA4F0241B6A3F00B7E51F /* MKGPUImageFilter.m in Sources */,
+				AB5FA4A1241B69AE00B7E51F /* main.m in Sources */,
+				AB5FA4F9241B6A3F00B7E51F /* MKGPUImageTextureInput.m in Sources */,
+				AB5FA4BB241B69D200B7E51F /* MKSegmentMovieWriter.m in Sources */,
+				AB5FA4FF241B6A3F00B7E51F /* MKGPUImageTextureOutput.m in Sources */,
+				AB5FA4FA241B6A3F00B7E51F /* MKGPUImageColorConversion.m in Sources */,
+				AB5FA4FC241B6A3F00B7E51F /* MKGPUImageOutput.m in Sources */,
+				AB5FA4BA241B69D200B7E51F /* MKRecordProgressView.m in Sources */,
+				AB5FA4FE241B6A3F00B7E51F /* MKGPUImageFramebuffer.m in Sources */,
+				AB5FA500241B6A3F00B7E51F /* MKGPUImageView.m in Sources */,
+				AB5FA4F8241B6A3F00B7E51F /* MKGPUImageFramebufferCache.m in Sources */,
+				AB5FA4B6241B69D200B7E51F /* MKBaseVideoCamera.m in Sources */,
+				AB5FA4ED241B6A3F00B7E51F /* MKGLProgram.m in Sources */,
+				AB5FA4F3241B6A3F00B7E51F /* MKGPUImageLookupFilter.m in Sources */,
+				AB5FA501241B6A3F00B7E51F /* MKGPUImageContext.m in Sources */,
+				AB5FA4FB241B6A3F00B7E51F /* MKGPUImagePicture.m in Sources */,
+				AB5FA4B8241B69D200B7E51F /* MKPreviewView.m in Sources */,
+				AB5FA4F2241B6A3F00B7E51F /* MKGPUImageTwoInputFilter.m in Sources */,
+				AB5FA4B9241B69D200B7E51F /* MKShootRecordView.m in Sources */,
+				AB5FA493241B69AC00B7E51F /* SceneDelegate.m in Sources */,
+				AB5FA504241B757600B7E51F /* MultiVideoCamera.m in Sources */,
+				AB5FA4B7241B69D200B7E51F /* MKShortVideoCamera.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AB5FA497241B69AC00B7E51F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB5FA498241B69AC00B7E51F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB5FA49C241B69AE00B7E51F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB5FA49D241B69AE00B7E51F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB5FA4A2241B69AE00B7E51F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AB5FA4A3241B69AE00B7E51F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB5FA4A5241B69AE00B7E51F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K889Z3PDP3;
+				INFOPLIST_FILE = "OpenGL-渲染视频/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imyfone.iMyVideoEditor.SocketClientDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB5FA4A6241B69AE00B7E51F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K889Z3PDP3;
+				INFOPLIST_FILE = "OpenGL-渲染视频/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imyfone.iMyVideoEditor.SocketClientDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB5FA486241B69AC00B7E51F /* Build configuration list for PBXProject "OpenGL-渲染视频" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB5FA4A2241B69AE00B7E51F /* Debug */,
+				AB5FA4A3241B69AE00B7E51F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB5FA4A4241B69AE00B7E51F /* Build configuration list for PBXNativeTarget "OpenGL-渲染视频" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB5FA4A5241B69AE00B7E51F /* Debug */,
+				AB5FA4A6241B69AE00B7E51F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB5FA483241B69AC00B7E51F /* Project object */;
+}
