@@ -69,7 +69,6 @@
     
     outputRotation = kMKGPUImageNoRotation;
     internalRotation = kMKGPUImageNoRotation;
-
     //// 创建信号量
     frameRenderingSemaphore = dispatch_semaphore_create(1);
     

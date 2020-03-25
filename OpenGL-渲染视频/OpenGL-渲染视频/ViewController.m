@@ -10,6 +10,8 @@
 #import "MKShortVideoCamera.h"
 #import "MKGPUImageView.h"
 #import "MultiVideoCamera.h"
+#import "AVFoundationViewController.h"
+
 @interface ViewController ()<MKShootRecordRenderDelegate,MMultiVideoCameraDelegate>
 @property(nonatomic, strong) MKShortVideoCamera *videoCamera;
 
@@ -37,6 +39,10 @@
 - (IBAction)doubleRecord:(id)sender {
     [self initMultiSession];
     [self initButton];
+}
+- (IBAction)clickAVFounationBtn:(id)sender {
+    AVFoundationViewController *vc = [[AVFoundationViewController alloc] init];
+       [self.navigationController pushViewController:vc animated:YES];
 }
 
 
