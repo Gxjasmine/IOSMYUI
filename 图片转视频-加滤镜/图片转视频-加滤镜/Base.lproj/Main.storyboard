@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oXt-o8-RF0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="T8Q-Wm-s5v">
+            <objects>
+                <navigationController id="oXt-o8-RF0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VxH-6s-l4y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="W1U-jE-7S1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gnh-0b-hbl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-723" y="183"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUQ-Wp-KMm">
+                                <rect key="frame" x="177" y="349" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="rq3-hA-GyK"/>
+                                </constraints>
+                                <state key="normal" title="合成"/>
+                                <connections>
+                                    <action selector="onclickMerger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSb-Dr-jFi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXd-wI-V54">
+                                <rect key="frame" x="191.5" y="468" width="31" height="30"/>
+                                <state key="normal" title="播放"/>
+                                <connections>
+                                    <action selector="onclickPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sgu-oR-pYz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cXd-wI-V54" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0DN-C0-OdN"/>
+                            <constraint firstItem="bUQ-Wp-KMm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="261" id="339-QU-MrD"/>
+                            <constraint firstItem="cXd-wI-V54" firstAttribute="top" secondItem="bUQ-Wp-KMm" secondAttribute="bottom" constant="89" id="Brz-NT-qyg"/>
+                            <constraint firstItem="bUQ-Wp-KMm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sOb-7X-ddM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rHo-vB-hUT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="140"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="muF-Gk-mrm">
+            <objects>
+                <viewController storyboardIdentifier="VideoViewController" id="6w3-Q6-cfm" customClass="VideoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vw7-mH-fVr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="t1O-9m-HsF">
+                                <rect key="frame" x="0.0" y="78" width="414" height="72"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nj-Nj-W7N">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="72"/>
+                                        <state key="normal" title="播放"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="6w3-Q6-cfm" eventType="touchUpInside" id="hJ2-Tc-pjh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVv-VS-QUP">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="72"/>
+                                        <state key="normal" title="暂停"/>
+                                        <connections>
+                                            <action selector="pausePaly:" destination="6w3-Q6-cfm" eventType="touchUpInside" id="t4o-pP-2J6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYI-HR-VdM">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="72"/>
+                                        <state key="normal" title="保存"/>
+                                        <connections>
+                                            <action selector="onclickSave:" destination="6w3-Q6-cfm" eventType="touchUpInside" id="Cv5-79-Wdx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="hq9-gP-atl"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="t1O-9m-HsF" firstAttribute="trailing" secondItem="K9d-do-VIt" secondAttribute="trailing" id="BQJ-XL-Aag"/>
+                            <constraint firstItem="t1O-9m-HsF" firstAttribute="top" secondItem="K9d-do-VIt" secondAttribute="top" constant="34" id="aZG-Av-R2R"/>
+                            <constraint firstItem="t1O-9m-HsF" firstAttribute="leading" secondItem="K9d-do-VIt" secondAttribute="leading" id="doj-ZR-rDl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K9d-do-VIt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dgf-PE-cfn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gC-iv-Sce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="766.66666666666674" y="124.55357142857142"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB25D609243199F100F5E6B3 /* RotateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB25D608243199F100F5E6B3 /* RotateFilter.m */; };
+		AB25D60C24319E0C00F5E6B3 /* scaleRotate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60A24319E0B00F5E6B3 /* scaleRotate.fsh */; };
+		AB25D60D24319E0C00F5E6B3 /* scaleRotate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60B24319E0B00F5E6B3 /* scaleRotate.vsh */; };
+		AB25D6102431C4AC00F5E6B3 /* moveRotate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60E2431C4AC00F5E6B3 /* moveRotate.vsh */; };
+		AB25D6112431C4AC00F5E6B3 /* moveRotate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60F2431C4AC00F5E6B3 /* moveRotate.fsh */; };
+		AB25D6142431C4DA00F5E6B3 /* MoveAndRotateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB25D6132431C4D900F5E6B3 /* MoveAndRotateFilter.m */; };
+		ABA401ED242DCBE40028B408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EC242DCBE40028B408 /* AppDelegate.m */; };
+		ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EF242DCBE40028B408 /* SceneDelegate.m */; };
+		ABA401F3242DCBE40028B408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401F2242DCBE40028B408 /* ViewController.m */; };
+		ABA401F6242DCBE40028B408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA401F4242DCBE40028B408 /* Main.storyboard */; };
+		ABA401F8242DCBE60028B408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABA401F7242DCBE60028B408 /* Assets.xcassets */; };
+		ABA401FB242DCBE60028B408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA401F9242DCBE60028B408 /* LaunchScreen.storyboard */; };
+		ABA401FE242DCBE60028B408 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401FD242DCBE60028B408 /* main.m */; };
+		ABA40207242DCCA20028B408 /* VideoBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40206242DCCA20028B408 /* VideoBuilder.m */; };
+		ABA4020A242DCCCF0028B408 /* AudioToVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40209242DCCCF0028B408 /* AudioToVideo.m */; };
+		ABA40212242DD07C0028B408 /* APLOpenGLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA4020E242DD07C0028B408 /* APLOpenGLRenderer.m */; };
+		ABA40213242DD07C0028B408 /* APLCrossDissolveRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA4020F242DD07C0028B408 /* APLCrossDissolveRenderer.m */; };
+		ABA40214242DD07C0028B408 /* APLDiagonalWipeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40211242DD07C0028B408 /* APLDiagonalWipeRenderer.m */; };
+		ABA4021B242DD1BB0028B408 /* APLCustomVideoCompositionInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40217242DD1BA0028B408 /* APLCustomVideoCompositionInstruction.m */; };
+		ABA4021C242DD1BB0028B408 /* APLCustomVideoCompositor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40219242DD1BB0028B408 /* APLCustomVideoCompositor.m */; };
+		ABA4021F242DD2B70028B408 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA4021E242DD2B70028B408 /* VideoViewController.m */; };
+		ABA4022C242DDA830028B408 /* Normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40223242DDA830028B408 /* Normal.fsh */; };
+		ABA4022D242DDA830028B408 /* YUVConversion.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40224242DDA830028B408 /* YUVConversion.fsh */; };
+		ABA4022E242DDA830028B408 /* Normal.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40225242DDA830028B408 /* Normal.vsh */; };
+		ABA4022F242DDA830028B408 /* YUVConversion.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40226242DDA830028B408 /* YUVConversion.vsh */; };
+		ABA40230242DDA830028B408 /* MFShaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40228242DDA830028B408 /* MFShaderHelper.m */; };
+		ABA40231242DDA830028B408 /* MFPixelBufferHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40229242DDA830028B408 /* MFPixelBufferHelper.m */; };
+		ABA40234242DDB530028B408 /* SourceEAGLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40233242DDB530028B408 /* SourceEAGLContext.m */; };
+		ABA40239242DDFF40028B408 /* CustonFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40238242DDFF40028B408 /* CustonFilter.m */; };
+		ABA4023E242DE2B80028B408 /* FWCustomVideoCompositor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA4023D242DE2B80028B408 /* FWCustomVideoCompositor.m */; };
+		ABA40241242DE3A10028B408 /* CustomVideoCompositionInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40240242DE3A10028B408 /* CustomVideoCompositionInstruction.m */; };
+		ABA40244242DF2CA0028B408 /* ScaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40243242DF2CA0028B408 /* ScaleFilter.m */; };
+		ABA40247242DF3470028B408 /* scale.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40245242DF3470028B408 /* scale.vsh */; };
+		ABA40248242DF3470028B408 /* scale.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40246242DF3470028B408 /* scale.fsh */; };
+		ABA40253242E0C540028B408 /* shader2.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40251242E0C540028B408 /* shader2.vsh */; };
+		ABA40254242E0C540028B408 /* shader2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40252242E0C540028B408 /* shader2.fsh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AB25D607243199F100F5E6B3 /* RotateFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotateFilter.h; sourceTree = "<group>"; };
+		AB25D608243199F100F5E6B3 /* RotateFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotateFilter.m; sourceTree = "<group>"; };
+		AB25D60A24319E0B00F5E6B3 /* scaleRotate.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scaleRotate.fsh; sourceTree = "<group>"; };
+		AB25D60B24319E0B00F5E6B3 /* scaleRotate.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scaleRotate.vsh; sourceTree = "<group>"; };
+		AB25D60E2431C4AC00F5E6B3 /* moveRotate.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = moveRotate.vsh; sourceTree = "<group>"; };
+		AB25D60F2431C4AC00F5E6B3 /* moveRotate.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = moveRotate.fsh; sourceTree = "<group>"; };
+		AB25D6122431C4D900F5E6B3 /* MoveAndRotateFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveAndRotateFilter.h; sourceTree = "<group>"; };
+		AB25D6132431C4D900F5E6B3 /* MoveAndRotateFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveAndRotateFilter.m; sourceTree = "<group>"; };
+		ABA401E8242DCBE40028B408 /* 图片转视频-加滤镜.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "图片转视频-加滤镜.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA401EB242DCBE40028B408 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ABA401EC242DCBE40028B408 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ABA401EE242DCBE40028B408 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		ABA401EF242DCBE40028B408 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		ABA401F1242DCBE40028B408 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ABA401F2242DCBE40028B408 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ABA401F5242DCBE40028B408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ABA401F7242DCBE60028B408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABA401FA242DCBE60028B408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ABA401FC242DCBE60028B408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABA401FD242DCBE60028B408 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ABA40205242DCCA10028B408 /* VideoBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoBuilder.h; sourceTree = "<group>"; };
+		ABA40206242DCCA20028B408 /* VideoBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoBuilder.m; sourceTree = "<group>"; };
+		ABA40208242DCCCF0028B408 /* AudioToVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioToVideo.h; sourceTree = "<group>"; };
+		ABA40209242DCCCF0028B408 /* AudioToVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioToVideo.m; sourceTree = "<group>"; };
+		ABA4020C242DD07C0028B408 /* APLDiagonalWipeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLDiagonalWipeRenderer.h; sourceTree = "<group>"; };
+		ABA4020D242DD07C0028B408 /* APLOpenGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLOpenGLRenderer.h; sourceTree = "<group>"; };
+		ABA4020E242DD07C0028B408 /* APLOpenGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLOpenGLRenderer.m; sourceTree = "<group>"; };
+		ABA4020F242DD07C0028B408 /* APLCrossDissolveRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCrossDissolveRenderer.m; sourceTree = "<group>"; };
+		ABA40210242DD07C0028B408 /* APLCrossDissolveRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCrossDissolveRenderer.h; sourceTree = "<group>"; };
+		ABA40211242DD07C0028B408 /* APLDiagonalWipeRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLDiagonalWipeRenderer.m; sourceTree = "<group>"; };
+		ABA40217242DD1BA0028B408 /* APLCustomVideoCompositionInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCustomVideoCompositionInstruction.m; sourceTree = "<group>"; };
+		ABA40218242DD1BB0028B408 /* APLCustomVideoCompositionInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCustomVideoCompositionInstruction.h; sourceTree = "<group>"; };
+		ABA40219242DD1BB0028B408 /* APLCustomVideoCompositor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCustomVideoCompositor.m; sourceTree = "<group>"; };
+		ABA4021A242DD1BB0028B408 /* APLCustomVideoCompositor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCustomVideoCompositor.h; sourceTree = "<group>"; };
+		ABA4021D242DD2B70028B408 /* VideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		ABA4021E242DD2B70028B408 /* VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		ABA40223242DDA830028B408 /* Normal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normal.fsh; sourceTree = "<group>"; };
+		ABA40224242DDA830028B408 /* YUVConversion.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = YUVConversion.fsh; sourceTree = "<group>"; };
+		ABA40225242DDA830028B408 /* Normal.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Normal.vsh; sourceTree = "<group>"; };
+		ABA40226242DDA830028B408 /* YUVConversion.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = YUVConversion.vsh; sourceTree = "<group>"; };
+		ABA40228242DDA830028B408 /* MFShaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFShaderHelper.m; sourceTree = "<group>"; };
+		ABA40229242DDA830028B408 /* MFPixelBufferHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPixelBufferHelper.m; sourceTree = "<group>"; };
+		ABA4022A242DDA830028B408 /* MFShaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFShaderHelper.h; sourceTree = "<group>"; };
+		ABA4022B242DDA830028B408 /* MFPixelBufferHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPixelBufferHelper.h; sourceTree = "<group>"; };
+		ABA40232242DDB530028B408 /* SourceEAGLContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceEAGLContext.h; sourceTree = "<group>"; };
+		ABA40233242DDB530028B408 /* SourceEAGLContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SourceEAGLContext.m; sourceTree = "<group>"; };
+		ABA40235242DDE3D0028B408 /* VideoHander.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoHander.h; sourceTree = "<group>"; };
+		ABA40237242DDFF40028B408 /* CustonFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustonFilter.h; sourceTree = "<group>"; };
+		ABA40238242DDFF40028B408 /* CustonFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustonFilter.m; sourceTree = "<group>"; };
+		ABA4023C242DE2B80028B408 /* FWCustomVideoCompositor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWCustomVideoCompositor.h; sourceTree = "<group>"; };
+		ABA4023D242DE2B80028B408 /* FWCustomVideoCompositor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWCustomVideoCompositor.m; sourceTree = "<group>"; };
+		ABA4023F242DE3A10028B408 /* CustomVideoCompositionInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomVideoCompositionInstruction.h; sourceTree = "<group>"; };
+		ABA40240242DE3A10028B408 /* CustomVideoCompositionInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomVideoCompositionInstruction.m; sourceTree = "<group>"; };
+		ABA40242242DF2CA0028B408 /* ScaleFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleFilter.h; sourceTree = "<group>"; };
+		ABA40243242DF2CA0028B408 /* ScaleFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleFilter.m; sourceTree = "<group>"; };
+		ABA40245242DF3470028B408 /* scale.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scale.vsh; sourceTree = "<group>"; };
+		ABA40246242DF3470028B408 /* scale.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scale.fsh; sourceTree = "<group>"; };
+		ABA40251242E0C540028B408 /* shader2.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader2.vsh; sourceTree = "<group>"; };
+		ABA40252242E0C540028B408 /* shader2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader2.fsh; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABA401E5242DCBE40028B408 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABA401DF242DCBE40028B408 = {
+			isa = PBXGroup;
+			children = (
+				ABA401EA242DCBE40028B408 /* 图片转视频-加滤镜 */,
+				ABA401E9242DCBE40028B408 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABA401E9242DCBE40028B408 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABA401E8242DCBE40028B408 /* 图片转视频-加滤镜.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABA401EA242DCBE40028B408 /* 图片转视频-加滤镜 */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40215242DD17D0028B408 /* AVFounation */,
+				ABA4020B242DD0520028B408 /* OpenGLRender */,
+				ABA40204242DCC8C0028B408 /* VideoFW */,
+				ABA401EB242DCBE40028B408 /* AppDelegate.h */,
+				ABA401EC242DCBE40028B408 /* AppDelegate.m */,
+				ABA401EE242DCBE40028B408 /* SceneDelegate.h */,
+				ABA401EF242DCBE40028B408 /* SceneDelegate.m */,
+				ABA401F1242DCBE40028B408 /* ViewController.h */,
+				ABA401F2242DCBE40028B408 /* ViewController.m */,
+				ABA4021D242DD2B70028B408 /* VideoViewController.h */,
+				ABA4021E242DD2B70028B408 /* VideoViewController.m */,
+				ABA40235242DDE3D0028B408 /* VideoHander.h */,
+				ABA401F4242DCBE40028B408 /* Main.storyboard */,
+				ABA401F7242DCBE60028B408 /* Assets.xcassets */,
+				ABA401F9242DCBE60028B408 /* LaunchScreen.storyboard */,
+				ABA401FC242DCBE60028B408 /* Info.plist */,
+				ABA401FD242DCBE60028B408 /* main.m */,
+			);
+			path = "图片转视频-加滤镜";
+			sourceTree = "<group>";
+		};
+		ABA40204242DCC8C0028B408 /* VideoFW */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40205242DCCA10028B408 /* VideoBuilder.h */,
+				ABA40206242DCCA20028B408 /* VideoBuilder.m */,
+				ABA40208242DCCCF0028B408 /* AudioToVideo.h */,
+				ABA40209242DCCCF0028B408 /* AudioToVideo.m */,
+			);
+			path = VideoFW;
+			sourceTree = "<group>";
+		};
+		ABA4020B242DD0520028B408 /* OpenGLRender */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40221242DDA5C0028B408 /* SourceRender */,
+				ABA40220242DDA3E0028B408 /* ThroughRender */,
+			);
+			path = OpenGLRender;
+			sourceTree = "<group>";
+		};
+		ABA40215242DD17D0028B408 /* AVFounation */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40236242DDFC60028B408 /* Filter */,
+				ABA40216242DD1970028B408 /* CustomCompositors */,
+			);
+			path = AVFounation;
+			sourceTree = "<group>";
+		};
+		ABA40216242DD1970028B408 /* CustomCompositors */ = {
+			isa = PBXGroup;
+			children = (
+				ABA4023B242DE2920028B408 /* Source */,
+				ABA4023A242DE27C0028B408 /* Through */,
+			);
+			path = CustomCompositors;
+			sourceTree = "<group>";
+		};
+		ABA40220242DDA3E0028B408 /* ThroughRender */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40210242DD07C0028B408 /* APLCrossDissolveRenderer.h */,
+				ABA4020F242DD07C0028B408 /* APLCrossDissolveRenderer.m */,
+				ABA4020C242DD07C0028B408 /* APLDiagonalWipeRenderer.h */,
+				ABA40211242DD07C0028B408 /* APLDiagonalWipeRenderer.m */,
+				ABA4020D242DD07C0028B408 /* APLOpenGLRenderer.h */,
+				ABA4020E242DD07C0028B408 /* APLOpenGLRenderer.m */,
+			);
+			path = ThroughRender;
+			sourceTree = "<group>";
+		};
+		ABA40221242DDA5C0028B408 /* SourceRender */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40222242DDA830028B408 /* shader */,
+				ABA40227242DDA830028B408 /* Utils */,
+				ABA40232242DDB530028B408 /* SourceEAGLContext.h */,
+				ABA40233242DDB530028B408 /* SourceEAGLContext.m */,
+			);
+			path = SourceRender;
+			sourceTree = "<group>";
+		};
+		ABA40222242DDA830028B408 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40223242DDA830028B408 /* Normal.fsh */,
+				ABA40225242DDA830028B408 /* Normal.vsh */,
+				ABA40224242DDA830028B408 /* YUVConversion.fsh */,
+				ABA40226242DDA830028B408 /* YUVConversion.vsh */,
+				ABA40246242DF3470028B408 /* scale.fsh */,
+				ABA40245242DF3470028B408 /* scale.vsh */,
+				ABA40252242E0C540028B408 /* shader2.fsh */,
+				ABA40251242E0C540028B408 /* shader2.vsh */,
+				AB25D60A24319E0B00F5E6B3 /* scaleRotate.fsh */,
+				AB25D60B24319E0B00F5E6B3 /* scaleRotate.vsh */,
+				AB25D60F2431C4AC00F5E6B3 /* moveRotate.fsh */,
+				AB25D60E2431C4AC00F5E6B3 /* moveRotate.vsh */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
+		ABA40227242DDA830028B408 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ABA4022A242DDA830028B408 /* MFShaderHelper.h */,
+				ABA40228242DDA830028B408 /* MFShaderHelper.m */,
+				ABA4022B242DDA830028B408 /* MFPixelBufferHelper.h */,
+				ABA40229242DDA830028B408 /* MFPixelBufferHelper.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ABA40236242DDFC60028B408 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40237242DDFF40028B408 /* CustonFilter.h */,
+				ABA40238242DDFF40028B408 /* CustonFilter.m */,
+				ABA40242242DF2CA0028B408 /* ScaleFilter.h */,
+				ABA40243242DF2CA0028B408 /* ScaleFilter.m */,
+				AB25D607243199F100F5E6B3 /* RotateFilter.h */,
+				AB25D608243199F100F5E6B3 /* RotateFilter.m */,
+				AB25D6122431C4D900F5E6B3 /* MoveAndRotateFilter.h */,
+				AB25D6132431C4D900F5E6B3 /* MoveAndRotateFilter.m */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		ABA4023A242DE27C0028B408 /* Through */ = {
+			isa = PBXGroup;
+			children = (
+				ABA40218242DD1BB0028B408 /* APLCustomVideoCompositionInstruction.h */,
+				ABA40217242DD1BA0028B408 /* APLCustomVideoCompositionInstruction.m */,
+				ABA4021A242DD1BB0028B408 /* APLCustomVideoCompositor.h */,
+				ABA40219242DD1BB0028B408 /* APLCustomVideoCompositor.m */,
+			);
+			path = Through;
+			sourceTree = "<group>";
+		};
+		ABA4023B242DE2920028B408 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				ABA4023C242DE2B80028B408 /* FWCustomVideoCompositor.h */,
+				ABA4023D242DE2B80028B408 /* FWCustomVideoCompositor.m */,
+				ABA4023F242DE3A10028B408 /* CustomVideoCompositionInstruction.h */,
+				ABA40240242DE3A10028B408 /* CustomVideoCompositionInstruction.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABA401E7242DCBE40028B408 /* 图片转视频-加滤镜 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABA40201242DCBE60028B408 /* Build configuration list for PBXNativeTarget "图片转视频-加滤镜" */;
+			buildPhases = (
+				ABA401E4242DCBE40028B408 /* Sources */,
+				ABA401E5242DCBE40028B408 /* Frameworks */,
+				ABA401E6242DCBE40028B408 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "图片转视频-加滤镜";
+			productName = "图片转视频-加滤镜";
+			productReference = ABA401E8242DCBE40028B408 /* 图片转视频-加滤镜.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABA401E0242DCBE40028B408 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = fuzhongw;
+				TargetAttributes = {
+					ABA401E7242DCBE40028B408 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = ABA401E3242DCBE40028B408 /* Build configuration list for PBXProject "图片转视频-加滤镜" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ABA401DF242DCBE40028B408;
+			productRefGroup = ABA401E9242DCBE40028B408 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABA401E7242DCBE40028B408 /* 图片转视频-加滤镜 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABA401E6242DCBE40028B408 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB25D60D24319E0C00F5E6B3 /* scaleRotate.vsh in Resources */,
+				ABA40247242DF3470028B408 /* scale.vsh in Resources */,
+				ABA40248242DF3470028B408 /* scale.fsh in Resources */,
+				ABA4022D242DDA830028B408 /* YUVConversion.fsh in Resources */,
+				ABA40253242E0C540028B408 /* shader2.vsh in Resources */,
+				ABA401FB242DCBE60028B408 /* LaunchScreen.storyboard in Resources */,
+				AB25D60C24319E0C00F5E6B3 /* scaleRotate.fsh in Resources */,
+				AB25D6102431C4AC00F5E6B3 /* moveRotate.vsh in Resources */,
+				ABA4022E242DDA830028B408 /* Normal.vsh in Resources */,
+				ABA401F8242DCBE60028B408 /* Assets.xcassets in Resources */,
+				ABA4022F242DDA830028B408 /* YUVConversion.vsh in Resources */,
+				ABA4022C242DDA830028B408 /* Normal.fsh in Resources */,
+				ABA401F6242DCBE40028B408 /* Main.storyboard in Resources */,
+				ABA40254242E0C540028B408 /* shader2.fsh in Resources */,
+				AB25D6112431C4AC00F5E6B3 /* moveRotate.fsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABA401E4242DCBE40028B408 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABA401F3242DCBE40028B408 /* ViewController.m in Sources */,
+				ABA40207242DCCA20028B408 /* VideoBuilder.m in Sources */,
+				ABA4021F242DD2B70028B408 /* VideoViewController.m in Sources */,
+				ABA401ED242DCBE40028B408 /* AppDelegate.m in Sources */,
+				ABA4021C242DD1BB0028B408 /* APLCustomVideoCompositor.m in Sources */,
+				ABA4023E242DE2B80028B408 /* FWCustomVideoCompositor.m in Sources */,
+				ABA40234242DDB530028B408 /* SourceEAGLContext.m in Sources */,
+				ABA40231242DDA830028B408 /* MFPixelBufferHelper.m in Sources */,
+				ABA40241242DE3A10028B408 /* CustomVideoCompositionInstruction.m in Sources */,
+				ABA401FE242DCBE60028B408 /* main.m in Sources */,
+				ABA40213242DD07C0028B408 /* APLCrossDissolveRenderer.m in Sources */,
+				ABA40212242DD07C0028B408 /* APLOpenGLRenderer.m in Sources */,
+				ABA40244242DF2CA0028B408 /* ScaleFilter.m in Sources */,
+				ABA40230242DDA830028B408 /* MFShaderHelper.m in Sources */,
+				ABA40239242DDFF40028B408 /* CustonFilter.m in Sources */,
+				AB25D6142431C4DA00F5E6B3 /* MoveAndRotateFilter.m in Sources */,
+				ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */,
+				ABA4020A242DCCCF0028B408 /* AudioToVideo.m in Sources */,
+				ABA4021B242DD1BB0028B408 /* APLCustomVideoCompositionInstruction.m in Sources */,
+				AB25D609243199F100F5E6B3 /* RotateFilter.m in Sources */,
+				ABA40214242DD07C0028B408 /* APLDiagonalWipeRenderer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABA401F4242DCBE40028B408 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA401F5242DCBE40028B408 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA401F9242DCBE60028B408 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA401FA242DCBE60028B408 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABA401FF242DCBE60028B408 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ABA40200242DCBE60028B408 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ABA40202242DCBE60028B408 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K889Z3PDP3;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/图片转视频-加滤镜/VideoHander.h";
+				INFOPLIST_FILE = "图片转视频-加滤镜/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imyfone.finde;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ABA40203242DCBE60028B408 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K889Z3PDP3;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/图片转视频-加滤镜/VideoHander.h";
+				INFOPLIST_FILE = "图片转视频-加滤镜/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.imyfone.finde;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABA401E3242DCBE40028B408 /* Build configuration list for PBXProject "图片转视频-加滤镜" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABA401FF242DCBE60028B408 /* Debug */,
+				ABA40200242DCBE60028B408 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABA40201242DCBE60028B408 /* Build configuration list for PBXNativeTarget "图片转视频-加滤镜" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABA40202242DCBE60028B408 /* Debug */,
+				ABA40203242DCBE60028B408 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABA401E0242DCBE40028B408 /* Project object */;
+}
