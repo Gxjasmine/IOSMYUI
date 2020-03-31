@@ -9,6 +9,7 @@
 #import "CustonFilter.h"
 #import "ScaleFilter.h"
 #import "RotateFilter.h"
+#import "MoveAndRotateFilter.h"
 
 #import "CustomVideoCompositionInstruction.h"
 
@@ -29,7 +30,7 @@
         _requiredSourceTrackIDs = @[];
         _containsTweening = NO;
         _enablePostProcessing = NO;
-        _filter = [[RotateFilter alloc] init];
+        _filter = [[MoveAndRotateFilter alloc] init];
         _sedd = 0;
     }
     return self;
@@ -43,7 +44,7 @@
         _passthroughTrackID = kCMPersistentTrackID_Invalid;
         _containsTweening = YES;
         _enablePostProcessing = NO;
-        _filter = [[RotateFilter alloc] init];
+        _filter = [[MoveAndRotateFilter alloc] init];
         _sedd = 0;
 
     }

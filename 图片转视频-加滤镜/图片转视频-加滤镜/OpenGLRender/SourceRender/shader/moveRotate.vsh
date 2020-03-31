@@ -15,9 +15,9 @@ void main (void) {
     float time = mod(Time, duration);
     float amplitude = 0.3 + maxAmplitude * abs(sin(time * (PI / duration)));
     vec4 vPos;
-    vPos = vec4(Position.x * amplitude, Position.y * amplitude, Position.zw);
-    vPos = vPos * modelViewMatrix;
-    gl_Position = vPos;
+//    vPos = vec4(Position.x * amplitude, Position.y * amplitude, Position.zw);
+//    vPos = Position * modelViewMatrix;
+    gl_Position = modelViewMatrix * Position;
 
     TextureCoordsVarying = TextureCoords;
 }

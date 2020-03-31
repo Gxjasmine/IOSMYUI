@@ -13,6 +13,7 @@
 		AB25D6102431C4AC00F5E6B3 /* moveRotate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60E2431C4AC00F5E6B3 /* moveRotate.vsh */; };
 		AB25D6112431C4AC00F5E6B3 /* moveRotate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60F2431C4AC00F5E6B3 /* moveRotate.fsh */; };
 		AB25D6142431C4DA00F5E6B3 /* MoveAndRotateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB25D6132431C4D900F5E6B3 /* MoveAndRotateFilter.m */; };
+		AB25D6852431CAA900F5E6B3 /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AB25D6812431CAA900F5E6B3 /* GLESUtils.m */; };
 		ABA401ED242DCBE40028B408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EC242DCBE40028B408 /* AppDelegate.m */; };
 		ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EF242DCBE40028B408 /* SceneDelegate.m */; };
 		ABA401F3242DCBE40028B408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401F2242DCBE40028B408 /* ViewController.m */; };
@@ -54,6 +55,8 @@
 		AB25D60F2431C4AC00F5E6B3 /* moveRotate.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = moveRotate.fsh; sourceTree = "<group>"; };
 		AB25D6122431C4D900F5E6B3 /* MoveAndRotateFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveAndRotateFilter.h; sourceTree = "<group>"; };
 		AB25D6132431C4D900F5E6B3 /* MoveAndRotateFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveAndRotateFilter.m; sourceTree = "<group>"; };
+		AB25D67E2431CAA900F5E6B3 /* GLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESUtils.h; sourceTree = "<group>"; };
+		AB25D6812431CAA900F5E6B3 /* GLESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESUtils.m; sourceTree = "<group>"; };
 		ABA401E8242DCBE40028B408 /* 图片转视频-加滤镜.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "图片转视频-加滤镜.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA401EB242DCBE40028B408 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABA401EC242DCBE40028B408 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB25D66A2431C93A00F5E6B3 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				AB25D67E2431CAA900F5E6B3 /* GLESUtils.h */,
+				AB25D6812431CAA900F5E6B3 /* GLESUtils.m */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
 		ABA401DF242DCBE40028B408 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +149,7 @@
 		ABA401EA242DCBE40028B408 /* 图片转视频-加滤镜 */ = {
 			isa = PBXGroup;
 			children = (
+				AB25D66A2431C93A00F5E6B3 /* Libs */,
 				ABA40215242DD17D0028B408 /* AVFounation */,
 				ABA4020B242DD0520028B408 /* OpenGLRender */,
 				ABA40204242DCC8C0028B408 /* VideoFW */,
@@ -387,6 +400,7 @@
 				AB25D6142431C4DA00F5E6B3 /* MoveAndRotateFilter.m in Sources */,
 				ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */,
 				ABA4020A242DCCCF0028B408 /* AudioToVideo.m in Sources */,
+				AB25D6852431CAA900F5E6B3 /* GLESUtils.m in Sources */,
 				ABA4021B242DD1BB0028B408 /* APLCustomVideoCompositionInstruction.m in Sources */,
 				AB25D609243199F100F5E6B3 /* RotateFilter.m in Sources */,
 				ABA40214242DD07C0028B408 /* APLDiagonalWipeRenderer.m in Sources */,

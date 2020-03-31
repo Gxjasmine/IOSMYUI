@@ -188,15 +188,8 @@ typedef struct {
 
     //旋转
     GLuint modelViewMatrixSlot = glGetUniformLocation(self.program, "modelViewMatrix");
-    GLKMatrix4 modelViewMatrix = GLKMatrix4Translate(GLKMatrix4Identity, 0.0f, 0.0f, 0.0f);
-   float currentTime =  CMTimeGetSeconds(self.currTime);
+    GLKMatrix4 modelViewMatrix = [self updateModelViewMatrix];
 
-//    float mod = currentTime % (float)1.0;
-
-    float d = 1.0 - fmodf(currentTime, 1.0);
-    NSLog(@"currentTime = %lf,fmodf = %lf",currentTime,d);
-
-    modelViewMatrix = GLKMatrix4RotateZ(modelViewMatrix, d * 3.14 * 0.2);
 
     //(7)将模型视图矩阵传递到顶点着色器
     /*
@@ -212,6 +205,133 @@ typedef struct {
     [self timeAction];
 
 }
+
+// 在update中修改数据
+- (GLKMatrix4)updateModelViewMatrix {
+
+   GLKMatrix4 modelViewMatrix =  GLKMatrix4Identity;
+
+    float currentTime =  CMTimeGetSeconds(self.currTime);
+    GLfloat elValue = sinf(currentTime);
+    NSLog(@"elValue = %lf",elValue);
+
+    float d = fmodf(currentTime, 1.0) * 2;
+    NSLog(@"currentTime = %lf,fmodf = %lf",currentTime,d);
+
+
+
+    // 平移
+    GLKMatrix4 translateMatrix2 = GLKMatrix4MakeTranslation(d, 0.0, 0.0);
+
+    // 缩放
+    GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(elValue, elValue, 1.0);
+
+    // 旋转
+    GLKMatrix4 rotateMatrix = GLKMatrix4MakeRotation(elValue , 0.0, 0.0, 1.0);
+
+    modelViewMatrix = GLKMatrix4Multiply(translateMatrix2, scaleMatrix);
+    modelViewMatrix = GLKMatrix4Multiply(modelViewMatrix, rotateMatrix);
+
+    return modelViewMatrix;
+
+//    // 缩放
+//    GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(elValue, elValue, 1.0);
+//
+//    // 旋转
+//    GLKMatrix4 rotateMatrix = GLKMatrix4MakeRotation(elValue , 0.0, 0.0, 1.0);
+//
+//    // 平移
+//    GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(elValue, elValue, 0.0);
+//
+//    //                        平移              旋转           缩放
+    // transformMatrix = translateMatrix * rotateMatrix * scaleMatrix
+    // 矩阵会按照从右到左的顺序应用到position上。也就是先缩放（scale）,再旋转（rotate）,最后平移（translate）
+//    // 如果这个顺序反过来，就完全不同了。从线性代数角度来讲，就是矩阵A乘以矩阵B不等于矩阵B乘以矩阵A。
+//    modelViewMatrix = GLKMatrix4Multiply(translateMatrix, rotateMatrix);
+//    modelViewMatrix = GLKMatrix4Multiply(modelViewMatrix, scaleMatrix);
+
+    /*
+    // 绕x轴
+    transformMatrix = GLKMatrix4Make(1.0, 0.0,           0.0,          0.0,
+                                     0.0, cos(elValue), -sin(elValue), 0.0,
+                                     0.0, sin(elValue),  cos(elValue), 0.0,
+                                     0.0, 0.0,           0.0,          1.0);
+
+    // 绕y轴
+    transformMatrix = GLKMatrix4Make(cos(elValue),0.0, sin(elValue), 0.0,
+                                     0.0,         1.0, 0.0,          0.0,
+                                    -sin(elValue),0.0, cos(elValue), 0.0,
+                                     0.0,         0.0, 0.0,          1.0);
+
+    // 绕z轴
+    transformMatrix = GLKMatrix4Make(cos(elValue),-sin(elValue), 0.0, 0.0,
+                                     sin(elValue), cos(elValue), 0.0, 0.0,
+                                     0.0,           0.0,         1.0, 0.0,
+                                     0.0,           0.0,         0.0, 1.0);
+    */
+
+    return modelViewMatrix;
+
+}
+
+// 在update中修改数据
+- (GLKMatrix4)updateModelViewMatrix2 {
+
+   GLKMatrix4 modelViewMatrix =  GLKMatrix4Identity;
+
+    float currentTime =  CMTimeGetSeconds(self.currTime);
+    GLfloat elValue = sinf(currentTime);
+    NSLog(@"elValue = %lf",elValue);
+    // 平移
+    GLKMatrix4 translateMatrix2 = GLKMatrix4MakeTranslation(elValue, 0.0, 0.0);
+
+    // 缩放
+    GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(elValue, elValue, 1.0);
+    modelViewMatrix = GLKMatrix4Multiply(translateMatrix2, scaleMatrix);
+
+    return modelViewMatrix;
+
+//    // 缩放
+//    GLKMatrix4 scaleMatrix = GLKMatrix4MakeScale(elValue, elValue, 1.0);
+//
+//    // 旋转
+//    GLKMatrix4 rotateMatrix = GLKMatrix4MakeRotation(elValue , 0.0, 0.0, 1.0);
+//
+//    // 平移
+//    GLKMatrix4 translateMatrix = GLKMatrix4MakeTranslation(elValue, elValue, 0.0);
+//
+//    //                        平移              旋转           缩放
+    // transformMatrix = translateMatrix * rotateMatrix * scaleMatrix
+    // 矩阵会按照从右到左的顺序应用到position上。也就是先缩放（scale）,再旋转（rotate）,最后平移（translate）
+//    // 如果这个顺序反过来，就完全不同了。从线性代数角度来讲，就是矩阵A乘以矩阵B不等于矩阵B乘以矩阵A。
+//    modelViewMatrix = GLKMatrix4Multiply(translateMatrix, rotateMatrix);
+//    modelViewMatrix = GLKMatrix4Multiply(modelViewMatrix, scaleMatrix);
+
+    /*
+    // 绕x轴
+    transformMatrix = GLKMatrix4Make(1.0, 0.0,           0.0,          0.0,
+                                     0.0, cos(elValue), -sin(elValue), 0.0,
+                                     0.0, sin(elValue),  cos(elValue), 0.0,
+                                     0.0, 0.0,           0.0,          1.0);
+
+    // 绕y轴
+    transformMatrix = GLKMatrix4Make(cos(elValue),0.0, sin(elValue), 0.0,
+                                     0.0,         1.0, 0.0,          0.0,
+                                    -sin(elValue),0.0, cos(elValue), 0.0,
+                                     0.0,         0.0, 0.0,          1.0);
+
+    // 绕z轴
+    transformMatrix = GLKMatrix4Make(cos(elValue),-sin(elValue), 0.0, 0.0,
+                                     sin(elValue), cos(elValue), 0.0, 0.0,
+                                     0.0,           0.0,         1.0, 0.0,
+                                     0.0,           0.0,         0.0, 1.0);
+    */
+
+    return modelViewMatrix;
+
+}
+
+
 
 - (void)timeAction {
 //    glUseProgram(self.program);

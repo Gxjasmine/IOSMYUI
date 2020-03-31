@@ -233,5 +233,40 @@ typedef struct {
 
 }
 
+-(void)rotateTextureImage
+{
+    //注意，想要获取shader里面的变量，这里记得要在glLinkProgram后面，后面，后面！
+    //1. rotate等于shaderv.vsh中的uniform属性，rotateMatrix
+    GLuint rotate = glGetUniformLocation(self.program, "rotateMatrix");
 
+    //2.获取渲旋转的弧度
+    float radians = 180 * 3.14159f / 180.0f;
+
+    //3.求得弧度对于的sin\cos值
+    float s = sin(radians);
+    float c = cos(radians);
+
+    //4.因为在3D课程中用的是横向量，在OpenGL ES用的是列向量
+    /*
+     参考Z轴旋转矩阵
+     */
+    GLfloat zRotation[16] = {
+        c,-s,0,0,
+        s,c,0,0,
+        0,0,1,0,
+        0,0,0,1
+    };
+
+    //5.设置旋转矩阵
+    /*
+     glUniformMatrix4fv (GLint location, GLsizei count, GLboolean transpose, const GLfloat* value)
+     location : 对于shader 中的ID
+     count : 个数
+     transpose : 转置
+     value : 指针
+     */
+    glUniformMatrix4fv(rotate, 1, GL_FALSE, zRotation);
+
+
+}
 @end
