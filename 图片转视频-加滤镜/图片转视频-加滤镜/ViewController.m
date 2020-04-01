@@ -15,7 +15,7 @@
 @property(nonatomic,strong)AudioToVideo *builder;
 
 @end
-
+#warning 视频和相关资源归出处所有，不得用于商业活动，后果自负
 @implementation ViewController
 
 - (void)viewDidLoad {
