@@ -12,6 +12,8 @@
 #import "APLCrossDissolveRenderer.h"
 #import <CoreImage/CoreImage.h>
 #import <CoreVideo/CoreVideo.h>
+#import "MixFilter.h"
+#import "CustonFilter.h"
 
 @interface APLCustomVideoCompositor()
 {
@@ -25,6 +27,7 @@
 
 @property (nonatomic, strong) APLOpenGLRenderer *oglRenderer;
 @property (nonatomic, strong) CIContext *ciContext;
+@property (nonatomic, strong) MixFilter *filter;
 
 @end
 
@@ -36,6 +39,7 @@
 	
 	if (self) {
 		self.oglRenderer = [[APLCrossDissolveRenderer alloc] init];
+        self.filter = [[MixFilter alloc] init];
 	}
 	
 	return self;
@@ -148,7 +152,7 @@ static Float64 factorForTimeInRange(CMTime time, CMTimeRange range) /* 0.0 -> 1.
     //CMTime elapsed = CMTimeSubtract(time, range.start);
     //  return CMTimeGetSeconds(elapsed) / CMTimeGetSeconds(range.duration);
 	float tweenFactor = factorForTimeInRange(request.compositionTime, request.videoCompositionInstruction.timeRange);
-    NSLog(@"--------------000000-----------tweenFactor:%lf",tweenFactor);
+//    NSLog(@"--------------000000-----------tweenFactor:%lf",tweenFactor);
 //
 //    CVPixelBufferRef resultPixelBuffer = [request sourceFrameByTrackID:[request.sourceTrackIDs.firstObject intValue]];
 //
@@ -171,8 +175,20 @@ static Float64 factorForTimeInRange(CMTime time, CMTimeRange range) /* 0.0 -> 1.
 	CVPixelBufferRef backgroundSourceBuffer = [request sourceFrameByTrackID:currentInstruction.backgroundTrackID];
 	
 	// Destination pixel buffer into which we render the output
-	dstPixels = [_renderContext newPixelBuffer];
-	
+//	dstPixels = [_renderContext newPixelBuffer];
+
+    if (foregroundSourceBuffer == nil || backgroundSourceBuffer == nil) {
+        NSLog(@"数据为空");
+        return [self createEmptyPixelBuffer];
+    }
+
+    self.filter.pixelBuffer = foregroundSourceBuffer;
+    self.filter.backgpixelBuffer = backgroundSourceBuffer;
+      CVPixelBufferRef outputPixelBuffer = self.filter.outputPixelBuffer;
+        CVPixelBufferRetain(outputPixelBuffer);
+    //    NSLog(@"_sedd = %d",_sedd);
+
+        return outputPixelBuffer;
 	// Recompute normalized render transform everytime the render context changes
 	if (_renderContextDidChange) {
 		// The renderTransform returned by the renderContext is in X: [0, w] and Y: [0, h] coordinate system

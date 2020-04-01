@@ -152,7 +152,7 @@
 
         while([writerInput isReadyForMoreMediaData]) {
 
-            if(++frame >= [self->imageArray count] * 30) {
+            if(++frame >= [self->imageArray count] * 10) {
                 [writerInput markAsFinished];
 
                 [videoWriter finishWritingWithCompletionHandler:^{
@@ -170,7 +170,7 @@
 
             CVPixelBufferRef buffer = NULL;
 
-            int idx = frame / 30;
+            int idx = frame / 10;
 
             NSLog(@"idx==%d",idx);
             NSString *progress = [NSString stringWithFormat:@"%0.2lu",idx / [self->imageArr count]];
@@ -189,7 +189,7 @@
                 //设置每秒钟播放图片的个数
                 //CMTimeMake(a,b) a当前第几帧, b每秒钟多少帧.当前播放时间a/b
 
-                if(![adaptor appendPixelBuffer:buffer withPresentationTime:CMTimeMake(frame,30)]) {
+                if(![adaptor appendPixelBuffer:buffer withPresentationTime:CMTimeMake(frame,10)]) {
 
                     NSLog(@"FAIL");
 

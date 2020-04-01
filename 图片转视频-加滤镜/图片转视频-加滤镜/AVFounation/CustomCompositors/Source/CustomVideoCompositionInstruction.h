@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL enablePostProcessing;
 @property (nonatomic) BOOL containsTweening;
 @property (nonatomic, assign) CMTime currTime;
+@property (nonatomic, assign) CMTimeRange filterTimeRange;
+@property (nonatomic, strong) NSMutableArray *filterTimeRanges;
+@property (nonatomic, strong) NSMutableArray *filters;
 
 @property (nonatomic, readonly, nullable) NSArray<NSValue *> *requiredSourceTrackIDs;
 @property (nonatomic, readonly) CMPersistentTrackID passthroughTrackID;

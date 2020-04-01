@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnh-0b-hbl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-723" y="183"/>
+            <point key="canvasLocation" x="-983" y="178"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -33,10 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUQ-Wp-KMm">
-                                <rect key="frame" x="177" y="349" width="60" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="rq3-hA-GyK"/>
-                                </constraints>
+                                <rect key="frame" x="191.5" y="349" width="31" height="30"/>
                                 <state key="normal" title="合成"/>
                                 <connections>
                                     <action selector="onclickMerger:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSb-Dr-jFi"/>
@@ -49,12 +46,21 @@
                                     <action selector="onclickPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sgu-oR-pYz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3O-3Z-fLU">
+                                <rect key="frame" x="191.5" y="579" width="31" height="30"/>
+                                <state key="normal" title="效果"/>
+                                <connections>
+                                    <action selector="onclickEffectButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tS7-Ea-WA0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cXd-wI-V54" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0DN-C0-OdN"/>
                             <constraint firstItem="bUQ-Wp-KMm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="261" id="339-QU-MrD"/>
+                            <constraint firstItem="h3O-3Z-fLU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="As1-tX-3gf"/>
                             <constraint firstItem="cXd-wI-V54" firstAttribute="top" secondItem="bUQ-Wp-KMm" secondAttribute="bottom" constant="89" id="Brz-NT-qyg"/>
+                            <constraint firstItem="h3O-3Z-fLU" firstAttribute="top" secondItem="cXd-wI-V54" secondAttribute="bottom" constant="81" id="O0v-py-Eie"/>
                             <constraint firstItem="bUQ-Wp-KMm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sOb-7X-ddM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -64,6 +70,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-91" y="140"/>
+        </scene>
+        <!--Effects View Controller-->
+        <scene sceneID="mBl-L8-5yZ">
+            <objects>
+                <viewController storyboardIdentifier="EffectsViewController" id="UrX-UA-bmq" customClass="EffectsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h5h-7o-gEb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R2N-3M-Nkn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSG-tJ-kq6">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="66"/>
+                                        <state key="normal" title="模板一"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="UJH-R4-at1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dv-cT-IAW">
+                                        <rect key="frame" x="83" y="0.0" width="82.5" height="66"/>
+                                        <state key="normal" title="模板二"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="zxz-KU-QWi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6j-8T-UbA">
+                                        <rect key="frame" x="165.5" y="0.0" width="83" height="66"/>
+                                        <state key="normal" title="模板三"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="5Xr-xL-2Df"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3E-zy-9jq">
+                                        <rect key="frame" x="248.5" y="0.0" width="82.5" height="66"/>
+                                        <state key="normal" title="模板四"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="SMt-ES-8DB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F47-PB-cBy">
+                                        <rect key="frame" x="331" y="0.0" width="83" height="66"/>
+                                        <state key="normal" title="模板五"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="qON-VD-lVZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="pMf-f7-lQ4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="R2N-3M-Nkn" firstAttribute="trailing" secondItem="8KQ-v2-mUY" secondAttribute="trailing" id="02i-X3-gku"/>
+                            <constraint firstItem="R2N-3M-Nkn" firstAttribute="leading" secondItem="8KQ-v2-mUY" secondAttribute="leading" id="2QY-xK-diQ"/>
+                            <constraint firstItem="R2N-3M-Nkn" firstAttribute="top" secondItem="8KQ-v2-mUY" secondAttribute="top" id="DqH-j0-tD1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8KQ-v2-mUY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BKC-gt-6iW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733.33333333333337" y="431.91964285714283"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="muF-Gk-mrm">
@@ -115,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gC-iv-Sce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766.66666666666674" y="124.55357142857142"/>
+            <point key="canvasLocation" x="1103" y="-57"/>
         </scene>
     </scenes>
 </document>

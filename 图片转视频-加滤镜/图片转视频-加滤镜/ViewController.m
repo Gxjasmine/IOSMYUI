@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AudioToVideo.h"
 #import "VideoViewController.h"
+#import "EffectsViewController.h"
 
 @interface ViewController ()
 @property(nonatomic,strong)AudioToVideo *builder;
@@ -35,6 +36,9 @@
     
 }
 
-
+- (IBAction)onclickEffectButton:(id)sender {
+    EffectsViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"EffectsViewController"];
+      [self.navigationController pushViewController:vc animated:true];
+}
 
 @end

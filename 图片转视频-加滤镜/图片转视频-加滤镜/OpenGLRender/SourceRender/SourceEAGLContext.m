@@ -39,11 +39,11 @@ static dispatch_once_t oneToken;
             return nil;
         }
 
-        _currentContext2 = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-           if (!_currentContext2) {
-               NSLog(@"初始化上下文失败");
-               return nil;
-           }
+//        _currentContext2 = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+//           if (!_currentContext2) {
+//               NSLog(@"初始化上下文失败");
+//               return nil;
+//           }
 
         [EAGLContext setCurrentContext:_currentContext];
         //        [self setupOffscreenRenderContext];

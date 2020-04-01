@@ -165,6 +165,12 @@ typedef struct {
 // 缩放着色器程序
 - (void)setupScaleShaderProgram {
 
+      //4.判断self.myProgram是否存在，存在则清空其文件
+    if (self.program) {
+        glDeleteProgram(self.program);
+        self.program = 0;
+    }
+
     self.program = [MFShaderHelper programWithShaderName:@"moveRotate"];
 
     glUseProgram(self.program);

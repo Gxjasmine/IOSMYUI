@@ -70,7 +70,7 @@
     }
 
     NSURL *sourceMovieURL = [NSURL fileURLWithPath:self.theVideoPath];
-
+//    NSURL *sourceMovieURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ping20s" ofType:@"mp4"]];
     self.asset = [AVURLAsset URLAssetWithURL:sourceMovieURL options:nil];
 
     self.playerItem = [AVPlayerItem playerItemWithAsset:self.asset];
