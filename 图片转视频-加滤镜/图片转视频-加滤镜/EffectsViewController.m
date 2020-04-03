@@ -51,46 +51,72 @@
     [self.clipTimeRanges removeAllObjects];
     switch (sender.tag) {
         case 0:
-            [self test01];
+            [self test00];
             break;
         case 1:
-            [self test02];
+            [self test01];
             break;
         case 2:
-            [self test03];
+            [self test02];
             break;
         case 3:
-            [self test04];
+            [self test03];
             break;
         case 4:
+            [self test04];
+            break;
+        case 5:
             [self test05];
+            break;
+        case 6:
+            [self test06];
+            break;
+        case 7:
+            [self test07];
             break;
         default:
             break;
     }
 }
 
+
+
 //视频融合
--(void)test01{
+-(void)test00{
     [self setupEditingAndPlayback];
 }
 //视频添加灵魂出窍
--(void)test02{
+-(void)test01{
     [self setupEditingAndPlayback1];
 
 }
 //视频融合，慢放和灵魂出窍
--(void)test03{
+-(void)test02{
     [self setupEditingAndPlayback2];
 
 }
 
--(void)test04{
+-(void)test03{
   [self setupEditingAndPlayback4];
 }
 
--(void)test05{
+-(void)test04{
     [self setupEditingAndPlayback5];
+
+}
+
+-(void)test05{
+    NSLog(@"test05");
+
+}
+
+-(void)test06{
+    NSLog(@"test06");
+
+}
+
+-(void)test07{
+    NSLog(@"test07");
 
 }
 

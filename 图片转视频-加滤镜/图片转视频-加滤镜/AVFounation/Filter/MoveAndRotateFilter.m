@@ -224,8 +224,6 @@ typedef struct {
     float d = fmodf(currentTime, 1.0) * 2;
     NSLog(@"currentTime = %lf,fmodf = %lf",currentTime,d);
 
-
-
     // 平移
     GLKMatrix4 translateMatrix2 = GLKMatrix4MakeTranslation(d, 0.0, 0.0);
 

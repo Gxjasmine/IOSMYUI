@@ -10,6 +10,7 @@
 #import "AudioToVideo.h"
 #import "VideoViewController.h"
 #import "EffectsViewController.h"
+#import "TestViewController.h"
 
 @interface ViewController ()
 @property(nonatomic,strong)AudioToVideo *builder;
@@ -40,5 +41,11 @@
     EffectsViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"EffectsViewController"];
       [self.navigationController pushViewController:vc animated:true];
 }
+
+- (IBAction)onclIcktest:(id)sender {
+    TestViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TestViewController"];
+         [self.navigationController pushViewController:vc animated:true];
+}
+
 
 @end

@@ -106,6 +106,11 @@ static int specificKey;
     }
 }
 
+- (void)setAsCurrentContextNil
+{
+    [EAGLContext setCurrentContext:nil];
+}
+
 - (void)presentBufferForDisplay;
 {
     [self.context presentRenderbuffer:GL_RENDERBUFFER];

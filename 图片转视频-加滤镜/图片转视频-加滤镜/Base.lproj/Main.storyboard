@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oXt-o8-RF0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oXt-o8-RF0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,6 +53,13 @@
                                     <action selector="onclickEffectButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tS7-Ea-WA0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbA-lU-1k3">
+                                <rect key="frame" x="191.5" y="258" width="31" height="30"/>
+                                <state key="normal" title="测试"/>
+                                <connections>
+                                    <action selector="onclIcktest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fuc-mL-uVD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -61,6 +68,8 @@
                             <constraint firstItem="h3O-3Z-fLU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="As1-tX-3gf"/>
                             <constraint firstItem="cXd-wI-V54" firstAttribute="top" secondItem="bUQ-Wp-KMm" secondAttribute="bottom" constant="89" id="Brz-NT-qyg"/>
                             <constraint firstItem="h3O-3Z-fLU" firstAttribute="top" secondItem="cXd-wI-V54" secondAttribute="bottom" constant="81" id="O0v-py-Eie"/>
+                            <constraint firstItem="bUQ-Wp-KMm" firstAttribute="top" secondItem="YbA-lU-1k3" secondAttribute="bottom" constant="61" id="TzN-84-qmj"/>
+                            <constraint firstItem="YbA-lU-1k3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vx6-WQ-rmI"/>
                             <constraint firstItem="bUQ-Wp-KMm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sOb-7X-ddM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -122,12 +131,44 @@
                                     <constraint firstAttribute="height" constant="66" id="pMf-f7-lQ4"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mon-bq-6xa">
+                                <rect key="frame" x="0.0" y="110" width="414" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5l-QB-ySH">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
+                                        <state key="normal" title="动效一"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="dgM-eC-Beu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTO-fz-R1U">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="44"/>
+                                        <state key="normal" title="动效二"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="AvP-34-jFc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCa-gj-9M6">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="44"/>
+                                        <state key="normal" title="动效三"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="rdK-rM-axh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="HoZ-rl-Zhg"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="R2N-3M-Nkn" firstAttribute="trailing" secondItem="8KQ-v2-mUY" secondAttribute="trailing" id="02i-X3-gku"/>
                             <constraint firstItem="R2N-3M-Nkn" firstAttribute="leading" secondItem="8KQ-v2-mUY" secondAttribute="leading" id="2QY-xK-diQ"/>
                             <constraint firstItem="R2N-3M-Nkn" firstAttribute="top" secondItem="8KQ-v2-mUY" secondAttribute="top" id="DqH-j0-tD1"/>
+                            <constraint firstItem="Mon-bq-6xa" firstAttribute="leading" secondItem="8KQ-v2-mUY" secondAttribute="leading" id="PAA-O4-QwM"/>
+                            <constraint firstItem="Mon-bq-6xa" firstAttribute="top" secondItem="R2N-3M-Nkn" secondAttribute="bottom" id="W1l-Y9-Aqk"/>
+                            <constraint firstItem="Mon-bq-6xa" firstAttribute="trailing" secondItem="8KQ-v2-mUY" secondAttribute="trailing" id="o56-DL-tCz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8KQ-v2-mUY"/>
                     </view>
@@ -135,6 +176,118 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKC-gt-6iW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="733.33333333333337" y="431.91964285714283"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="SrV-A5-HFL">
+            <objects>
+                <viewController storyboardIdentifier="TestViewController" id="Zim-ps-6qa" customClass="TestViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1G0-TC-3pf" customClass="Te">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-XA-lgd">
+                                <rect key="frame" x="0.0" y="792" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlT-sA-84j">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="60"/>
+                                        <state key="normal" title="动效一"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="NWZ-gs-e5d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9da-Cr-VrP">
+                                        <rect key="frame" x="83" y="0.0" width="82.5" height="60"/>
+                                        <state key="normal" title="动效二"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="h8o-GH-fkK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0W-ES-M9G">
+                                        <rect key="frame" x="165.5" y="0.0" width="83" height="60"/>
+                                        <state key="normal" title="动效三"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="6mq-3j-xO5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2M-UJ-AMW">
+                                        <rect key="frame" x="248.5" y="0.0" width="82.5" height="60"/>
+                                        <state key="normal" title="动效四"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="eD3-Qj-Ao1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-U8-yyG">
+                                        <rect key="frame" x="331" y="0.0" width="83" height="60"/>
+                                        <state key="normal" title="动效五"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="5Yu-1E-fwi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Lug-WF-Egr"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sly-ZV-aDF">
+                                <rect key="frame" x="0.0" y="730" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaA-nw-dDX">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="60"/>
+                                        <state key="normal" title="动效六"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="D8B-rA-V5S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhn-aw-pW5">
+                                        <rect key="frame" x="83" y="0.0" width="82.5" height="60"/>
+                                        <state key="normal" title="动效七"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="pyB-ic-fMZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDG-dV-kS4">
+                                        <rect key="frame" x="165.5" y="0.0" width="83" height="60"/>
+                                        <state key="normal" title="动效八"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="2AH-62-6ZC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzJ-Ce-YXV">
+                                        <rect key="frame" x="248.5" y="0.0" width="82.5" height="60"/>
+                                        <state key="normal" title="动效玖"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="mxL-ym-T3Z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kny-UJ-6z7">
+                                        <rect key="frame" x="331" y="0.0" width="83" height="60"/>
+                                        <state key="normal" title="动效十"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="Zim-ps-6qa" eventType="touchUpInside" id="ReH-8V-6EF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="RlD-da-eUP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="UqP-BQ-8v7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Auh-7B-r8i" firstAttribute="bottom" secondItem="WxM-XA-lgd" secondAttribute="bottom" constant="10" id="4EI-qv-LDI"/>
+                            <constraint firstItem="sly-ZV-aDF" firstAttribute="trailing" secondItem="Auh-7B-r8i" secondAttribute="trailing" id="4z9-a1-Tn4"/>
+                            <constraint firstItem="WxM-XA-lgd" firstAttribute="top" secondItem="sly-ZV-aDF" secondAttribute="bottom" constant="2" id="73l-wQ-axU"/>
+                            <constraint firstItem="Auh-7B-r8i" firstAttribute="trailing" secondItem="WxM-XA-lgd" secondAttribute="trailing" id="YOZ-Hg-EzN"/>
+                            <constraint firstItem="sly-ZV-aDF" firstAttribute="leading" secondItem="Auh-7B-r8i" secondAttribute="leading" id="e0c-cu-cB9"/>
+                            <constraint firstItem="WxM-XA-lgd" firstAttribute="leading" secondItem="Auh-7B-r8i" secondAttribute="leading" id="oWN-cb-cew"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Auh-7B-r8i"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jc3-2G-kyc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230.4347826086957" y="533.70535714285711"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="muF-Gk-mrm">

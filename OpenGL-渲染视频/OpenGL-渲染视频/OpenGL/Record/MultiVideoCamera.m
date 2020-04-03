@@ -27,7 +27,7 @@
     int imageBufferWidth, imageBufferHeight;
 
     GLuint luminanceTexture, chrominanceTexture;
-
+    GLuint luminanceTexture2, chrominanceTexture2;
     const GLfloat *_preferredConversion;
 
     BOOL isFullYUVRange;
@@ -184,7 +184,7 @@
     [self.cameraSession addInputWithNoConnections:self.frontDeviceInput];
 
     self.frontVideoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
-    self.frontVideoDataOutput.videoSettings = @{(__bridge NSString *)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA)};
+    self.frontVideoDataOutput.videoSettings = @{(__bridge NSString *)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
     [self.frontVideoDataOutput setSampleBufferDelegate:self queue:self.cameraProcessingQueue];
 
     if (![self.cameraSession canAddOutput:self.frontVideoDataOutput]) {
@@ -211,7 +211,7 @@
 }
 
 - (BOOL)configBackCamera {
-    AVCaptureDevice *backCamera = [self.class getCaptureDeviceWithPosition:AVCaptureDevicePositionBack];
+    AVCaptureDevice *backCamera = [self getCaptureDeviceWithPosition:AVCaptureDevicePositionBack];
     if (backCamera == nil) {
         NSLog(@"%s, %d", __PRETTY_FUNCTION__, __LINE__);
         return NO;
@@ -226,7 +226,7 @@
     [self.cameraSession addInputWithNoConnections:self.backDeviceInput];
 
     self.backVideoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
-    self.backVideoDataOutput.videoSettings = @{(__bridge NSString *)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA)};
+    self.backVideoDataOutput.videoSettings = @{(__bridge NSString *)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
     [self.backVideoDataOutput setSampleBufferDelegate:self queue:self.cameraProcessingQueue];
 
     if (![self.cameraSession canAddOutput:self.backVideoDataOutput]) {
@@ -340,7 +340,7 @@
 //}
 
 - (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-
+    NSLog(@"11111111");
         if (output != self.audioDataOutput) {
             if (dispatch_semaphore_wait(frameRenderingSemaphore, DISPATCH_TIME_NOW) != 0)
             {
@@ -382,7 +382,8 @@
     }
 
     if (pipSampleBuffer) {
-        [self processPiPSampleBuffer:fullScreenSampleBuffer];
+
+        [self processPiPSampleBuffer:pipSampleBuffer];
     }
 
 
@@ -394,6 +395,235 @@
 }
 
 - (void)processFullScreenSampleBuffer:(CMSampleBufferRef)sampleBuffer
+{
+    CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+
+    int bufferWidth = (int) CVPixelBufferGetWidth(pixelBuffer);
+    int bufferHeight = (int) CVPixelBufferGetHeight(pixelBuffer);
+
+    CMTime currentTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+
+    CFTypeRef colorAttachments = CVBufferGetAttachment(pixelBuffer, kCVImageBufferYCbCrMatrixKey, NULL);
+
+    if (colorAttachments == kCVImageBufferYCbCrMatrix_ITU_R_601_4) {
+        if (isFullYUVRange) {
+            _preferredConversion = kMKColorConversion601FullRange;
+        }
+        else {
+            _preferredConversion = kMKColorConversion601;
+        }
+    }
+    else {
+        _preferredConversion = kMKColorConversion709;
+    }
+    imageBufferWidth = bufferWidth;
+     imageBufferHeight = bufferHeight;
+    [_myContext useAsCurrentContext];
+
+    if ([MKGPUImageContext supportsFastTextureUpload]) {
+
+        if (CVPixelBufferGetPlaneCount(pixelBuffer) > 0) { // Check for YUV planar inputs to do RGB conversion
+            CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+
+            CVOpenGLESTextureRef _luminanceTextureRef = [self lumaTextureForPixelBuffer:pixelBuffer];
+            CVOpenGLESTextureRef _chrominanceTextureRef = [self chromaTextureForPixelBuffer:pixelBuffer];
+
+            CVOpenGLESTextureRef _luminanceTextureRef2;
+            CVOpenGLESTextureRef _chrominanceTextureRef2;
+
+            // Y-plane
+            glActiveTexture(GL_TEXTURE4);
+            luminanceTexture = CVOpenGLESTextureGetName(_luminanceTextureRef);
+            glBindTexture(CVOpenGLESTextureGetTarget(_luminanceTextureRef), luminanceTexture);
+            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+            // UV-plane
+            glActiveTexture(GL_TEXTURE5);
+            chrominanceTexture = CVOpenGLESTextureGetName(_chrominanceTextureRef);
+            glBindTexture(CVOpenGLESTextureGetTarget(_chrominanceTextureRef), chrominanceTexture);
+            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+//            if (self.currentPiPSampleBuffer) {
+//                CVImageBufferRef prepixelBuffer = CMSampleBufferGetImageBuffer(self.currentPiPSampleBuffer);
+//                CVPixelBufferLockBaseAddress(prepixelBuffer, 0);
+//
+//                 _luminanceTextureRef2 = [self lumaTextureForPixelBuffer:prepixelBuffer];
+//                 _chrominanceTextureRef2 = [self chromaTextureForPixelBuffer:prepixelBuffer];
+//
+//                // Y-plane
+//                glActiveTexture(GL_TEXTURE6);
+//                luminanceTexture2 = CVOpenGLESTextureGetName(_luminanceTextureRef2);
+//                glBindTexture(CVOpenGLESTextureGetTarget(_luminanceTextureRef2), luminanceTexture2);
+//                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+//                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+//
+//                // UV-plane
+//                glActiveTexture(GL_TEXTURE7);
+//                chrominanceTexture2 = CVOpenGLESTextureGetName(_chrominanceTextureRef2);
+//                glBindTexture(CVOpenGLESTextureGetTarget(_chrominanceTextureRef2), chrominanceTexture2);
+//                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+//                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+//                CVPixelBufferUnlockBaseAddress(prepixelBuffer, 0);
+//
+//            }
+
+
+            if (MKGPUImageRotationSwapsWidthAndHeight(internalRotation))
+            {
+                imageBufferWidth = bufferHeight;
+                imageBufferHeight = bufferWidth;
+            }
+
+            [_myContext useAsCurrentContext];
+            [yuvConversionProgram use];
+
+            int rotatedImageBufferWidth = imageBufferWidth, rotatedImageBufferHeight = imageBufferHeight;
+
+            if (MKGPUImageRotationSwapsWidthAndHeight(internalRotation))
+            {
+                rotatedImageBufferWidth = imageBufferHeight;
+                rotatedImageBufferHeight = imageBufferWidth;
+            }
+
+            MKGPUTextureOptions options;
+            options.minFilter = GL_LINEAR;
+            options.magFilter = GL_LINEAR;
+            options.wrapS = GL_CLAMP_TO_EDGE;
+            options.wrapT = GL_CLAMP_TO_EDGE;
+            options.internalFormat = GL_RGBA;
+            options.format = GL_BGRA;
+            options.type = GL_UNSIGNED_BYTE;
+
+
+            _outputFramebuffer = [[_myContext framebufferCache] fetchFramebufferForSize:CGSizeMake(rotatedImageBufferWidth, rotatedImageBufferHeight) textureOptions:options missCVPixelBuffer:YES];
+            [_outputFramebuffer activateFramebuffer];
+
+            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            static const GLfloat squareVertices[] = {
+                -1.0f, -1.0f,
+                1.0f, -1.0f,
+                -1.0f,  1.0f,
+                1.0f,  1.0f,
+            };
+
+            glActiveTexture(GL_TEXTURE4);
+            glBindTexture(CVOpenGLESTextureGetTarget(_luminanceTextureRef), luminanceTexture);
+            glUniform1i(yuvConversionLuminanceTextureUniform, 4);
+
+            glActiveTexture(GL_TEXTURE5);
+            glBindTexture(CVOpenGLESTextureGetTarget(_chrominanceTextureRef), chrominanceTexture);
+            glUniform1i(yuvConversionChrominanceTextureUniform, 5);
+
+            glUniformMatrix3fv(yuvConversionMatrixUniform, 1, GL_FALSE, _preferredConversion);
+
+            // 更新属性值.
+               //坐标数据
+            glVertexAttribPointer(yuvConversionPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices);
+            //更新纹理坐标属性值
+            glVertexAttribPointer(yuvConversionTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [MKGPUImageFilter textureCoordinatesForRotation:internalRotation]);
+
+            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+            //小屏幕
+//            static const GLfloat squareVertices2[] = {
+//                -0.5f, -0.5f,
+//                0.5f, -0.5f,
+//                -0.5f,  0.5f,
+//                0.5f,  0.5f,
+//            };
+//
+//            glActiveTexture(GL_TEXTURE5);
+//            glBindTexture(CVOpenGLESTextureGetTarget(_luminanceTextureRef2), luminanceTexture2);
+//            glUniform1i(yuvConversionLuminanceTextureUniform, 5);
+
+//            glActiveTexture(GL_TEXTURE6);
+//            glBindTexture(CVOpenGLESTextureGetTarget(_chrominanceTextureRef2), chrominanceTexture2);
+//            glUniform1i(yuvConversionChrominanceTextureUniform, 6);
+
+            // 更新属性值.
+            //坐标数据
+//            glVertexAttribPointer(yuvConversionPositionAttribute, 2, GL_FLOAT, 0, 0, squareVertices2);
+//            //更新纹理坐标属性值
+//            glVertexAttribPointer(yuvConversionTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [MKGPUImageFilter textureCoordinatesForRotation:internalRotation]);
+//
+//            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+            CFRelease(_luminanceTextureRef);
+            CFRelease(_chrominanceTextureRef);
+            if (_luminanceTextureRef2) {
+                CFRelease(_luminanceTextureRef2);
+                _luminanceTextureRef2 = nil;
+
+            }
+            if (_chrominanceTextureRef2) {
+                CFRelease(_luminanceTextureRef2);
+                _luminanceTextureRef2 = nil;
+            }
+            textureId = [_outputFramebuffer texture];
+            CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+
+            // Periodic texture cache flush every frame
+//            CVOpenGLESTextureCacheFlush([_myContext coreVideoTextureCache], 0);
+//
+//            [EAGLContext setCurrentContext:nil];
+
+        }
+
+    } else {
+
+        CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+        int bytesPerRow = (int) CVPixelBufferGetBytesPerRow(pixelBuffer);
+        MKGPUTextureOptions options;
+        options.minFilter = GL_LINEAR;
+        options.magFilter = GL_LINEAR;
+        options.wrapS = GL_CLAMP_TO_EDGE;
+        options.wrapT = GL_CLAMP_TO_EDGE;
+        options.internalFormat = GL_RGBA;
+        options.format = GL_BGRA;
+        options.type = GL_UNSIGNED_BYTE;
+
+        _outputFramebuffer = [[_myContext framebufferCache] fetchFramebufferForSize:CGSizeMake(bytesPerRow/4, bufferHeight) textureOptions:options missCVPixelBuffer:YES];
+        [_outputFramebuffer activateFramebuffer];
+
+        glBindTexture(GL_TEXTURE_2D, [_outputFramebuffer texture]);
+
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bytesPerRow / 4, bufferHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(pixelBuffer));
+        textureId = [_outputFramebuffer texture];
+
+        imageBufferWidth = bytesPerRow / 4;
+        imageBufferHeight = bufferHeight;
+
+        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    }
+
+    int rotatedImageBufferWidth = bufferWidth, rotatedImageBufferHeight = bufferHeight;
+    if (MKGPUImageRotationSwapsWidthAndHeight(internalRotation))
+    {
+        rotatedImageBufferWidth = bufferHeight;
+        rotatedImageBufferHeight = bufferWidth;
+    }
+
+    runMSynchronouslyOnContextQueue(_myContext, ^{
+        if ([self.delegate respondsToSelector:@selector(effectsProcessingTexture:inputSize:rotateMode:)]) {
+            [self.delegate effectsProcessingTexture:textureId inputSize:CGSizeMake(imageBufferWidth, imageBufferHeight) rotateMode:outputRotation];
+        }
+    });
+
+    if ([self.delegate respondsToSelector:@selector(renderTexture:inputSize:rotateMode:)]) {
+        [self.delegate renderTexture:textureId inputSize:CGSizeMake(rotatedImageBufferWidth, rotatedImageBufferHeight) rotateMode:outputRotation];
+    }
+
+    [_segmentMovieWriter processVideoTextureId:textureId AtRotationMode:outputRotation AtTime:currentTime];
+
+    [_outputFramebuffer unlock];
+    _outputFramebuffer = nil;
+}
+
+- (void)processFullScreenSampleBuffer2:(CMSampleBufferRef)sampleBuffer
 {
     CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
 
@@ -463,9 +693,10 @@
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
 
-            if (self.currentPiPSampleBuffer) {
-                [self teureCurrentPiPSampleBuffer];
-            }
+//            if (self.currentPiPSampleBuffer) {
+//                [self teureCurrentPiPSampleBuffer];
+//
+//            }
 
 
             [self convertYUVToRGBOutput];
@@ -564,8 +795,8 @@
                 NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
             }
 
-            luminanceTexture = CVOpenGLESTextureGetName(_luminanceTextureRef);
-            glBindTexture(GL_TEXTURE_2D, luminanceTexture);
+            luminanceTexture2 = CVOpenGLESTextureGetName(_luminanceTextureRef);
+            glBindTexture(GL_TEXTURE_2D, luminanceTexture2);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
@@ -578,14 +809,91 @@
                 NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
             }
 
-            chrominanceTexture = CVOpenGLESTextureGetName(_chrominanceTextureRef);
-            glBindTexture(GL_TEXTURE_2D, chrominanceTexture);
+            chrominanceTexture2 = CVOpenGLESTextureGetName(_chrominanceTextureRef);
+            glBindTexture(GL_TEXTURE_2D, chrominanceTexture2);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+            CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+//            CFRelease(_luminanceTextureRef);
+//            CFRelease(_chrominanceTextureRef);
         }
 
     }
 
+}
+
+- (CVOpenGLESTextureRef)lumaTextureForPixelBuffer:(CVPixelBufferRef)pixelBuffer
+{
+    CVOpenGLESTextureRef lumaTexture = NULL;
+    CVReturn err;
+
+    if (![_myContext coreVideoTextureCache]) {
+        NSLog(@"No video texture cache");
+        goto bail;
+    }
+
+    // Periodic texture cache flush every frame
+    CVOpenGLESTextureCacheFlush([_myContext coreVideoTextureCache], 0);
+
+    // CVOpenGLTextureCacheCreateTextureFromImage will create GL texture optimally from CVPixelBufferRef.
+    // Y
+
+    err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
+                                                       [_myContext coreVideoTextureCache],
+                                                       pixelBuffer,
+                                                       NULL,
+                                                       GL_TEXTURE_2D,
+                                                       GL_LUMINANCE,
+                                                       (int)CVPixelBufferGetWidth(pixelBuffer),
+                                                       (int)CVPixelBufferGetHeight(pixelBuffer),
+                                                       GL_LUMINANCE,
+                                                       GL_UNSIGNED_BYTE,
+                                                       0,
+                                                       &lumaTexture);
+
+    if (!lumaTexture || err) {
+        NSLog(@"Error at creating luma texture using CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
+    }
+
+bail:
+    return lumaTexture;
+}
+
+- (CVOpenGLESTextureRef)chromaTextureForPixelBuffer:(CVPixelBufferRef)pixelBuffer
+{
+    CVOpenGLESTextureRef chromaTexture = NULL;
+    CVReturn err;
+
+    if (![_myContext coreVideoTextureCache]) {
+        NSLog(@"No video texture cache");
+        goto bail;
+    }
+
+    // Periodic texture cache flush every frame
+    CVOpenGLESTextureCacheFlush([_myContext coreVideoTextureCache], 0);
+
+    // CVOpenGLTextureCacheCreateTextureFromImage will create GL texture optimally from CVPixelBufferRef.
+    // UV
+    err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
+                                                       [_myContext coreVideoTextureCache],
+                                                       pixelBuffer,
+                                                       NULL,
+                                                       GL_TEXTURE_2D,
+                                                       GL_LUMINANCE_ALPHA,
+                                                       (int)CVPixelBufferGetWidthOfPlane(pixelBuffer, 1) ,
+                                                       (int)CVPixelBufferGetHeightOfPlane(pixelBuffer, 1),
+                                                       GL_LUMINANCE_ALPHA,
+                                                       GL_UNSIGNED_BYTE,
+                                                       1,
+                                                       &chromaTexture);
+
+    if (!chromaTexture || err) {
+        NSLog(@"Error at creating chroma texture using CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
+    }
+
+bail:
+    return chromaTexture;
 }
 
 - (void)convertYUVToRGBOutput;
@@ -650,15 +958,13 @@
         0.5f,  0.5f,
     };
 
-    glActiveTexture(GL_TEXTURE12);
-    glBindTexture(GL_TEXTURE_2D, luminanceTexture);
-    glUniform1i(yuvConversionLuminanceTextureUniform, 12);
+    glActiveTexture(GL_TEXTURE5);
+    glBindTexture(GL_TEXTURE_2D, luminanceTexture2);
+    glUniform1i(yuvConversionLuminanceTextureUniform, 5);
 
-    glActiveTexture(GL_TEXTURE13);
-    glBindTexture(GL_TEXTURE_2D, chrominanceTexture);
-    glUniform1i(yuvConversionChrominanceTextureUniform, 13);
-
-    glUniformMatrix3fv(yuvConversionMatrixUniform, 1, GL_FALSE, _preferredConversion);
+    glActiveTexture(GL_TEXTURE6);
+    glBindTexture(GL_TEXTURE_2D, chrominanceTexture2);
+    glUniform1i(yuvConversionChrominanceTextureUniform, 6);
 
     // 更新属性值.
     //坐标数据

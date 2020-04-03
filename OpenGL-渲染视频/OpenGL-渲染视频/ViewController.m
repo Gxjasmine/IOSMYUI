@@ -79,7 +79,7 @@
 
     UIButton *startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:startBtn];
-    startBtn.frame = CGRectMake(20, 60, 80, 44);
+    startBtn.frame = CGRectMake(20, 100, 80, 44);
     [startBtn setTitle:@"开始" forState:UIControlStateNormal];
     [startBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [startBtn addTarget:self action:@selector(startRecord) forControlEvents:UIControlEventTouchUpInside];
@@ -87,7 +87,7 @@
 
     UIButton *stopBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:stopBtn];
-    stopBtn.frame = CGRectMake(200, 60, 80, 44);
+    stopBtn.frame = CGRectMake(200, 100, 80, 44);
     [stopBtn setTitle:@"结束" forState:UIControlStateNormal];
     [stopBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [stopBtn addTarget:self action:@selector(stopRecord) forControlEvents:UIControlEventTouchUpInside];

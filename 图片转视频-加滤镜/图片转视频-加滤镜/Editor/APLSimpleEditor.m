@@ -390,7 +390,7 @@
 }
 
 //普通播放速率
-- (void)buildCompositionObjectsScale2{
+- (void)buildCompositionObjectsScale{
     if ( (_clips == nil) || [_clips count] == 0 ) {
         self.composition = nil;
         self.videoComposition = nil;

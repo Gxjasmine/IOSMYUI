@@ -13,7 +13,6 @@
 		AB25D6102431C4AC00F5E6B3 /* moveRotate.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60E2431C4AC00F5E6B3 /* moveRotate.vsh */; };
 		AB25D6112431C4AC00F5E6B3 /* moveRotate.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB25D60F2431C4AC00F5E6B3 /* moveRotate.fsh */; };
 		AB25D6142431C4DA00F5E6B3 /* MoveAndRotateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB25D6132431C4D900F5E6B3 /* MoveAndRotateFilter.m */; };
-		AB25D6852431CAA900F5E6B3 /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AB25D6812431CAA900F5E6B3 /* GLESUtils.m */; };
 		AB44A6B22432DEA700C6A183 /* EffectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB44A6B12432DEA700C6A183 /* EffectsViewController.m */; };
 		AB44A6B62432E1BC00C6A183 /* APLSimpleEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB44A6B42432E1BC00C6A183 /* APLSimpleEditor.m */; };
 		AB44A6B92432E2DB00C6A183 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB44A6B82432E2DB00C6A183 /* test.mp4 */; };
@@ -70,6 +69,17 @@
 		ABE5DCEE243486A500516F65 /* scaleTwoScreen.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DCEC243486A400516F65 /* scaleTwoScreen.vsh */; };
 		ABE5DCEF243486A500516F65 /* scaleTwoScreen.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DCED243486A400516F65 /* scaleTwoScreen.fsh */; };
 		ABE5DCF2243486FB00516F65 /* ScaleTwoScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE5DCF1243486FB00516F65 /* ScaleTwoScreenFilter.m */; };
+		ABE5DCF62435DE9F00516F65 /* test01.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DCF42435DE9F00516F65 /* test01.vsh */; };
+		ABE5DCF72435DE9F00516F65 /* test01.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DCF52435DE9F00516F65 /* test01.fsh */; };
+		ABE5DCFA2435E98B00516F65 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE5DCF92435E98B00516F65 /* TestViewController.m */; };
+		ABE5DCFD2435EE1C00516F65 /* test02.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DCFB2435EE1C00516F65 /* test02.vsh */; };
+		ABE5DCFE2435EE1C00516F65 /* test02.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DCFC2435EE1C00516F65 /* test02.fsh */; };
+		ABE5DD242436CA9200516F65 /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE5DD212436CA9200516F65 /* GLESUtils.m */; };
+		ABE5DD252436CA9200516F65 /* GLESMath.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE5DD232436CA9200516F65 /* GLESMath.c */; };
+		ABE5DD282436D2C700516F65 /* test03.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DD262436D2C600516F65 /* test03.fsh */; };
+		ABE5DD292436D2C700516F65 /* test03.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DD272436D2C700516F65 /* test03.vsh */; };
+		ABE5DD2C24371DC100516F65 /* test04.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DD2A24371DC100516F65 /* test04.fsh */; };
+		ABE5DD2D24371DC100516F65 /* test04.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABE5DD2B24371DC100516F65 /* test04.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,8 +91,6 @@
 		AB25D60F2431C4AC00F5E6B3 /* moveRotate.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = moveRotate.fsh; sourceTree = "<group>"; };
 		AB25D6122431C4D900F5E6B3 /* MoveAndRotateFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveAndRotateFilter.h; sourceTree = "<group>"; };
 		AB25D6132431C4D900F5E6B3 /* MoveAndRotateFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveAndRotateFilter.m; sourceTree = "<group>"; };
-		AB25D67E2431CAA900F5E6B3 /* GLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESUtils.h; sourceTree = "<group>"; };
-		AB25D6812431CAA900F5E6B3 /* GLESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESUtils.m; sourceTree = "<group>"; };
 		AB44A6B02432DEA700C6A183 /* EffectsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EffectsViewController.h; sourceTree = "<group>"; };
 		AB44A6B12432DEA700C6A183 /* EffectsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EffectsViewController.m; sourceTree = "<group>"; };
 		AB44A6B42432E1BC00C6A183 /* APLSimpleEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLSimpleEditor.m; sourceTree = "<group>"; };
@@ -138,7 +146,6 @@
 		ABA4022B242DDA830028B408 /* MFPixelBufferHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPixelBufferHelper.h; sourceTree = "<group>"; };
 		ABA40232242DDB530028B408 /* SourceEAGLContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceEAGLContext.h; sourceTree = "<group>"; };
 		ABA40233242DDB530028B408 /* SourceEAGLContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SourceEAGLContext.m; sourceTree = "<group>"; };
-		ABA40235242DDE3D0028B408 /* VideoHander.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoHander.h; sourceTree = "<group>"; };
 		ABA40237242DDFF40028B408 /* CustonFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustonFilter.h; sourceTree = "<group>"; };
 		ABA40238242DDFF40028B408 /* CustonFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustonFilter.m; sourceTree = "<group>"; };
 		ABA4023C242DE2B80028B408 /* FWCustomVideoCompositor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWCustomVideoCompositor.h; sourceTree = "<group>"; };
@@ -171,6 +178,23 @@
 		ABE5DCED243486A400516F65 /* scaleTwoScreen.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scaleTwoScreen.fsh; sourceTree = "<group>"; };
 		ABE5DCF0243486FB00516F65 /* ScaleTwoScreenFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleTwoScreenFilter.h; sourceTree = "<group>"; };
 		ABE5DCF1243486FB00516F65 /* ScaleTwoScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleTwoScreenFilter.m; sourceTree = "<group>"; };
+		ABE5DCF42435DE9F00516F65 /* test01.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test01.vsh; sourceTree = "<group>"; };
+		ABE5DCF52435DE9F00516F65 /* test01.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test01.fsh; sourceTree = "<group>"; };
+		ABE5DCF82435E98B00516F65 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		ABE5DCF92435E98B00516F65 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		ABE5DCFB2435EE1C00516F65 /* test02.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test02.vsh; sourceTree = "<group>"; };
+		ABE5DCFC2435EE1C00516F65 /* test02.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test02.fsh; sourceTree = "<group>"; };
+		ABE5DD162436C75C00516F65 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		ABE5DD1E2436CA9100516F65 /* GLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESUtils.h; sourceTree = "<group>"; };
+		ABE5DD1F2436CA9100516F65 /* GLESMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESMath.h; sourceTree = "<group>"; };
+		ABE5DD202436CA9100516F65 /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
+		ABE5DD212436CA9200516F65 /* GLESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESUtils.m; sourceTree = "<group>"; };
+		ABE5DD222436CA9200516F65 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		ABE5DD232436CA9200516F65 /* GLESMath.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = GLESMath.c; sourceTree = "<group>"; };
+		ABE5DD262436D2C600516F65 /* test03.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test03.fsh; sourceTree = "<group>"; };
+		ABE5DD272436D2C700516F65 /* test03.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test03.vsh; sourceTree = "<group>"; };
+		ABE5DD2A24371DC100516F65 /* test04.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test04.fsh; sourceTree = "<group>"; };
+		ABE5DD2B24371DC100516F65 /* test04.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = test04.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +211,7 @@
 		AB25D66A2431C93A00F5E6B3 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				AB25D67E2431CAA900F5E6B3 /* GLESUtils.h */,
-				AB25D6812431CAA900F5E6B3 /* GLESUtils.m */,
+				ABE5DD1D2436CA8600516F65 /* Mat4 */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -251,7 +274,9 @@
 				ABA4021E242DD2B70028B408 /* VideoViewController.m */,
 				AB44A6B02432DEA700C6A183 /* EffectsViewController.h */,
 				AB44A6B12432DEA700C6A183 /* EffectsViewController.m */,
-				ABA40235242DDE3D0028B408 /* VideoHander.h */,
+				ABE5DCF82435E98B00516F65 /* TestViewController.h */,
+				ABE5DCF92435E98B00516F65 /* TestViewController.m */,
+				ABE5DD162436C75C00516F65 /* PrefixHeader.pch */,
 				ABA401F4242DCBE40028B408 /* Main.storyboard */,
 				ABA401F7242DCBE60028B408 /* Assets.xcassets */,
 				ABA401F9242DCBE60028B408 /* LaunchScreen.storyboard */,
@@ -327,6 +352,7 @@
 		ABA40222242DDA830028B408 /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				ABE5DCF32435DE6600516F65 /* test */,
 				ABA40223242DDA830028B408 /* Normal.fsh */,
 				ABA40225242DDA830028B408 /* Normal.vsh */,
 				ABA40224242DDA830028B408 /* YUVConversion.fsh */,
@@ -424,6 +450,34 @@
 			path = Template;
 			sourceTree = "<group>";
 		};
+		ABE5DCF32435DE6600516F65 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5DCF52435DE9F00516F65 /* test01.fsh */,
+				ABE5DCF42435DE9F00516F65 /* test01.vsh */,
+				ABE5DCFC2435EE1C00516F65 /* test02.fsh */,
+				ABE5DCFB2435EE1C00516F65 /* test02.vsh */,
+				ABE5DD262436D2C600516F65 /* test03.fsh */,
+				ABE5DD272436D2C700516F65 /* test03.vsh */,
+				ABE5DD2A24371DC100516F65 /* test04.fsh */,
+				ABE5DD2B24371DC100516F65 /* test04.vsh */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		ABE5DD1D2436CA8600516F65 /* Mat4 */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5DD232436CA9200516F65 /* GLESMath.c */,
+				ABE5DD1F2436CA9100516F65 /* GLESMath.h */,
+				ABE5DD1E2436CA9100516F65 /* GLESUtils.h */,
+				ABE5DD212436CA9200516F65 /* GLESUtils.m */,
+				ABE5DD202436CA9100516F65 /* Quaternion.h */,
+				ABE5DD222436CA9200516F65 /* Vector.h */,
+			);
+			path = Mat4;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,6 +538,7 @@
 				AB25D60D24319E0C00F5E6B3 /* scaleRotate.vsh in Resources */,
 				ABA40247242DF3470028B408 /* scale.vsh in Resources */,
 				ABA40248242DF3470028B408 /* scale.fsh in Resources */,
+				ABE5DD282436D2C700516F65 /* test03.fsh in Resources */,
 				ABA4022D242DDA830028B408 /* YUVConversion.fsh in Resources */,
 				ABA40253242E0C540028B408 /* shader2.vsh in Resources */,
 				AB6AF9412433436500308DC1 /* SoulOut.fsh in Resources */,
@@ -492,23 +547,30 @@
 				AB25D6102431C4AC00F5E6B3 /* moveRotate.vsh in Resources */,
 				AB5184BF243313B000D466EC /* mixTexture.fsh in Resources */,
 				AB5184BE243313B000D466EC /* mixTexture.vsh in Resources */,
+				ABE5DD292436D2C700516F65 /* test03.vsh in Resources */,
 				ABE5DCDE24347F8F00516F65 /* test.M4V in Resources */,
 				AB6AF9402433436500308DC1 /* SoulOut.vsh in Resources */,
 				ABA4022E242DDA830028B408 /* Normal.vsh in Resources */,
 				ABE5DCE12434808300516F65 /* Vertigo.fsh in Resources */,
 				ABA401F8242DCBE60028B408 /* Assets.xcassets in Resources */,
+				ABE5DCFD2435EE1C00516F65 /* test02.vsh in Resources */,
+				ABE5DD2C24371DC100516F65 /* test04.fsh in Resources */,
+				ABE5DCF62435DE9F00516F65 /* test01.vsh in Resources */,
 				ABE5DCEE243486A500516F65 /* scaleTwoScreen.vsh in Resources */,
 				ABA4022F242DDA830028B408 /* YUVConversion.vsh in Resources */,
 				AB44A6B92432E2DB00C6A183 /* test.mp4 in Resources */,
 				ABE5DCEF243486A500516F65 /* scaleTwoScreen.fsh in Resources */,
 				ABE5DCE22434808300516F65 /* Vertigo.vsh in Resources */,
 				AB5184B82433114500D466EC /* nature.mp4 in Resources */,
+				ABE5DD2D24371DC100516F65 /* test04.vsh in Resources */,
 				ABA4022C242DDA830028B408 /* Normal.fsh in Resources */,
 				ABA401F6242DCBE40028B408 /* Main.storyboard in Resources */,
 				AB44A6BB2432E2FF00C6A183 /* ping20s.mp4 in Resources */,
+				ABE5DCF72435DE9F00516F65 /* test01.fsh in Resources */,
 				ABA40254242E0C540028B408 /* shader2.fsh in Resources */,
 				ABE5DCCF243464BF00516F65 /* test.mov in Resources */,
 				AB25D6112431C4AC00F5E6B3 /* moveRotate.fsh in Resources */,
+				ABE5DCFE2435EE1C00516F65 /* test02.fsh in Resources */,
 				AB6AF93D2433337400308DC1 /* sample2.MP4 in Resources */,
 				AB6AF93C2433337400308DC1 /* sample1.MP4 in Resources */,
 			);
@@ -523,6 +585,7 @@
 			files = (
 				ABA401F3242DCBE40028B408 /* ViewController.m in Sources */,
 				ABE5DCE8243480FF00516F65 /* VertigoFilter.m in Sources */,
+				ABE5DD252436CA9200516F65 /* GLESMath.c in Sources */,
 				ABE5DCD524346D3A00516F65 /* TemplateVideoCompositionInstruction.m in Sources */,
 				ABE5DCDC2434735200516F65 /* Template01.m in Sources */,
 				ABA40207242DCCA20028B408 /* VideoBuilder.m in Sources */,
@@ -533,11 +596,13 @@
 				ABA4021C242DD1BB0028B408 /* APLCustomVideoCompositor.m in Sources */,
 				ABA4023E242DE2B80028B408 /* FWCustomVideoCompositor.m in Sources */,
 				ABA40234242DDB530028B408 /* SourceEAGLContext.m in Sources */,
+				ABE5DCFA2435E98B00516F65 /* TestViewController.m in Sources */,
 				ABA40231242DDA830028B408 /* MFPixelBufferHelper.m in Sources */,
 				ABA40241242DE3A10028B408 /* CustomVideoCompositionInstruction.m in Sources */,
 				ABA401FE242DCBE60028B408 /* main.m in Sources */,
 				AB44A6B62432E1BC00C6A183 /* APLSimpleEditor.m in Sources */,
 				ABA40213242DD07C0028B408 /* APLCrossDissolveRenderer.m in Sources */,
+				ABE5DD242436CA9200516F65 /* GLESUtils.m in Sources */,
 				ABA40212242DD07C0028B408 /* APLOpenGLRenderer.m in Sources */,
 				ABA40244242DF2CA0028B408 /* ScaleFilter.m in Sources */,
 				ABE5DCF2243486FB00516F65 /* ScaleTwoScreenFilter.m in Sources */,
@@ -549,7 +614,6 @@
 				AB25D6142431C4DA00F5E6B3 /* MoveAndRotateFilter.m in Sources */,
 				ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */,
 				ABA4020A242DCCCF0028B408 /* AudioToVideo.m in Sources */,
-				AB25D6852431CAA900F5E6B3 /* GLESUtils.m in Sources */,
 				ABA4021B242DD1BB0028B408 /* APLCustomVideoCompositionInstruction.m in Sources */,
 				AB25D609243199F100F5E6B3 /* RotateFilter.m in Sources */,
 				ABA40214242DD07C0028B408 /* APLDiagonalWipeRenderer.m in Sources */,
@@ -697,7 +761,7 @@
 				DEVELOPMENT_TEAM = K889Z3PDP3;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/图片转视频-加滤镜/VideoHander.h";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/图片转视频-加滤镜/PrefixHeader.pch";
 				INFOPLIST_FILE = "图片转视频-加滤镜/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -718,7 +782,7 @@
 				DEVELOPMENT_TEAM = K889Z3PDP3;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/图片转视频-加滤镜/VideoHander.h";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/图片转视频-加滤镜/PrefixHeader.pch";
 				INFOPLIST_FILE = "图片转视频-加滤镜/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

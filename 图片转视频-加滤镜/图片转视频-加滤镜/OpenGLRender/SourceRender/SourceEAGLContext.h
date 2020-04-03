@@ -6,6 +6,7 @@
 //  Copyright © 2020 fuzhongw. All rights reserved.
 //
 
+//#import <Foundation/Foundation.h>
 #import <Foundation/Foundation.h>
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>

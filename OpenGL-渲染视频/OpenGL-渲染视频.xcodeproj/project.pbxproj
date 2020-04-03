@@ -49,6 +49,7 @@
 		ABA4FFFA242B4EEF0028B408 /* Normal.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA4FFF6242B4EEF0028B408 /* Normal.vsh */; };
 		ABA4FFFB242B4EEF0028B408 /* Normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA4FFF7242B4EEF0028B408 /* Normal.fsh */; };
 		ABA4FFFC242B4EEF0028B408 /* YUVConversion.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA4FFF8242B4EEF0028B408 /* YUVConversion.vsh */; };
+		ABE5DD152436C6C800516F65 /* dsadsfasf.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE5DD142436C6C800516F65 /* dsadsfasf.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,6 +305,8 @@
 		ABA4FFF8242B4EEF0028B408 /* YUVConversion.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = YUVConversion.vsh; sourceTree = "<group>"; };
 		ABA4FFFE242B4F040028B408 /* MFShaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFShaderHelper.m; sourceTree = "<group>"; };
 		ABA4FFFF242B4F040028B408 /* MFPixelBufferHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPixelBufferHelper.m; sourceTree = "<group>"; };
+		ABE5DD132436C6C800516F65 /* dsadsfasf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dsadsfasf.h; sourceTree = "<group>"; };
+		ABE5DD142436C6C800516F65 /* dsadsfasf.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dsadsfasf.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +355,8 @@
 				AB5FA49C241B69AE00B7E51F /* LaunchScreen.storyboard */,
 				AB5FA49F241B69AE00B7E51F /* Info.plist */,
 				AB5FA4A0241B69AE00B7E51F /* main.m */,
+				ABE5DD132436C6C800516F65 /* dsadsfasf.h */,
+				ABE5DD142436C6C800516F65 /* dsadsfasf.c */,
 			);
 			path = "OpenGL-渲染视频";
 			sourceTree = "<group>";
@@ -792,6 +797,7 @@
 				AB5FA4B6241B69D200B7E51F /* MKBaseVideoCamera.m in Sources */,
 				AB5FA4ED241B6A3F00B7E51F /* MKGLProgram.m in Sources */,
 				AB5FA4F3241B6A3F00B7E51F /* MKGPUImageLookupFilter.m in Sources */,
+				ABE5DD152436C6C800516F65 /* dsadsfasf.c in Sources */,
 				AB5FA501241B6A3F00B7E51F /* MKGPUImageContext.m in Sources */,
 				ABA40002242B4F040028B408 /* MFShaderHelper.m in Sources */,
 				ABA4FFF3242B4EBF0028B408 /* CustomFilter.m in Sources */,
@@ -946,6 +952,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K889Z3PDP3;
 				INFOPLIST_FILE = "OpenGL-渲染视频/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -967,6 +974,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K889Z3PDP3;
 				INFOPLIST_FILE = "OpenGL-渲染视频/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
