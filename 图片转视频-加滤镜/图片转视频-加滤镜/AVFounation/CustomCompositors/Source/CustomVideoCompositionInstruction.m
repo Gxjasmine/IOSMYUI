@@ -13,6 +13,7 @@
 #import "MixFilter.h"
 #import "SouloutFilter.h"
 #import "VertigoFilter.h"
+#import "CubeFilter.h"
 
 #import "CustomVideoCompositionInstruction.h"
 
@@ -33,7 +34,7 @@
         _requiredSourceTrackIDs = @[];
         _containsTweening = NO;
         _enablePostProcessing = NO;
-        _filter = [[VertigoFilter alloc] init];
+        _filter = [[CubeFilter alloc] init];
         _sedd = 0;
     }
     return self;
@@ -47,7 +48,7 @@
         _passthroughTrackID = kCMPersistentTrackID_Invalid;
         _containsTweening = YES;
         _enablePostProcessing = NO;
-        _filter = [[VertigoFilter alloc] init];
+        _filter = [[CubeFilter alloc] init];
         _sedd = 0;
 
     }

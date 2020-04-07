@@ -21,6 +21,10 @@
 		AB5184BB2433136500D466EC /* MixFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5184BA2433136500D466EC /* MixFilter.m */; };
 		AB5184BE243313B000D466EC /* mixTexture.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB5184BC243313B000D466EC /* mixTexture.vsh */; };
 		AB5184BF243313B000D466EC /* mixTexture.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB5184BD243313B000D466EC /* mixTexture.fsh */; };
+		AB51D5B2243C129300ED2EB8 /* cube.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB51D5AF243C129200ED2EB8 /* cube.fsh */; };
+		AB51D5B3243C129300ED2EB8 /* cube.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB51D5B0243C129200ED2EB8 /* cube.vsh */; };
+		AB51D5B6243C12BB00ED2EB8 /* CubeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51D5B5243C12BB00ED2EB8 /* CubeFilter.m */; };
+		AB51D5B8243C137900ED2EB8 /* scale.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB51D5B7243C137900ED2EB8 /* scale.vsh */; };
 		AB6AF93C2433337400308DC1 /* sample1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = AB6AF93A2433337400308DC1 /* sample1.MP4 */; };
 		AB6AF93D2433337400308DC1 /* sample2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = AB6AF93B2433337400308DC1 /* sample2.MP4 */; };
 		AB6AF9402433436500308DC1 /* SoulOut.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB6AF93E2433436500308DC1 /* SoulOut.vsh */; };
@@ -52,7 +56,6 @@
 		ABA4023E242DE2B80028B408 /* FWCustomVideoCompositor.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA4023D242DE2B80028B408 /* FWCustomVideoCompositor.m */; };
 		ABA40241242DE3A10028B408 /* CustomVideoCompositionInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40240242DE3A10028B408 /* CustomVideoCompositionInstruction.m */; };
 		ABA40244242DF2CA0028B408 /* ScaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA40243242DF2CA0028B408 /* ScaleFilter.m */; };
-		ABA40247242DF3470028B408 /* scale.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40245242DF3470028B408 /* scale.vsh */; };
 		ABA40248242DF3470028B408 /* scale.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40246242DF3470028B408 /* scale.fsh */; };
 		ABA40253242E0C540028B408 /* shader2.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40251242E0C540028B408 /* shader2.vsh */; };
 		ABA40254242E0C540028B408 /* shader2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ABA40252242E0C540028B408 /* shader2.fsh */; };
@@ -102,6 +105,11 @@
 		AB5184BA2433136500D466EC /* MixFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixFilter.m; sourceTree = "<group>"; };
 		AB5184BC243313B000D466EC /* mixTexture.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = mixTexture.vsh; sourceTree = "<group>"; };
 		AB5184BD243313B000D466EC /* mixTexture.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = mixTexture.fsh; sourceTree = "<group>"; };
+		AB51D5AF243C129200ED2EB8 /* cube.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cube.fsh; sourceTree = "<group>"; };
+		AB51D5B0243C129200ED2EB8 /* cube.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cube.vsh; sourceTree = "<group>"; };
+		AB51D5B4243C12BA00ED2EB8 /* CubeFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeFilter.h; sourceTree = "<group>"; };
+		AB51D5B5243C12BB00ED2EB8 /* CubeFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubeFilter.m; sourceTree = "<group>"; };
+		AB51D5B7243C137900ED2EB8 /* scale.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scale.vsh; sourceTree = "<group>"; };
 		AB6AF93A2433337400308DC1 /* sample1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample1.MP4; sourceTree = "<group>"; };
 		AB6AF93B2433337400308DC1 /* sample2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample2.MP4; sourceTree = "<group>"; };
 		AB6AF93E2433436500308DC1 /* SoulOut.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SoulOut.vsh; sourceTree = "<group>"; };
@@ -154,7 +162,6 @@
 		ABA40240242DE3A10028B408 /* CustomVideoCompositionInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomVideoCompositionInstruction.m; sourceTree = "<group>"; };
 		ABA40242242DF2CA0028B408 /* ScaleFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleFilter.h; sourceTree = "<group>"; };
 		ABA40243242DF2CA0028B408 /* ScaleFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleFilter.m; sourceTree = "<group>"; };
-		ABA40245242DF3470028B408 /* scale.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scale.vsh; sourceTree = "<group>"; };
 		ABA40246242DF3470028B408 /* scale.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scale.fsh; sourceTree = "<group>"; };
 		ABA40251242E0C540028B408 /* shader2.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader2.vsh; sourceTree = "<group>"; };
 		ABA40252242E0C540028B408 /* shader2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader2.fsh; sourceTree = "<group>"; };
@@ -239,11 +246,19 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		AB773F0E243C139E00F31D28 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		ABA401DF242DCBE40028B408 = {
 			isa = PBXGroup;
 			children = (
 				ABA401EA242DCBE40028B408 /* 图片转视频-加滤镜 */,
 				ABA401E9242DCBE40028B408 /* Products */,
+				AB773F0E243C139E00F31D28 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -311,6 +326,7 @@
 			children = (
 				ABE5DCD62434710400516F65 /* Template */,
 				ABA40236242DDFC60028B408 /* Filter */,
+				ABA40222242DDA830028B408 /* shader */,
 				ABA40216242DD1970028B408 /* CustomCompositors */,
 			);
 			path = AVFounation;
@@ -341,7 +357,6 @@
 		ABA40221242DDA5C0028B408 /* SourceRender */ = {
 			isa = PBXGroup;
 			children = (
-				ABA40222242DDA830028B408 /* shader */,
 				ABA40227242DDA830028B408 /* Utils */,
 				ABA40232242DDB530028B408 /* SourceEAGLContext.h */,
 				ABA40233242DDB530028B408 /* SourceEAGLContext.m */,
@@ -358,7 +373,9 @@
 				ABA40224242DDA830028B408 /* YUVConversion.fsh */,
 				ABA40226242DDA830028B408 /* YUVConversion.vsh */,
 				ABA40246242DF3470028B408 /* scale.fsh */,
-				ABA40245242DF3470028B408 /* scale.vsh */,
+				AB51D5B7243C137900ED2EB8 /* scale.vsh */,
+				AB51D5AF243C129200ED2EB8 /* cube.fsh */,
+				AB51D5B0243C129200ED2EB8 /* cube.vsh */,
 				ABA40252242E0C540028B408 /* shader2.fsh */,
 				ABA40251242E0C540028B408 /* shader2.vsh */,
 				AB25D60A24319E0B00F5E6B3 /* scaleRotate.fsh */,
@@ -407,6 +424,8 @@
 				ABE5DCE7243480FF00516F65 /* VertigoFilter.m */,
 				ABE5DCF0243486FB00516F65 /* ScaleTwoScreenFilter.h */,
 				ABE5DCF1243486FB00516F65 /* ScaleTwoScreenFilter.m */,
+				AB51D5B4243C12BA00ED2EB8 /* CubeFilter.h */,
+				AB51D5B5243C12BB00ED2EB8 /* CubeFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -536,7 +555,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB25D60D24319E0C00F5E6B3 /* scaleRotate.vsh in Resources */,
-				ABA40247242DF3470028B408 /* scale.vsh in Resources */,
 				ABA40248242DF3470028B408 /* scale.fsh in Resources */,
 				ABE5DD282436D2C700516F65 /* test03.fsh in Resources */,
 				ABA4022D242DDA830028B408 /* YUVConversion.fsh in Resources */,
@@ -552,6 +570,7 @@
 				AB6AF9402433436500308DC1 /* SoulOut.vsh in Resources */,
 				ABA4022E242DDA830028B408 /* Normal.vsh in Resources */,
 				ABE5DCE12434808300516F65 /* Vertigo.fsh in Resources */,
+				AB51D5B8243C137900ED2EB8 /* scale.vsh in Resources */,
 				ABA401F8242DCBE60028B408 /* Assets.xcassets in Resources */,
 				ABE5DCFD2435EE1C00516F65 /* test02.vsh in Resources */,
 				ABE5DD2C24371DC100516F65 /* test04.fsh in Resources */,
@@ -559,6 +578,7 @@
 				ABE5DCEE243486A500516F65 /* scaleTwoScreen.vsh in Resources */,
 				ABA4022F242DDA830028B408 /* YUVConversion.vsh in Resources */,
 				AB44A6B92432E2DB00C6A183 /* test.mp4 in Resources */,
+				AB51D5B3243C129300ED2EB8 /* cube.vsh in Resources */,
 				ABE5DCEF243486A500516F65 /* scaleTwoScreen.fsh in Resources */,
 				ABE5DCE22434808300516F65 /* Vertigo.vsh in Resources */,
 				AB5184B82433114500D466EC /* nature.mp4 in Resources */,
@@ -572,6 +592,7 @@
 				AB25D6112431C4AC00F5E6B3 /* moveRotate.fsh in Resources */,
 				ABE5DCFE2435EE1C00516F65 /* test02.fsh in Resources */,
 				AB6AF93D2433337400308DC1 /* sample2.MP4 in Resources */,
+				AB51D5B2243C129300ED2EB8 /* cube.fsh in Resources */,
 				AB6AF93C2433337400308DC1 /* sample1.MP4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,6 +636,7 @@
 				ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */,
 				ABA4020A242DCCCF0028B408 /* AudioToVideo.m in Sources */,
 				ABA4021B242DD1BB0028B408 /* APLCustomVideoCompositionInstruction.m in Sources */,
+				AB51D5B6243C12BB00ED2EB8 /* CubeFilter.m in Sources */,
 				AB25D609243199F100F5E6B3 /* RotateFilter.m in Sources */,
 				ABA40214242DD07C0028B408 /* APLDiagonalWipeRenderer.m in Sources */,
 				ABE5DCD224346CA800516F65 /* TemplateVideoCompositor.m in Sources */,

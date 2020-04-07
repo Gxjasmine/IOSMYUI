@@ -17,7 +17,11 @@ typedef struct {
     GLKVector2 textureCoord; // (U, V)
 } SenceVertex;
 @interface TestViewController ()
+{
+     float xDegree;
+    float zDegree;
 
+}
 @property (nonatomic, assign) SenceVertex *vertices;
 @property (nonatomic, strong) EAGLContext *context;
 
@@ -31,6 +35,7 @@ typedef struct {
 @property (nonatomic, assign)  CGFloat currentTime;
 
 @property (nonatomic, assign)  BOOL isModel;
+@property (nonatomic, assign)  BOOL isprojectModel;
 
 @property (nonatomic, assign)  int tag;
  @property (nonatomic, assign) KSMatrix4 kmodelViewMatrix;
@@ -40,6 +45,10 @@ typedef struct {
 
 
 - (void)dealloc {
+    [self clearData];
+}
+
+-(void)clearData{
     if ([EAGLContext currentContext] == self.context) {
         [EAGLContext setCurrentContext:nil];
     }
@@ -59,8 +68,112 @@ typedef struct {
     self.view.backgroundColor = [UIColor whiteColor];
 
       [self commonInit];
-
+      xDegree = 0;
       [self startFilerAnimation];
+    zDegree = -10;
+}
+
+- (void)commonInit3 {
+    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    [EAGLContext setCurrentContext:self.context];
+    // 开启深度缓存
+//    glEnable(GL_DEPTH_TEST);
+    self.vertices = malloc(sizeof(SenceVertex) * 24);
+  // 前面
+    self.vertices[0] = (SenceVertex){{-0.5, 0.5, 0.5}, {0, 1}};
+    self.vertices[1] = (SenceVertex){{-0.5, -0.5, 0.5}, {0.0, 0.0}};
+    self.vertices[2] = (SenceVertex){{0.5, -0.5, 0.5}, {1.0, 0.0}};
+    self.vertices[3] = (SenceVertex){{0.5, 0.5, 0.5}, {1.0, 1.0}};
+
+ // 后面
+    self.vertices[4] = (SenceVertex){{-0.5, 0.5, -0.5}, {1.0, 1.0}};
+      self.vertices[5] = (SenceVertex){{-0.5, -0.5, -0.5}, {1.0, 0.0}};
+      self.vertices[6] = (SenceVertex){{0.5, -0.5, -0.5}, {0.0, 0.0}};
+      self.vertices[7] = (SenceVertex){{0.5, 0.5, -0.5}, {0.0, 1.0}};
+
+    // 左面
+    self.vertices[8] = (SenceVertex){{-0.5, 0.5, -0.5}, {0.0, 1.0}};
+      self.vertices[9] = (SenceVertex){{-0.5, -0.5, -0.5}, {0.0, 0.0}};
+      self.vertices[10] = (SenceVertex){{-0.5, 0.5, 0.5}, {1.0, 1.0}};
+      self.vertices[11] = (SenceVertex){{-0.5, -0.5, 0.5}, {1.0, 0.0}};
+// 右面
+    self.vertices[12] = (SenceVertex){{0.5, 0.5, 0.5}, {0.0, 1.0}};
+      self.vertices[13] = (SenceVertex){{0.5, -0.5, 0.5}, {0.0, 0.0}};
+      self.vertices[14] = (SenceVertex){{0.5, -0.5, -0.5}, {1.0, 0.0}};
+      self.vertices[15] = (SenceVertex){{0.5, 0.5, -0.5}, {1.0, 1.0}};
+// 上面
+    self.vertices[16] = (SenceVertex){{-0.5, 0.5, 0.5}, {0.0, 0.0}};
+      self.vertices[17] = (SenceVertex){{0.5, 0.5, 0.5}, {1.0, 0.0}};
+      self.vertices[18] = (SenceVertex){{-0.5, 0.5, -0.5}, {0.0, 1.0}};
+      self.vertices[19] = (SenceVertex){{0.5, 0.5, -0.5}, {1.0, 1.0}};
+// 下面
+    self.vertices[20] = (SenceVertex){{-0.5, -0.5, 0.5}, {0.0, 1.0}};
+      self.vertices[21] = (SenceVertex){{0.5, -0.5, 0.5}, {1.0, 1.0}};
+      self.vertices[22] = (SenceVertex){{-0.5, -0.5, -0.5}, {0.0, 0.0}};
+      self.vertices[23] = (SenceVertex){{0.5, -0.5, -0.5}, {1.0, 0.0}};
+
+
+    CAEAGLLayer *layer = [[CAEAGLLayer alloc] init];
+    layer.frame = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.width);
+    layer.contentsScale = [[UIScreen mainScreen] scale];
+
+    [self.view.layer addSublayer:layer];
+    [self bindRenderLayer:layer];
+
+//    NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"sample.jpg"];
+    UIImage *image = [UIImage imageNamed:@"7"];
+    GLuint textureID = [self createTextureWithImage:image];
+    self.textureID = textureID;  // 将纹理 ID 保存，方便后面切换滤镜的时候重用
+
+    glViewport(0, 0, self.drawableWidth, self.drawableHeight);
+
+    GLuint vertexBuffer;
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    GLsizeiptr bufferSizeBytes = sizeof(SenceVertex) * 24;
+    glBufferData(GL_ARRAY_BUFFER, bufferSizeBytes, self.vertices, GL_STATIC_DRAW);
+
+    [self setupVertigoShaderProgram]; // 一开始选用默认的着色器
+
+    self.vertexBuffer = vertexBuffer; // 将顶点缓存保存，退出时才释放
+}
+
+- (void)commonInit2 {
+    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    [EAGLContext setCurrentContext:self.context];
+    // 开启深度缓存
+       glEnable(GL_DEPTH_TEST);
+    self.vertices = malloc(sizeof(SenceVertex) * 5);
+
+    self.vertices[0] = (SenceVertex){{-0.5, 0.5, 0}, {0, 1}};
+    self.vertices[1] = (SenceVertex){{0.5, 0.5, 0}, {1, 1}};
+    self.vertices[2] = (SenceVertex){{-0.5, -0.5, 0}, {0, 0}};
+    self.vertices[3] = (SenceVertex){{0.5, -0.5, 0}, {1, 0}};
+    self.vertices[4] = (SenceVertex){{0.0, 0.0, 1.0}, {0.5, 0.5}};
+
+    CAEAGLLayer *layer = [[CAEAGLLayer alloc] init];
+    layer.frame = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.width);
+    layer.contentsScale = [[UIScreen mainScreen] scale];
+
+    [self.view.layer addSublayer:layer];
+    [self bindRenderLayer:layer];
+
+//    NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"sample.jpg"];
+    UIImage *image = [UIImage imageNamed:@"7"];
+    GLuint textureID = [self createTextureWithImage:image];
+    self.textureID = textureID;  // 将纹理 ID 保存，方便后面切换滤镜的时候重用
+
+    glViewport(0, 0, self.drawableWidth, self.drawableHeight);
+
+    GLuint vertexBuffer;
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    GLsizeiptr bufferSizeBytes = sizeof(SenceVertex) * 5;
+    glBufferData(GL_ARRAY_BUFFER, bufferSizeBytes, self.vertices, GL_STATIC_DRAW);
+
+    [self setupVertigoShaderProgram]; // 一开始选用默认的着色器
+
+    self.vertexBuffer = vertexBuffer; // 将顶点缓存保存，退出时才释放
 }
 
 - (void)commonInit {
@@ -243,18 +356,276 @@ typedef struct {
             glUniformMatrix4fv(modelViewMatrixSlot, 1, GL_FALSE, (GLfloat*)&modelViewMatrix.m[0][0]);
         }
 
+        if (self.tag == 6) {
+
+            GLuint projectionMatrixSlot = glGetUniformLocation(self.program, "projectionMatrix");
+            float width = self.view.frame.size.width;
+            float height = self.view.frame.size.height;
+
+            //12.创建4 * 4投影矩阵
+            KSMatrix4 _projectionMatrix;
+            //(1)获取单元矩阵
+            ksMatrixLoadIdentity(&_projectionMatrix);
+            //(2)计算纵横比例 = 长/宽
+            float aspect = width / height; //长宽比
+            //(3)获取透视矩阵
+            /*
+             参数1：矩阵
+             参数2：视角，度数为单位
+             参数3：纵横比
+             参数4：近平面距离
+             参数5：远平面距离
+             参考PPT
+             */
+            ksPerspective(&_projectionMatrix, 30.0, aspect, 5.0f, 20.0f); //透视变换，视角30°
+            //(4)将投影矩阵传递到顶点着色器
+            /*
+             void glUniformMatrix4fv(GLint location,  GLsizei count,  GLboolean transpose,  const GLfloat *value);
+             参数列表：
+             location:指要更改的uniform变量的位置
+             count:更改矩阵的个数
+             transpose:是否要转置矩阵，并将它作为uniform变量的值。必须为GL_FALSE
+             value:执行count个元素的指针，用来更新指定uniform变量
+             */
+            glUniformMatrix4fv(projectionMatrixSlot, 1, GL_FALSE, (GLfloat*)&_projectionMatrix.m[0][0]);
+
+             //自定义
+            //13.创建一个4 * 4 矩阵，模型视图矩阵
+              KSMatrix4 _modelViewMatrix;
+              //(1)获取单元矩阵
+              ksMatrixLoadIdentity(&_modelViewMatrix);
+              //(2)平移，z轴平移-10
+            ksTranslate(&_modelViewMatrix, 0.0, 0.0, -6);
+              //(3)创建一个4 * 4 矩阵，旋转矩阵
+              KSMatrix4 _rotationMatrix;
+              //(4)初始化为单元矩阵
+              ksMatrixLoadIdentity(&_rotationMatrix);
+              //(5)旋转
+              xDegree += 5;
+              ksRotate(&_rotationMatrix, xDegree, 1.0, 0.0, 0.0); //绕X轴
+//              ksRotate(&_rotationMatrix, 20, 0.0, 1.0, 0.0); //绕Y轴
+//              ksRotate(&_rotationMatrix, 20, 0.0, 0.0, 1.0); //绕Z轴
+              //(6)把变换矩阵相乘.将_modelViewMatrix矩阵与_rotationMatrix矩阵相乘，结合到模型视图
+               ksMatrixMultiply(&_modelViewMatrix, &_rotationMatrix, &_modelViewMatrix);
+              //(7)将模型视图矩阵传递到顶点着色器
+              /*
+               void glUniformMatrix4fv(GLint location,  GLsizei count,  GLboolean transpose,  const GLfloat *value);
+               参数列表：
+               location:指要更改的uniform变量的位置
+               count:更改矩阵的个数
+               transpose:是否要转置矩阵，并将它作为uniform变量的值。必须为GL_FALSE
+               value:执行count个元素的指针，用来更新指定uniform变量
+               */
+              glUniformMatrix4fv(modelViewMatrixSlot, 1, GL_FALSE, (GLfloat*)&_modelViewMatrix.m[0][0]);
+
+            // 清除画布
+            glClear(GL_COLOR_BUFFER_BIT);
+            glClearColor(0, 0, 0, 0.5);
+
+            // 重绘
+            GLuint indices[] =
+              {
+                  0, 3, 2,
+                  0, 1, 3,
+                  0, 2, 4,
+                  0, 4, 1,
+                  2, 3, 4,
+                  1, 4, 3,
+              };
+            glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(indices[0]), GL_UNSIGNED_INT, indices);
+            [self.context presentRenderbuffer:GL_RENDERBUFFER];
+            //14.开启剔除操作效果
+//              glEnable(GL_CULL_FACE);
+            return;
+         }
+
+
+        if (self.tag == 7) {
+
+            GLuint projectionMatrixSlot = glGetUniformLocation(self.program, "projectionMatrix");
+            float width = self.view.frame.size.width;
+            float height = self.view.frame.size.height;
+
+            //12.创建4 * 4投影矩阵
+            KSMatrix4 _projectionMatrix;
+            //(1)获取单元矩阵
+            ksMatrixLoadIdentity(&_projectionMatrix);
+            //(2)计算纵横比例 = 长/宽
+            float aspect = 1; //长宽比
+            //(3)获取透视矩阵
+            /*
+             参数1：矩阵
+             参数2：视角，度数为单位
+             参数3：纵横比
+             参数4：近平面距离
+             参数5：远平面距离
+             参考PPT
+             */
+            ksPerspective(&_projectionMatrix, 35, aspect, 0.1, 120); //透视变换，视角30°
+
+            //(4)将投影矩阵传递到顶点着色器
+            /*
+             void glUniformMatrix4fv(GLint location,  GLsizei count,  GLboolean transpose,  const GLfloat *value);
+             参数列表：
+             location:指要更改的uniform变量的位置
+             count:更改矩阵的个数
+             transpose:是否要转置矩阵，并将它作为uniform变量的值。必须为GL_FALSE
+             value:执行count个元素的指针，用来更新指定uniform变量
+             */
+            glUniformMatrix4fv(projectionMatrixSlot, 1, GL_FALSE, (GLfloat*)&_projectionMatrix.m[0][0]);
+
+//            GLKMatrix4 GLKMatrix4MakeLookAt(0, 0, 3, 0, 0, 0, 0, 1, 0);
+            //自定义
+            //13.创建一个4 * 4 矩阵，模型视图矩阵
+            KSMatrix4 _modelViewMatrix;
+            //(1)获取单元矩阵
+            ksMatrixLoadIdentity(&_modelViewMatrix);
+            //(2)平移，z轴平移
+            ksTranslate(&_modelViewMatrix, 0.0, 0.0, -3.0);
+
+            //(3)创建一个4 * 4 矩阵，旋转矩阵
+            KSMatrix4 _rotationMatrix;
+            //(4)初始化为单元矩阵
+            ksMatrixLoadIdentity(&_rotationMatrix);
+            //(5)旋转
+            xDegree += 5;
+            ksRotate(&_rotationMatrix, xDegree, 1.0, 0.0, 0.0); //绕X轴
+             ksRotate(&_rotationMatrix, 30, 0.0, 1.0, 0.0); //绕Y轴
+              ksRotate(&_rotationMatrix, 30, 0.0, 0.0, 1.0); //绕Z轴
+            //(6)把变换矩阵相乘.将_modelViewMatrix矩阵与_rotationMatrix矩阵相乘，结合到模型视图
+            ksMatrixMultiply(&_modelViewMatrix, &_rotationMatrix, &_modelViewMatrix);
+            //(7)将模型视图矩阵传递到顶点着色器
+            /*
+             void glUniformMatrix4fv(GLint location,  GLsizei count,  GLboolean transpose,  const GLfloat *value);
+             参数列表：
+             location:指要更改的uniform变量的位置
+             count:更改矩阵的个数
+             transpose:是否要转置矩阵，并将它作为uniform变量的值。必须为GL_FALSE
+             value:执行count个元素的指针，用来更新指定uniform变量
+             */
+            glUniformMatrix4fv(modelViewMatrixSlot, 1, GL_FALSE, (GLfloat*)&_modelViewMatrix.m[0][0]);
+
+            // 清除画布
+            glClear(GL_COLOR_BUFFER_BIT );
+            glClearColor(0, 0, 0, 0.5);
+
+            // 重绘
+            GLuint indices[] =
+            {
+                // 前面
+                0, 1, 2,
+                0, 2, 3,
+                // 后面
+                5, 4, 7,
+                5, 7, 6,
+                // 左面
+                8, 9, 11,
+                8, 11, 10,
+                // 右面
+                12, 13, 14,
+                12, 14, 15,
+                // 上面
+                18, 16, 17,
+                18, 17, 19,
+                // 下面
+                20, 22, 23,
+                20, 23, 21
+            };
+            //14.开启剔除操作效果
+              glEnable(GL_CULL_FACE);
+            glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(indices[0]), GL_UNSIGNED_INT, indices);
+            [self.context presentRenderbuffer:GL_RENDERBUFFER];
+
+            return;
+        }
+
     }
 
     // 清除画布
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0, 0, 0, 0.5);
-
     // 重绘
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     [self.context presentRenderbuffer:GL_RENDERBUFFER];
+
 }
 
 // 在update中修改数据
+- (KSMatrix4)updateModelViewMatrix6 {
+
+    float totalTime = 6;
+    float currentTime =  self.currentTime;
+    float duration5 = fmodf(currentTime, totalTime);
+    float alphaValue = 1.0;
+
+    KSMatrix4 modelViewMatrix;
+    //(1)获取单元矩阵
+    ksMatrixLoadIdentity(&modelViewMatrix);
+
+    if (duration5 <= totalTime) {
+
+        if (duration5 <= 2) {
+
+            //(2)缩放
+            GLfloat scalelValue =  0.2 + 0.3 * duration5;
+            ksScale(&modelViewMatrix, scalelValue, scalelValue + 0.05, 1.0);
+
+
+            //(3)创建一个4 * 4 矩阵，旋转矩阵
+            KSMatrix4 _rotationMatrix;
+            //(4)初始化为单元矩阵
+            ksMatrixLoadIdentity(&_rotationMatrix);
+            //(5)旋转
+            GLfloat elValue =  -30 + 20 * duration5;
+            ksRotate(&_rotationMatrix, elValue, 0.0, 0.0, 1.0); //绕Z轴
+            ksMatrixMultiply(&modelViewMatrix, &_rotationMatrix, &modelViewMatrix);
+
+
+        }else if (duration5 <= 5){
+
+            //(3)创建一个4 * 4 矩阵，缩放矩阵
+            KSMatrix4 slateionMatrix;
+            //(4)初始化为单元矩阵
+            ksMatrixLoadIdentity(&slateionMatrix);
+            GLfloat elValue = 0.1 -0.1 * sinf(duration5);
+
+            // 平移
+            //(2)平移，z轴平移-10
+            ksTranslate(&slateionMatrix, 0.0, fabsf(elValue),0.0);
+            //(6)把变换矩阵相乘.将_modelViewMatrix矩阵与_rotationMatrix矩阵相乘，结合到模型视图
+            ksMatrixMultiply(&modelViewMatrix, &slateionMatrix, &modelViewMatrix);
+
+//            (3)创建一个4 * 4 矩阵，旋转矩阵
+            KSMatrix4 _rotationMatrix;
+            //(4)初始化为单元矩阵
+            ksMatrixLoadIdentity(&_rotationMatrix);
+            //(5)旋转
+            GLfloat rotatlValue =  -30 + 20 * 2.0;
+            ksRotate(&_rotationMatrix,rotatlValue , 0.0, 0.0, 1.0); //绕Z轴
+            ksMatrixMultiply(&modelViewMatrix, &_rotationMatrix, &modelViewMatrix);
+
+            //(2)缩放
+            GLfloat scalelValue =  0.2 + 0.3 * 2.0;
+            ksScale(&modelViewMatrix, scalelValue, scalelValue + 0.05, 1.0);
+
+            //(6)初始化为单元矩阵
+            ksMatrixLoadIdentity(&_kmodelViewMatrix);
+            ksMatrixMultiply(&_kmodelViewMatrix, &modelViewMatrix, &_kmodelViewMatrix);
+
+        }else{
+            ksMatrixMultiply(&modelViewMatrix, &_kmodelViewMatrix, &modelViewMatrix);
+            alphaValue = (totalTime - duration5) / (totalTime - 4.5);
+
+        }
+        NSLog(@"alpha = %lf",alphaValue);
+
+        GLuint alpha = glGetUniformLocation(self.program, "alpha");
+        glUniform1f(alpha, alphaValue);
+
+    }
+
+    return modelViewMatrix ;
+}
 - (KSMatrix4)updateModelViewMatrix5 {
 
     float totalTime = 6;
@@ -685,9 +1056,11 @@ typedef struct {
 
     self.tag  = (int)sender.tag;
     NSString *str = nil;
+    self.isprojectModel = NO;
 
     if (sender.tag == 1 || sender.tag == 2 || sender.tag == 3 || sender.tag == 4) {
         self.isModel = YES;
+
         str = [NSString stringWithFormat:@"test02"];
 
     }else{
@@ -702,12 +1075,35 @@ typedef struct {
 
     }
 
+    if (sender.tag == 6 || sender.tag == 7) {
+        self.isprojectModel = YES;
+
+        self.isModel = YES;
+        str = [NSString stringWithFormat:@"cube"];
+    }
+
+
+    [self clearData];
+
+    if (self.isprojectModel) {
+        if (sender.tag == 6) {
+           [self commonInit2];
+        }else{
+            [self commonInit3];
+
+        }
+
+    }else{
+        [self commonInit];
+
+    }
+
     [self setupShaderProgramWithName:str];
 
 }
 
 - (void)setupVertigoShaderProgram {
-    [self setupShaderProgramWithName:@"test01"];
+    [self setupShaderProgramWithName:@"cube"];
 }
 
 // 初始化着色器程序
