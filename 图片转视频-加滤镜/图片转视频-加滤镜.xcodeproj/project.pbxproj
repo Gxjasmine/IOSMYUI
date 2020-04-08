@@ -30,6 +30,8 @@
 		AB6AF9402433436500308DC1 /* SoulOut.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB6AF93E2433436500308DC1 /* SoulOut.vsh */; };
 		AB6AF9412433436500308DC1 /* SoulOut.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB6AF93F2433436500308DC1 /* SoulOut.fsh */; };
 		AB6AF9442433438400308DC1 /* SouloutFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6AF9432433438400308DC1 /* SouloutFilter.m */; };
+		AB773F11243D5D7800F31D28 /* cubeLight.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB773F0F243D5D7800F31D28 /* cubeLight.fsh */; };
+		AB773F12243D5D7800F31D28 /* cubeLight.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB773F10243D5D7800F31D28 /* cubeLight.vsh */; };
 		ABA401ED242DCBE40028B408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EC242DCBE40028B408 /* AppDelegate.m */; };
 		ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EF242DCBE40028B408 /* SceneDelegate.m */; };
 		ABA401F3242DCBE40028B408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401F2242DCBE40028B408 /* ViewController.m */; };
@@ -116,6 +118,8 @@
 		AB6AF93F2433436500308DC1 /* SoulOut.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SoulOut.fsh; sourceTree = "<group>"; };
 		AB6AF9422433438400308DC1 /* SouloutFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SouloutFilter.h; sourceTree = "<group>"; };
 		AB6AF9432433438400308DC1 /* SouloutFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SouloutFilter.m; sourceTree = "<group>"; };
+		AB773F0F243D5D7800F31D28 /* cubeLight.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cubeLight.fsh; sourceTree = "<group>"; };
+		AB773F10243D5D7800F31D28 /* cubeLight.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cubeLight.vsh; sourceTree = "<group>"; };
 		ABA401E8242DCBE40028B408 /* 图片转视频-加滤镜.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "图片转视频-加滤镜.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA401EB242DCBE40028B408 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABA401EC242DCBE40028B408 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -376,6 +380,8 @@
 				AB51D5B7243C137900ED2EB8 /* scale.vsh */,
 				AB51D5AF243C129200ED2EB8 /* cube.fsh */,
 				AB51D5B0243C129200ED2EB8 /* cube.vsh */,
+				AB773F0F243D5D7800F31D28 /* cubeLight.fsh */,
+				AB773F10243D5D7800F31D28 /* cubeLight.vsh */,
 				ABA40252242E0C540028B408 /* shader2.fsh */,
 				ABA40251242E0C540028B408 /* shader2.vsh */,
 				AB25D60A24319E0B00F5E6B3 /* scaleRotate.fsh */,
@@ -577,8 +583,10 @@
 				ABE5DCF62435DE9F00516F65 /* test01.vsh in Resources */,
 				ABE5DCEE243486A500516F65 /* scaleTwoScreen.vsh in Resources */,
 				ABA4022F242DDA830028B408 /* YUVConversion.vsh in Resources */,
+				AB773F12243D5D7800F31D28 /* cubeLight.vsh in Resources */,
 				AB44A6B92432E2DB00C6A183 /* test.mp4 in Resources */,
 				AB51D5B3243C129300ED2EB8 /* cube.vsh in Resources */,
+				AB773F11243D5D7800F31D28 /* cubeLight.fsh in Resources */,
 				ABE5DCEF243486A500516F65 /* scaleTwoScreen.fsh in Resources */,
 				ABE5DCE22434808300516F65 /* Vertigo.vsh in Resources */,
 				AB5184B82433114500D466EC /* nature.mp4 in Resources */,

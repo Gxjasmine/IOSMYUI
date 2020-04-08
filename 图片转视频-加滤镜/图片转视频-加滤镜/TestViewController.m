@@ -73,6 +73,72 @@ typedef struct {
     zDegree = -10;
 }
 
+- (void)commonInit4 {
+    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    [EAGLContext setCurrentContext:self.context];
+    // 开启深度缓存
+//    glEnable(GL_DEPTH_TEST);
+    self.vertices = malloc(sizeof(SenceVertex) * 24);
+  // 前面
+    self.vertices[0] = (SenceVertex){{-0.5, 0.5, 0.5}, {0, 1}};
+    self.vertices[1] = (SenceVertex){{-0.5, -0.5, 0.5}, {0.0, 0.0}};
+    self.vertices[2] = (SenceVertex){{0.5, -0.5, 0.5}, {1.0, 0.0}};
+    self.vertices[3] = (SenceVertex){{0.5, 0.5, 0.5}, {1.0, 1.0}};
+
+ // 后面
+    self.vertices[4] = (SenceVertex){{-0.5, 0.5, -0.5}, {1.0, 1.0}};
+      self.vertices[5] = (SenceVertex){{-0.5, -0.5, -0.5}, {1.0, 0.0}};
+      self.vertices[6] = (SenceVertex){{0.5, -0.5, -0.5}, {0.0, 0.0}};
+      self.vertices[7] = (SenceVertex){{0.5, 0.5, -0.5}, {0.0, 1.0}};
+
+    // 左面
+    self.vertices[8] = (SenceVertex){{-0.5, 0.5, -0.5}, {0.0, 1.0}};
+      self.vertices[9] = (SenceVertex){{-0.5, -0.5, -0.5}, {0.0, 0.0}};
+      self.vertices[10] = (SenceVertex){{-0.5, 0.5, 0.5}, {1.0, 1.0}};
+      self.vertices[11] = (SenceVertex){{-0.5, -0.5, 0.5}, {1.0, 0.0}};
+// 右面
+    self.vertices[12] = (SenceVertex){{0.5, 0.5, 0.5}, {0.0, 1.0}};
+      self.vertices[13] = (SenceVertex){{0.5, -0.5, 0.5}, {0.0, 0.0}};
+      self.vertices[14] = (SenceVertex){{0.5, -0.5, -0.5}, {1.0, 0.0}};
+      self.vertices[15] = (SenceVertex){{0.5, 0.5, -0.5}, {1.0, 1.0}};
+// 上面
+    self.vertices[16] = (SenceVertex){{-0.5, 0.5, 0.5}, {0.0, 0.0}};
+      self.vertices[17] = (SenceVertex){{0.5, 0.5, 0.5}, {1.0, 0.0}};
+      self.vertices[18] = (SenceVertex){{-0.5, 0.5, -0.5}, {0.0, 1.0}};
+      self.vertices[19] = (SenceVertex){{0.5, 0.5, -0.5}, {1.0, 1.0}};
+// 下面
+    self.vertices[20] = (SenceVertex){{-0.5, -0.5, 0.5}, {0.0, 1.0}};
+      self.vertices[21] = (SenceVertex){{0.5, -0.5, 0.5}, {1.0, 1.0}};
+      self.vertices[22] = (SenceVertex){{-0.5, -0.5, -0.5}, {0.0, 0.0}};
+      self.vertices[23] = (SenceVertex){{0.5, -0.5, -0.5}, {1.0, 0.0}};
+
+
+    CAEAGLLayer *layer = [[CAEAGLLayer alloc] init];
+    layer.frame = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.width);
+    layer.contentsScale = [[UIScreen mainScreen] scale];
+
+    [self.view.layer addSublayer:layer];
+    [self bindRenderLayer:layer];
+
+//    NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"sample.jpg"];
+    UIImage *image = [UIImage imageNamed:@"7"];
+    GLuint textureID = [self createTextureWithImage:image];
+    self.textureID = textureID;  // 将纹理 ID 保存，方便后面切换滤镜的时候重用
+
+    glViewport(0, 0, self.drawableWidth, self.drawableHeight);
+
+    GLuint vertexBuffer;
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    GLsizeiptr bufferSizeBytes = sizeof(SenceVertex) * 24;
+    glBufferData(GL_ARRAY_BUFFER, bufferSizeBytes, self.vertices, GL_STATIC_DRAW);
+
+
+    [self setupVertigoShaderProgram]; // 一开始选用默认的着色器
+
+    self.vertexBuffer = vertexBuffer; // 将顶点缓存保存，退出时才释放
+}
+
 - (void)commonInit3 {
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:self.context];
@@ -440,7 +506,7 @@ typedef struct {
          }
 
 
-        if (self.tag == 7) {
+        if (self.tag == 7 || self.tag == 8) {
 
             GLuint projectionMatrixSlot = glGetUniformLocation(self.program, "projectionMatrix");
             float width = self.view.frame.size.width;
@@ -504,6 +570,71 @@ typedef struct {
              value:执行count个元素的指针，用来更新指定uniform变量
              */
             glUniformMatrix4fv(modelViewMatrixSlot, 1, GL_FALSE, (GLfloat*)&_modelViewMatrix.m[0][0]);
+
+            if (self.tag == 8) {
+
+                // 设置光照数据
+                glUniform3f(glGetUniformLocation(self.program, "u_Light.Color"), 1, 1, 1);
+                glUniform1f(glGetUniformLocation(self.program, "u_Light.AmbientIntensity"), 0.6);
+                glUniform3f(glGetUniformLocation(self.program, "u_Light.LightPos"), 1, 1, 1);
+                glUniform1f(glGetUniformLocation(self.program, "u_Light.DiffuseIntensity"), 0.7);
+                glUniform1f(glGetUniformLocation(self.program, "u_Light.Shininess"), 4);
+                glUniform1f(glGetUniformLocation(self.program, "u_Light.SpecularIntensity"), 1);
+
+                //12.创建4 * 4投影矩阵
+                KSMatrix4 u_modelMatrix;
+                //(1)获取单元矩阵
+                ksMatrixLoadIdentity(&u_modelMatrix);
+                ksMatrixMultiply(&u_modelMatrix,&_projectionMatrix , &_modelViewMatrix);
+                glUniformMatrix4fv(glGetUniformLocation(self.program, "u_modelMatrix"), 1, GL_FALSE, (GLfloat*)&u_modelMatrix.m[0][0]);
+
+                if (self.tag == 8) {
+                    // 重绘
+                    GLuint lights[] =
+                      {
+                          0, 0, 1,
+                          0, 0, 1,
+                          0, 0, 1,
+                         0, 0, 1,
+
+                          0, 0,-1,
+                          0, 0,-1,
+                          0, 0,-1,
+                          0, 0,-1,
+
+                          -1, 0, 0,
+                          -1, 0, 0,
+                          -1, 0, 0,
+                          -1, 0, 0,
+
+                          1, 0, 0,
+                          1, 0, 0,
+                          1, 0, 0,
+                          1, 0, 0,
+
+                          0, 1, 0,
+                          0, 1, 0,
+                          0, 1, 0,
+                          0, 1, 0,
+
+                          0,-1, 0,
+                          0,-1, 0,
+                          0,-1, 0,
+                          0,-1, 0
+                      };
+
+                    GLuint vertexBuffer2;
+                    glGenBuffers(1, &vertexBuffer2);
+                    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer2);
+                    GLsizeiptr bufferSizeByte2s = sizeof(lights[0]) * 24;
+                    glBufferData(GL_ARRAY_BUFFER, bufferSizeByte2s, lights, GL_STATIC_DRAW);
+
+                    GLuint a_NormalSlot = glGetAttribLocation(self.program, "a_Normal");
+                    glEnableVertexAttribArray(a_NormalSlot);
+                    glVertexAttribPointer(a_NormalSlot, 3, GL_FLOAT, GL_FALSE, 0, NULL );
+                }
+
+            }
 
             // 清除画布
             glClear(GL_COLOR_BUFFER_BIT );
@@ -1065,7 +1196,7 @@ typedef struct {
 
     }else{
         self.isModel = NO;
-      str = [NSString stringWithFormat:@"test0%ld",sender.tag + 1];
+        str = [NSString stringWithFormat:@"test0%d",sender.tag + 1];
 
     }
 
@@ -1082,14 +1213,25 @@ typedef struct {
         str = [NSString stringWithFormat:@"cube"];
     }
 
+    if (sender.tag == 8) {
+        self.isprojectModel = YES;
+
+        self.isModel = YES;
+        str = [NSString stringWithFormat:@"cubeLight"];
+    }
+
+
 
     [self clearData];
 
     if (self.isprojectModel) {
         if (sender.tag == 6) {
            [self commonInit2];
-        }else{
+        }else if (sender.tag == 7){
             [self commonInit3];
+
+        }else if (sender.tag == 8){
+            [self commonInit4];
 
         }
 
@@ -1119,6 +1261,13 @@ typedef struct {
     glBindTexture(GL_TEXTURE_2D, self.textureID);
     glUniform1i(textureSlot, 0);
 
+       //glVertexAttribPointer.设置读取方式
+       //参数1：index,顶点数据的索引
+       //参数2：size,每个顶点属性的组件数量，1，2，3，或者4.默认初始值是4.
+       //参数3：type,数据中的每个组件的类型，常用的有GL_FLOAT,GL_BYTE,GL_SHORT。默认初始值为GL_FLOAT
+       //参数4：normalized,固定点数据值是否应该归一化，或者直接转换为固定值。（GL_FALSE）
+       //参数5：stride,连续顶点属性之间的偏移量，默认为0；
+       //参数6：指定一个指针，指向数组中的第一个顶点属性的第一个组件。默认为0
     glEnableVertexAttribArray(positionSlot);
     glVertexAttribPointer(positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(SenceVertex), NULL + offsetof(SenceVertex, positionCoord));
 
@@ -1126,6 +1275,8 @@ typedef struct {
     glVertexAttribPointer(textureCoordsSlot, 2, GL_FLOAT, GL_FALSE, sizeof(SenceVertex), NULL + offsetof(SenceVertex, textureCoord));
 
     self.program = program;
+
+
 }
 
 - (GLuint)programWithShaderName:(NSString *)shaderName {
