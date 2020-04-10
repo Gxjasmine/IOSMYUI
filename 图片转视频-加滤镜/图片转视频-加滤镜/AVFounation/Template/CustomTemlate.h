@@ -17,6 +17,7 @@
 #import "SouloutFilter.h"
 #import "VertigoFilter.h"
 #import "ScaleTwoScreenFilter.h"
+#import "AnimalFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -183,7 +183,7 @@
 - (void)setupEditingAndPlayback
 {
     AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ping20s" ofType:@"mp4"]]];
-    AVURLAsset *asset2 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"]]];
+    AVURLAsset *asset2 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"透明1" ofType:@"mp4"]]];
 
     dispatch_group_t dispatchGroup = dispatch_group_create();
     NSArray *assetKeysToLoadAndTest = @[@"tracks", @"duration", @"composable"];

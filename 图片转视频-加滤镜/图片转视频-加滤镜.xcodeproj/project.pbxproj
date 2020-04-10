@@ -32,6 +32,9 @@
 		AB6AF9442433438400308DC1 /* SouloutFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6AF9432433438400308DC1 /* SouloutFilter.m */; };
 		AB773F11243D5D7800F31D28 /* cubeLight.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AB773F0F243D5D7800F31D28 /* cubeLight.fsh */; };
 		AB773F12243D5D7800F31D28 /* cubeLight.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB773F10243D5D7800F31D28 /* cubeLight.vsh */; };
+		AB773FB3243F35F300F31D28 /* AnimalFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB773FB2243F35F300F31D28 /* AnimalFilter.m */; };
+		AB773FB6243F362600F31D28 /* Template03.m in Sources */ = {isa = PBXBuildFile; fileRef = AB773FB5243F362600F31D28 /* Template03.m */; };
+		AB773FB82440001000F31D28 /* 透明1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB773FB72440001000F31D28 /* 透明1.mp4 */; };
 		ABA401ED242DCBE40028B408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EC242DCBE40028B408 /* AppDelegate.m */; };
 		ABA401F0242DCBE40028B408 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401EF242DCBE40028B408 /* SceneDelegate.m */; };
 		ABA401F3242DCBE40028B408 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA401F2242DCBE40028B408 /* ViewController.m */; };
@@ -120,6 +123,11 @@
 		AB6AF9432433438400308DC1 /* SouloutFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SouloutFilter.m; sourceTree = "<group>"; };
 		AB773F0F243D5D7800F31D28 /* cubeLight.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cubeLight.fsh; sourceTree = "<group>"; };
 		AB773F10243D5D7800F31D28 /* cubeLight.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cubeLight.vsh; sourceTree = "<group>"; };
+		AB773FB1243F35F200F31D28 /* AnimalFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalFilter.h; sourceTree = "<group>"; };
+		AB773FB2243F35F300F31D28 /* AnimalFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalFilter.m; sourceTree = "<group>"; };
+		AB773FB4243F362600F31D28 /* Template03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Template03.h; sourceTree = "<group>"; };
+		AB773FB5243F362600F31D28 /* Template03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Template03.m; sourceTree = "<group>"; };
+		AB773FB72440001000F31D28 /* 透明1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "透明1.mp4"; sourceTree = "<group>"; };
 		ABA401E8242DCBE40028B408 /* 图片转视频-加滤镜.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "图片转视频-加滤镜.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA401EB242DCBE40028B408 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABA401EC242DCBE40028B408 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -239,6 +247,7 @@
 		AB44A6B72432E2A300C6A183 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AB773FB72440001000F31D28 /* 透明1.mp4 */,
 				AB44A6B82432E2DB00C6A183 /* test.mp4 */,
 				AB44A6BA2432E2FF00C6A183 /* ping20s.mp4 */,
 				AB5184B72433114500D466EC /* nature.mp4 */,
@@ -432,6 +441,8 @@
 				ABE5DCF1243486FB00516F65 /* ScaleTwoScreenFilter.m */,
 				AB51D5B4243C12BA00ED2EB8 /* CubeFilter.h */,
 				AB51D5B5243C12BB00ED2EB8 /* CubeFilter.m */,
+				AB773FB1243F35F200F31D28 /* AnimalFilter.h */,
+				AB773FB2243F35F300F31D28 /* AnimalFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -471,6 +482,8 @@
 				ABE5DCDB2434735200516F65 /* Template01.m */,
 				ABE5DCE92434814E00516F65 /* Template02.h */,
 				ABE5DCEA2434814E00516F65 /* Template02.m */,
+				AB773FB4243F362600F31D28 /* Template03.h */,
+				AB773FB5243F362600F31D28 /* Template03.m */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -560,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB773FB82440001000F31D28 /* 透明1.mp4 in Resources */,
 				AB25D60D24319E0C00F5E6B3 /* scaleRotate.vsh in Resources */,
 				ABA40248242DF3470028B408 /* scale.fsh in Resources */,
 				ABE5DD282436D2C700516F65 /* test03.fsh in Resources */,
@@ -620,6 +634,7 @@
 				ABA40207242DCCA20028B408 /* VideoBuilder.m in Sources */,
 				ABE5DCEB2434814E00516F65 /* Template02.m in Sources */,
 				ABA4021F242DD2B70028B408 /* VideoViewController.m in Sources */,
+				AB773FB6243F362600F31D28 /* Template03.m in Sources */,
 				AB5184BB2433136500D466EC /* MixFilter.m in Sources */,
 				ABA401ED242DCBE40028B408 /* AppDelegate.m in Sources */,
 				ABA4021C242DD1BB0028B408 /* APLCustomVideoCompositor.m in Sources */,
@@ -631,6 +646,7 @@
 				ABA401FE242DCBE60028B408 /* main.m in Sources */,
 				AB44A6B62432E1BC00C6A183 /* APLSimpleEditor.m in Sources */,
 				ABA40213242DD07C0028B408 /* APLCrossDissolveRenderer.m in Sources */,
+				AB773FB3243F35F300F31D28 /* AnimalFilter.m in Sources */,
 				ABE5DD242436CA9200516F65 /* GLESUtils.m in Sources */,
 				ABA40212242DD07C0028B408 /* APLOpenGLRenderer.m in Sources */,
 				ABA40244242DF2CA0028B408 /* ScaleFilter.m in Sources */,
