@@ -29,6 +29,7 @@
         [self.videoModels addObject:model];
     }];
 
+    NSLog(@"");
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
