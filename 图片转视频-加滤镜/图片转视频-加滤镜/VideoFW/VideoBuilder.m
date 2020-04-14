@@ -50,7 +50,7 @@ typedef void(^convertToMp4Completed)(void);
 
     //设置mov路径
      NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-     NSString *videoOutputPath = [[paths objectAtIndex:0]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mov",@"test"]];
+     NSString *videoOutputPath = [[paths objectAtIndex:0]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",@"test"]];
 
     _videoSize = CGSizeMake(160, 90);
     _videoPath = videoOutputPath;
@@ -62,7 +62,7 @@ typedef void(^convertToMp4Completed)(void);
     NSError *error = nil;
     //告诉AVAssetWriter 文件保存路径、文件type
     self.videoWriter = [[AVAssetWriter alloc]initWithURL:[NSURL fileURLWithPath:_videoPath]
-                                                fileType:AVFileTypeQuickTimeMovie
+                                                fileType:AVFileTypeMPEG4
                                                    error:&error];
     
     NSParameterAssert(self.videoWriter);

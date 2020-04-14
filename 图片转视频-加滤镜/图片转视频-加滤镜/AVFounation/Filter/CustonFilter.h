@@ -21,6 +21,7 @@ void runSynchronouslyOnVideoProcessingQueue(void (^block)(void));
 @property (nonatomic, strong) CIContext *context;
 @property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
 @property (nonatomic, assign) CMTime currTime;
+@property (nonatomic, assign) CVPixelBufferRef backgpixelBuffer;
 
 - (CVPixelBufferRef)outputPixelBuffer;
 @end

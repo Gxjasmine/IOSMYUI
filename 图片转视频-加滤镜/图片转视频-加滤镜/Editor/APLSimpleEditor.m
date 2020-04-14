@@ -244,6 +244,405 @@
 
 }
 
+- (void)buildCompositionObjectsModel06{
+    if ( (_clips == nil) || [_clips count] == 0 ) {
+        return;
+    }
+    self.composition = nil;
+    self.videoComposition = nil;
+
+    CGSize videoSize = [[_clips objectAtIndex:0] naturalSize];
+    AVMutableComposition *composition = [AVMutableComposition composition];
+    AVMutableVideoComposition *videoComposition = nil;
+
+    composition.naturalSize = videoSize;
+
+    // With transitions:
+    // Place clips into alternating video & audio tracks in composition, overlapped by transitionDuration.
+    // Set up the video composition to cycle between "pass through A", "transition from A to B",
+    // "pass through B".
+
+    videoComposition = [AVMutableVideoComposition videoComposition];
+
+    videoComposition.customVideoCompositorClass = [APLCrossDissolveCompositor class];
+
+    CMTime nextClipStartTime = kCMTimeZero;
+    NSUInteger count = [_clips count];
+    NSInteger i;
+
+    CMTimeRange clipTimeRange = kCMTimeRangeZero;
+
+    // Add two video tracks and two audio tracks.
+    AVMutableCompositionTrack *compositionVideoTracks[3];
+    compositionVideoTracks[0] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+    compositionVideoTracks[1] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+
+    compositionVideoTracks[2] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+
+    CMTimeRange *passThroughTimeRanges = alloca(sizeof(CMTimeRange) * count);
+    CMTimeRange *transitionTimeRanges = alloca(sizeof(CMTimeRange) * count);
+    CMTime transitonDuration = CMTimeMake(2 * 1000, 1000);
+
+
+        AVURLAsset *videoAsset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"透明1" ofType:@"mp4"]]];
+            NSArray *tracks1 = [videoAsset1 tracksWithMediaType:AVMediaTypeVideo];
+            AVAssetTrack *clipVideoTrack1 = [tracks1 firstObject];
+    //       CMTimeScale naturalTimeScale =  clipVideoTrack.naturalTimeScale;
+    //       float aa = clipVideoTrack.nominalFrameRate;
+
+         CMTimeRange  clipTimeRange1 = [clipVideoTrack1 timeRange];
+
+    // Place clips into alternating video & audio tracks in composition, overlapped by transitionDuration.
+    for (i = 0; i < count; i++ ) {
+        NSInteger alternatingIndex = i % 2; // alternating targets: 0, 1, 0, 1, ...
+
+        AVURLAsset *videoAsset = [_clips objectAtIndex:i];
+        NSArray *tracks = [videoAsset tracksWithMediaType:AVMediaTypeVideo];
+        AVAssetTrack *clipVideoTrack = [tracks firstObject];
+//       CMTimeScale naturalTimeScale =  clipVideoTrack.naturalTimeScale;
+//       float aa = clipVideoTrack.nominalFrameRate;
+
+        clipTimeRange = [clipVideoTrack timeRange];
+
+        float duration = CMTimeGetSeconds(clipTimeRange.duration);
+        NSLog(@"视频 duration：%lf",duration);
+
+        [compositionVideoTracks[alternatingIndex] insertTimeRange:clipTimeRange ofTrack:clipVideoTrack atTime:nextClipStartTime error:nil];
+
+        [compositionVideoTracks[2] insertTimeRange:clipTimeRange1 ofTrack:clipVideoTrack1 atTime:nextClipStartTime error:nil];
+
+
+        passThroughTimeRanges[i] = CMTimeRangeMake(nextClipStartTime,clipTimeRange.duration);
+        if (i > 0) {
+            passThroughTimeRanges[i].start = CMTimeAdd(passThroughTimeRanges[i].start,transitonDuration);
+            passThroughTimeRanges[i].duration = CMTimeSubtract(passThroughTimeRanges[i].duration, transitonDuration);
+        }
+        if (i+1 < count) {
+            passThroughTimeRanges[i].duration = CMTimeSubtract(passThroughTimeRanges[i].duration, transitonDuration);
+        }
+
+        nextClipStartTime = CMTimeAdd(nextClipStartTime, clipTimeRange.duration);
+        nextClipStartTime = CMTimeSubtract(nextClipStartTime, transitonDuration);
+
+        // Remember the time range for the transition to the next item.
+        if (i+1 < count) {
+            transitionTimeRanges[i] = CMTimeRangeMake(nextClipStartTime, transitonDuration);
+        }
+    }
+
+
+
+    NSMutableArray *instructions = [NSMutableArray array];
+    for (i = 0; i < count; i++) {
+
+        NSInteger index = i % 2;
+        NSLog(@"customVideoCompositorClass 2222");
+        if (videoComposition.customVideoCompositorClass) {
+
+       CustomVideoCompositionInstruction *videoInstruction = [[CustomVideoCompositionInstruction alloc] initTransitionWithSourceTrackIDs:@[[NSNumber numberWithInt:compositionVideoTracks[index].trackID],[NSNumber numberWithInt:compositionVideoTracks[2].trackID]] timeRange:passThroughTimeRanges[i]];
+            // First track -> Foreground track while compositing
+            videoInstruction.foregroundTrackID = compositionVideoTracks[index].trackID;
+            videoInstruction.backgroundTrackID = compositionVideoTracks[2].trackID;
+
+            [instructions addObject:videoInstruction];
+
+
+            if (i+1 < count) {
+                CMTimeRange  range = transitionTimeRanges[i];
+//
+    APLCustomVideoCompositionInstruction *instruction = [[APLCustomVideoCompositionInstruction alloc] initTransitionWithSourceTrackIDs:@[[NSNumber numberWithInt:compositionVideoTracks[0].trackID], [NSNumber numberWithInt:compositionVideoTracks[1].trackID]] forTimeRange:transitionTimeRanges[i]];
+                // First track -> Foreground track while compositing
+                instruction.foregroundTrackID = compositionVideoTracks[index].trackID;
+                // Second track -> Background track while compositing
+                instruction.backgroundTrackID = compositionVideoTracks[1-index].trackID;
+
+                [instructions addObject:instruction];
+
+
+            }
+
+        }
+    }
+
+    videoComposition.instructions = instructions;
+    if (videoComposition) {
+        // Every videoComposition needs these properties to be set:
+        videoComposition.frameDuration = CMTimeMake(1, 30); // 30 fps
+        videoComposition.renderSize = videoSize;
+    }
+
+    self.composition = composition;
+    self.videoComposition = videoComposition;
+
+}
+
+
+- (void)buildCompositionObjectsModel05{
+    if ( (_clips == nil) || [_clips count] == 0 ) {
+        return;
+    }
+    self.composition = nil;
+    self.videoComposition = nil;
+
+    CGSize videoSize = [[_clips objectAtIndex:0] naturalSize];
+    AVMutableComposition *composition = [AVMutableComposition composition];
+    AVMutableVideoComposition *videoComposition = nil;
+
+    composition.naturalSize = videoSize;
+
+    // With transitions:
+    // Place clips into alternating video & audio tracks in composition, overlapped by transitionDuration.
+    // Set up the video composition to cycle between "pass through A", "transition from A to B",
+    // "pass through B".
+
+    videoComposition = [AVMutableVideoComposition videoComposition];
+
+    videoComposition.customVideoCompositorClass = [APLCrossDissolveCompositor class];
+
+    CMTime nextClipStartTime = kCMTimeZero;
+    NSUInteger count = [_clips count];
+    NSInteger i;
+
+    CMTimeRange clipTimeRange = kCMTimeRangeZero;
+
+    // Add two video tracks and two audio tracks.
+    AVMutableCompositionTrack *compositionVideoTracks[2];
+    compositionVideoTracks[0] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+    compositionVideoTracks[1] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+
+
+    CMTimeRange *passThroughTimeRanges = alloca(sizeof(CMTimeRange) * count);
+    CMTimeRange *transitionTimeRanges = alloca(sizeof(CMTimeRange) * count);
+    CMTime transitonDuration = CMTimeMake(2 * 1000, 1000);
+
+    // Place clips into alternating video & audio tracks in composition, overlapped by transitionDuration.
+    for (i = 0; i < count; i++ ) {
+        NSInteger alternatingIndex = i % 2; // alternating targets: 0, 1, 0, 1, ...
+
+        AVURLAsset *videoAsset = [_clips objectAtIndex:i];
+        NSArray *tracks = [videoAsset tracksWithMediaType:AVMediaTypeVideo];
+        AVAssetTrack *clipVideoTrack = [tracks firstObject];
+//       CMTimeScale naturalTimeScale =  clipVideoTrack.naturalTimeScale;
+//       float aa = clipVideoTrack.nominalFrameRate;
+
+        clipTimeRange = [clipVideoTrack timeRange];
+
+        float duration = CMTimeGetSeconds(clipTimeRange.duration);
+        NSLog(@"视频 duration：%lf",duration);
+
+        [compositionVideoTracks[alternatingIndex] insertTimeRange:clipTimeRange ofTrack:clipVideoTrack atTime:nextClipStartTime error:nil];
+
+
+        passThroughTimeRanges[i] = CMTimeRangeMake(nextClipStartTime,clipTimeRange.duration);
+        if (i > 0) {
+            passThroughTimeRanges[i].start = CMTimeAdd(passThroughTimeRanges[i].start,transitonDuration);
+            passThroughTimeRanges[i].duration = CMTimeSubtract(passThroughTimeRanges[i].duration, transitonDuration);
+        }
+        if (i+1 < count) {
+            passThroughTimeRanges[i].duration = CMTimeSubtract(passThroughTimeRanges[i].duration, transitonDuration);
+        }
+
+        nextClipStartTime = CMTimeAdd(nextClipStartTime, clipTimeRange.duration);
+        nextClipStartTime = CMTimeSubtract(nextClipStartTime, transitonDuration);
+
+        // Remember the time range for the transition to the next item.
+        if (i+1 < count) {
+            transitionTimeRanges[i] = CMTimeRangeMake(nextClipStartTime, transitonDuration);
+        }
+    }
+
+    NSMutableArray *instructions = [NSMutableArray array];
+    for (i = 0; i < count; i++) {
+
+        NSInteger index = i % 2;
+        NSLog(@"customVideoCompositorClass 2222");
+        if (videoComposition.customVideoCompositorClass) {
+
+       CustomVideoCompositionInstruction *videoInstruction = [[CustomVideoCompositionInstruction alloc] initTransitionWithSourceTrackIDs:@[[NSNumber numberWithInt:compositionVideoTracks[index].trackID]] timeRange:passThroughTimeRanges[i]];
+            // First track -> Foreground track while compositing
+            videoInstruction.foregroundTrackID = compositionVideoTracks[index].trackID;
+
+            [instructions addObject:videoInstruction];
+
+
+            if (i+1 < count) {
+                CMTimeRange  range = transitionTimeRanges[i];
+//
+    APLCustomVideoCompositionInstruction *instruction = [[APLCustomVideoCompositionInstruction alloc] initTransitionWithSourceTrackIDs:@[[NSNumber numberWithInt:compositionVideoTracks[0].trackID], [NSNumber numberWithInt:compositionVideoTracks[1].trackID]] forTimeRange:transitionTimeRanges[i]];
+                // First track -> Foreground track while compositing
+                instruction.foregroundTrackID = compositionVideoTracks[index].trackID;
+                // Second track -> Background track while compositing
+                instruction.backgroundTrackID = compositionVideoTracks[1-index].trackID;
+
+                [instructions addObject:instruction];
+
+
+            }
+
+        }
+    }
+
+    videoComposition.instructions = instructions;
+    if (videoComposition) {
+        // Every videoComposition needs these properties to be set:
+        videoComposition.frameDuration = CMTimeMake(1, 30); // 30 fps
+        videoComposition.renderSize = videoSize;
+    }
+
+    self.composition = composition;
+    self.videoComposition = videoComposition;
+
+}
+
+- (void)buildCompositionObjectsModel04{
+    if ( (_clips == nil) || [_clips count] == 0 ) {
+
+        self.composition = nil;
+        self.videoComposition = nil;
+    }
+
+    CGSize videoSize = [[_clips objectAtIndex:0] naturalSize];
+    AVMutableComposition *composition = [AVMutableComposition composition];
+    AVMutableVideoComposition *videoComposition = nil;
+
+    composition.naturalSize = videoSize;
+
+    // With transitions:
+    // Place clips into alternating video & audio tracks in composition, overlapped by transitionDuration.
+    // Set up the video composition to cycle between "pass through A", "transition from A to B",
+    // "pass through B".
+
+    videoComposition = [AVMutableVideoComposition videoComposition];
+
+//    videoComposition.customVideoCompositorClass = [APLCrossDissolveCompositor class];
+    videoComposition.customVideoCompositorClass = [TemplateVideoCompositor class];
+
+    NSInteger i;
+    NSUInteger clipsCount = [_clips count];
+    
+    CMTimeRange bgVideoTimeRange = kCMTimeRangeZero;
+
+    // Add two video tracks and two audio tracks.
+    AVMutableCompositionTrack *compositionVideoTracks[2];
+    compositionVideoTracks[0] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+    compositionVideoTracks[1] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+
+
+    // Place clips into alternating video & audio tracks in composition, overlapped by transitionDuration.
+    for (i = 0; i < clipsCount; i++ ) {
+        NSInteger alternatingIndex = i % 2; // alternating targets: 0, 1, 0, 1, ...
+
+        AVURLAsset *videoAsset = [_clips objectAtIndex:i];
+        NSArray *tracks = [videoAsset tracksWithMediaType:AVMediaTypeVideo];
+        AVAssetTrack *clipVideoTrack = [tracks firstObject];
+        bgVideoTimeRange = [clipVideoTrack timeRange];
+
+        float duration = CMTimeGetSeconds(bgVideoTimeRange.duration);
+        NSLog(@"视频 duration：%lf",duration);
+
+        [compositionVideoTracks[alternatingIndex] insertTimeRange:bgVideoTimeRange ofTrack:clipVideoTrack atTime:kCMTimeZero error:nil];
+        [compositionVideoTracks[alternatingIndex] setPreferredTransform:clipVideoTrack.preferredTransform];
+
+        if (i == 0) {//倒数最后一个
+            CMTime destinationTimeRange = CMTimeMultiplyByFloat64(bgVideoTimeRange.duration, 5.0);
+            [compositionVideoTracks[0] scaleTimeRange:bgVideoTimeRange toDuration:destinationTimeRange];
+
+        }
+    }
+
+    bgVideoTimeRange = CMTimeRangeMake(kCMTimeZero, composition.duration);
+    NSMutableArray *instructions = [NSMutableArray array];
+//    APLCustomVideoCompositionInstruction *videoInstruction2 = [[APLCustomVideoCompositionInstruction alloc] initTransitionWithSourceTrackIDs:@[[NSNumber numberWithInt:compositionVideoTracks[0].trackID], [NSNumber numberWithInt:compositionVideoTracks[1].trackID]] forTimeRange:bgVideoTimeRange];
+
+
+    TemplateVideoCompositionInstruction *videoInstruction2 = [[TemplateVideoCompositionInstruction alloc] initTransitionWithSourceTrackIDs:@[[NSNumber numberWithInt:compositionVideoTracks[0].trackID], [NSNumber numberWithInt:compositionVideoTracks[1].trackID]] timeRange:bgVideoTimeRange];
+    videoInstruction2.mTemplateType = kTemplateTypeFive;
+
+    // First track -> Foreground track while compositing
+    videoInstruction2.foregroundTrackID = compositionVideoTracks[0].trackID;
+    // Second track -> Background track while compositing
+    videoInstruction2.backgroundTrackID = compositionVideoTracks[1].trackID;
+    videoInstruction2.timeRange = CMTimeRangeMake(kCMTimeZero, composition.duration);
+
+    [instructions addObject:videoInstruction2];
+    videoComposition.instructions = instructions;
+    if (videoComposition) {
+        // Every videoComposition needs these properties to be set:
+        videoComposition.frameDuration = CMTimeMake(1, 30); // 30 fps
+        videoComposition.renderSize = videoSize;
+    }
+
+    self.composition = composition;
+    self.videoComposition = videoComposition;
+
+}
+
+- (void)buildCompositionObjectsModel03{
+    if ( (_clips == nil) || [_clips count] == 0 ) {
+        self.composition = nil;
+        self.videoComposition = nil;
+        return;
+    }
+
+    CGSize videoSize = [[_clips objectAtIndex:0] naturalSize];
+    AVMutableComposition *composition = [AVMutableComposition composition];
+    AVMutableVideoComposition *videoComposition = nil;
+
+    composition.naturalSize = videoSize;
+
+    // With transitions:
+    // Place clips into alternating video & audio tracks in composition, overlapped by transitionDuration.
+    // Set up the video composition to cycle between "pass through A", "transition from A to B",
+    // "pass through B".
+
+    videoComposition = [AVMutableVideoComposition videoComposition];
+
+    videoComposition.customVideoCompositorClass = [TemplateVideoCompositor class];
+
+    NSUInteger clipsCount = [_clips count];
+
+    CMTimeRange bgVideoTimeRange = kCMTimeRangeZero;
+
+    //第一个视频时长
+    AVURLAsset *asset = [_clips objectAtIndex:0];
+    float duration = CMTimeGetSeconds(asset.duration);
+
+    CMTime timeAdd = kCMTimeZero;
+    AVMutableCompositionTrack *videoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+    for (int i = 0; i < clipsCount; i++) {
+        AVURLAsset *asset = [_clips objectAtIndex:i];
+
+        AVAssetTrack *clipVideoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+        CMTimeRange video_timeRange = CMTimeRangeMake(kCMTimeZero,asset.duration);
+
+        [videoTrack insertTimeRange:video_timeRange ofTrack:clipVideoTrack atTime:timeAdd error:nil];
+
+//        CMTime destinationTimeRange = CMTimeMultiplyByFloat64(asset.duration, 0.3);
+//        [videoTrack scaleTimeRange:video_timeRange toDuration:destinationTimeRange];
+
+        timeAdd = CMTimeAdd(timeAdd, asset.duration);
+        [videoTrack setPreferredTransform:clipVideoTrack.preferredTransform];
+    }
+     bgVideoTimeRange = CMTimeRangeMake(kCMTimeZero, timeAdd);
+
+    NSMutableArray *instructions = [NSMutableArray array];
+
+    TemplateVideoCompositionInstruction *videoInstruction = [[TemplateVideoCompositionInstruction alloc] initTransitionWithSourceTrackIDs:@[[NSNumber numberWithInt:videoTrack.trackID]] timeRange:bgVideoTimeRange];
+    videoInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, composition.duration);
+    videoInstruction.mTemplateType = kTemplateTypeThree;
+    [instructions addObject:videoInstruction];
+    videoComposition.instructions = instructions;
+
+    if (videoComposition) {
+        // Every videoComposition needs these properties to be set:
+        videoComposition.frameDuration = CMTimeMake(1, 30); // 30 fps
+        videoComposition.renderSize = videoSize;
+    }
+
+    self.composition = composition;
+    self.videoComposition = videoComposition;
+}
+
 - (void)buildCompositionObjectsModel02{
     if ( (_clips == nil) || [_clips count] == 0 ) {
         self.composition = nil;

@@ -40,20 +40,20 @@ typedef struct {
     return self;
 }
 
--(void)setBackgpixelBuffer:(CVPixelBufferRef)backgpixelBuffer{
-    if (_backgpixelBuffer &&
-        backgpixelBuffer &&
-        CFEqual(backgpixelBuffer, _backgpixelBuffer)) {
-        return;
-    }
-    if (backgpixelBuffer) {
-        CVPixelBufferRetain(backgpixelBuffer);
-    }
-    if (_backgpixelBuffer) {
-        CVPixelBufferRelease(_backgpixelBuffer);
-    }
-    _backgpixelBuffer = backgpixelBuffer;
-}
+//-(void)setBackgpixelBuffer:(CVPixelBufferRef)backgpixelBuffer{
+//    if (_backgpixelBuffer &&
+//        backgpixelBuffer &&
+//        CFEqual(backgpixelBuffer, _backgpixelBuffer)) {
+//        return;
+//    }
+//    if (backgpixelBuffer) {
+//        CVPixelBufferRetain(backgpixelBuffer);
+//    }
+//    if (_backgpixelBuffer) {
+//        CVPixelBufferRelease(_backgpixelBuffer);
+//    }
+//    _backgpixelBuffer = backgpixelBuffer;
+//}
 
 - (CVPixelBufferRef)outputPixelBuffer {
     if (!self.pixelBuffer) {

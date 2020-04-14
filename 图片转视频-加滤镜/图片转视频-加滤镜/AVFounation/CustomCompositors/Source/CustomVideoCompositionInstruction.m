@@ -34,7 +34,7 @@
         _requiredSourceTrackIDs = @[];
         _containsTweening = NO;
         _enablePostProcessing = NO;
-        _filter = [[CubeFilter alloc] init];
+        _filter = [[ScaleFilter alloc] init];
         _sedd = 0;
     }
     return self;
@@ -48,7 +48,7 @@
         _passthroughTrackID = kCMPersistentTrackID_Invalid;
         _containsTweening = YES;
         _enablePostProcessing = NO;
-        _filter = [[CubeFilter alloc] init];
+        _filter = [[ScaleFilter alloc] init];
         _sedd = 0;
 
     }
@@ -74,7 +74,7 @@
 
     if (CMTIMERANGE_IS_VALID(self.filterTimeRange)) {
 
-        NSLog(@"IS_VALID");
+        NSLog(@"applyPixelBuffer IS_VALID");
         /***
         如果time1小于time2，则返回-1。如果他们返回0
         是相等的。如果time1大于time2，则返回1。
@@ -105,7 +105,7 @@
         }
 
     }else{
-        NSLog(@"IS_NOT_VALID");
+        NSLog(@"applyPixelBuffer IS_NOT_VALID");
 
         self.filter.pixelBuffer = pixelBuffer;
         self.filter.currTime = self.currTime;

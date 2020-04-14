@@ -13,14 +13,17 @@ typedef NS_ENUM(NSInteger, TemplateType)
     kTemplateTypeOne = 0,
     kTemplateTypeTwo,
     kTemplateTypeThree,
-    kTemplateTypeFour
+    kTemplateTypeFour,
+    kTemplateTypeFive,
+
 };
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TemplateVideoCompositionInstruction  : NSObject <AVVideoCompositionInstruction>
-
+@property CMPersistentTrackID foregroundTrackID;
+@property CMPersistentTrackID backgroundTrackID;
 @property (nonatomic, assign) CMTimeRange timeRange;
 @property (nonatomic, assign) BOOL enablePostProcessing;
 @property (nonatomic) BOOL containsTweening;

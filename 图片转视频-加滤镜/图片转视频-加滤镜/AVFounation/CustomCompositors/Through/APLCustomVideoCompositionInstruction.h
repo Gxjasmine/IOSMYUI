@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface APLCustomVideoCompositionInstruction : NSObject <AVVideoCompositionInstruction>
+@property (nonatomic, assign) CMTimeRange timeRange;
 
 @property CMPersistentTrackID foregroundTrackID;
 @property CMPersistentTrackID backgroundTrackID;

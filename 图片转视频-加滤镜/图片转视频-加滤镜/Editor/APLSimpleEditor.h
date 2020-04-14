@@ -34,6 +34,14 @@
 
 - (void)buildCompositionObjectsModel02;
 
+- (void)buildCompositionObjectsModel03;
+
+- (void)buildCompositionObjectsModel04;
+
+- (void)buildCompositionObjectsModel05;
+
+- (void)buildCompositionObjectsModel06;
+
 - (AVAssetExportSession*)assetExportSessionWithPreset:(NSString*)presetName;
 
 - (AVPlayerItem *)playerItem;

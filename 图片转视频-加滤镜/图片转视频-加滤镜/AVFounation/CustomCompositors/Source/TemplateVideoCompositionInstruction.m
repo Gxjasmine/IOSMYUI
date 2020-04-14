@@ -10,6 +10,9 @@
 #import "Template01.h"
 #import "CustomTemlate.h"
 #import "Template02.h"
+#import "Template03.h"
+#import "Template04.h"
+#import "Template05.h"
 
 @interface TemplateVideoCompositionInstruction ()
 @property (nonatomic, strong) CustomTemlate * teml;
@@ -49,11 +52,18 @@
     switch (mTemplateType) {
         case kTemplateTypeOne:
             _teml = [[Template01 alloc] init];
-
+            
             break;
         case kTemplateTypeTwo:
             _teml = [[Template02 alloc] init];
-
+        case kTemplateTypeThree:
+            _teml = [[Template03 alloc] init];
+            break;
+        case kTemplateTypeFour:
+            _teml = [[Template04 alloc] init];
+            break;
+        case kTemplateTypeFive:
+            _teml = [[Template05 alloc] init];
             break;
         default:
             break;

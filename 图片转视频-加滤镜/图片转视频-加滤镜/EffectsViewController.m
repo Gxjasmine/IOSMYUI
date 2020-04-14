@@ -74,6 +74,14 @@
         case 7:
             [self test07];
             break;
+
+        case 8:
+            [self test08];
+            break;
+
+        case 9:
+            [self test09];
+            break;
         default:
             break;
     }
@@ -106,21 +114,91 @@
 }
 
 -(void)test05{
-    NSLog(@"test05");
+    [self setupEditingAndPlayback6];
 
 }
 
 -(void)test06{
-    NSLog(@"test06");
+   [self setupEditingAndPlayback7];
 
 }
 
 -(void)test07{
-    NSLog(@"test07");
+    [self setupEditingAndPlayback8];
+
+}
+
+-(void)test08{
+    [self setupEditingAndPlayback9];
+
+}
+
+-(void)test09{
+    [self setupEditingAndPlayback8];
 
 }
 
 #pragma mark - Simple Editor
+
+- (void)setupEditingAndPlayback9
+{
+//    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mov"]]];
+    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mp4"]]];
+
+//    AVURLAsset *asset2 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"透明1" ofType:@"mp4"]]];
+
+    [self.clips addObject:asset1];
+    [self.clips addObject:asset1];
+//    [self.clips addObject:asset1];
+//    [self.clips addObject:asset1];
+//    [self.clips addObject:asset1];
+
+//    [self.clips addObject:asset2];
+
+    [self synchronizeWithEditor];
+
+}
+
+- (void)setupEditingAndPlayback8
+{
+//    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mov"]]];
+    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mp4"]]];
+
+//    AVURLAsset *asset2 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"透明1" ofType:@"mp4"]]];
+
+    [self.clips addObject:asset1];
+    [self.clips addObject:asset1];
+//    [self.clips addObject:asset1];
+//    [self.clips addObject:asset1];
+//    [self.clips addObject:asset1];
+
+//    [self.clips addObject:asset2];
+
+    [self synchronizeWithEditor];
+
+}
+- (void)setupEditingAndPlayback7
+{
+    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mov"]]];
+    AVURLAsset *asset2 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"透明1" ofType:@"mp4"]]];
+
+    [self.clips addObject:asset1];
+    [self.clips addObject:asset2];
+
+    [self synchronizeWithEditor];
+
+}
+
+- (void)setupEditingAndPlayback6
+{
+    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ping20s" ofType:@"mp4"]]];
+
+      [self.clips addObject:asset1];
+
+     [self synchronizeWithEditor];
+
+}
+
 - (void)setupEditingAndPlayback5
 {
     AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"mov"]]];
@@ -182,7 +260,9 @@
 
 - (void)setupEditingAndPlayback
 {
-    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ping20s" ofType:@"mp4"]]];
+//    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ping20s" ofType:@"mp4"]]];
+    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"mov"]]];
+
     AVURLAsset *asset2 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"透明1" ofType:@"mp4"]]];
 
     dispatch_group_t dispatchGroup = dispatch_group_create();
@@ -236,6 +316,18 @@
 
     }else if (self.tag == 4){
         [self.editor buildCompositionObjectsModel02];
+
+    }else if (self.tag == 5){
+        [self.editor buildCompositionObjectsModel03];
+
+    }else if (self.tag == 6){
+        [self.editor buildCompositionObjectsModel04];
+
+    }else if (self.tag == 7){
+        [self.editor buildCompositionObjectsModel05];
+
+    }else if (self.tag == 8){
+        [self.editor buildCompositionObjectsModel06];
 
     }
 

@@ -255,7 +255,7 @@
     
     CFRelease(luminanceTextureRef);
     CFRelease(chrominanceTextureRef);
-    
+
     return textureID;
 }
 

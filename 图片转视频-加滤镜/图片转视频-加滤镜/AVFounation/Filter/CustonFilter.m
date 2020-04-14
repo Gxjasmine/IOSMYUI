@@ -44,6 +44,22 @@
     _pixelBuffer = pixelBuffer;
 }
 
+-(void)setBackgpixelBuffer:(CVPixelBufferRef)backgpixelBuffer{
+    if (_backgpixelBuffer &&
+        backgpixelBuffer &&
+        CFEqual(backgpixelBuffer, _backgpixelBuffer)) {
+        return;
+    }
+    if (backgpixelBuffer) {
+        CVPixelBufferRetain(backgpixelBuffer);
+    }
+    if (_backgpixelBuffer) {
+        CVPixelBufferRelease(_backgpixelBuffer);
+    }
+    _backgpixelBuffer = backgpixelBuffer;
+}
+
+
 - (void)setResultPixelBuffer:(CVPixelBufferRef)resultPixelBuffer {
     if (_resultPixelBuffer &&
         resultPixelBuffer &&
@@ -111,7 +127,8 @@
                                                                     blue:0 / 255
                                                                    alpha:0.5]];
     image = [filterImage imageByCompositingOverImage:image];
-
+    GLuint textureID = [self.pixelBufferHelper convertYUVPixelBufferToTexture:pixelBuffer];
+      glDeleteTextures(1, &textureID);
     CVPixelBufferRef output = [self.pixelBufferHelper createPixelBufferWithSize:size];
     [self.context render:image toCVPixelBuffer:output];
 

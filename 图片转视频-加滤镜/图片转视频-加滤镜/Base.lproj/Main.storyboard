@@ -135,24 +135,38 @@
                                 <rect key="frame" x="0.0" y="110" width="414" height="44"/>
                                 <subviews>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5l-QB-ySH">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="44"/>
                                         <state key="normal" title="动效一"/>
                                         <connections>
                                             <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="dgM-eC-Beu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTO-fz-R1U">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="44"/>
+                                        <rect key="frame" x="83" y="0.0" width="82.5" height="44"/>
                                         <state key="normal" title="动效二"/>
                                         <connections>
                                             <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="AvP-34-jFc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCa-gj-9M6">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="44"/>
+                                        <rect key="frame" x="165.5" y="0.0" width="83" height="44"/>
                                         <state key="normal" title="动效三"/>
                                         <connections>
                                             <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="rdK-rM-axh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-Gc-sWW">
+                                        <rect key="frame" x="248.5" y="0.0" width="82.5" height="44"/>
+                                        <state key="normal" title="动效四"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="4R0-rP-VdB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P11-5K-waE">
+                                        <rect key="frame" x="331" y="0.0" width="83" height="44"/>
+                                        <state key="normal" title="动效5"/>
+                                        <connections>
+                                            <action selector="onclickButton:" destination="UrX-UA-bmq" eventType="touchUpInside" id="eAJ-MN-OFN"/>
                                         </connections>
                                     </button>
                                 </subviews>

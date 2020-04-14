@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface APLCustomVideoCompositor : NSObject <AVVideoCompositing>
-
+@property (nonatomic, assign) int type;
 @end
 
 @interface APLCrossDissolveCompositor : APLCustomVideoCompositor

@@ -10,7 +10,6 @@
 
 @implementation APLCustomVideoCompositionInstruction
 
-@synthesize timeRange = _timeRange;
 @synthesize enablePostProcessing = _enablePostProcessing;
 @synthesize containsTweening = _containsTweening;
 @synthesize requiredSourceTrackIDs = _requiredSourceTrackIDs;
@@ -24,7 +23,7 @@
 		_requiredSourceTrackIDs = nil;
 		_timeRange = timeRange;
 		_containsTweening = FALSE;
-		_enablePostProcessing = FALSE;
+		_enablePostProcessing = YES;
 	}
 	
 	return self;

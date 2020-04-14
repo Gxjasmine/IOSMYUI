@@ -18,6 +18,7 @@
 #import "VertigoFilter.h"
 #import "ScaleTwoScreenFilter.h"
 #import "AnimalFilter.h"
+#import "Tem1MixFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -42,35 +42,35 @@
     _cameraProcessingQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,0);
     _audioProcessingQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW,0);
     
-//
-//    self.captureSession = [[AVCaptureSession alloc] init];
-//    self.captureSession.sessionPreset = self.sessionPreset;
-//
-//    // Set up default camera device
-//    AVCaptureDevice *videoDevice;
-//    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-//    for (AVCaptureDevice *device in devices)
-//    {
-//        if ([device position] == _cameraPosition)
-//        {
-//            videoDevice = device;
-//        }
-//    }
-//
-//    NSError *error = nil;
-//    AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
-//    if (videoInput) {
-//        if ([self.captureSession canAddInput:videoInput]) {
-//            [self.captureSession addInput:videoInput];
-//            self.activeVideoInput = videoInput;
-//        } else {
-//            NSLog(@"Couldn't add video device");
-//            return nil;
-//        }
-//    } else {
-//        return nil;
-//    }
-//
+
+    self.captureSession = [[AVCaptureSession alloc] init];
+    self.captureSession.sessionPreset = self.sessionPreset;
+
+    // Set up default camera device
+    AVCaptureDevice *videoDevice;
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *device in devices)
+    {
+        if ([device position] == _cameraPosition)
+        {
+            videoDevice = device;
+        }
+    }
+
+    NSError *error = nil;
+    AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
+    if (videoInput) {
+        if ([self.captureSession canAddInput:videoInput]) {
+            [self.captureSession addInput:videoInput];
+            self.activeVideoInput = videoInput;
+        } else {
+            NSLog(@"Couldn't add video device");
+            return nil;
+        }
+    } else {
+        return nil;
+    }
+
     return self;
 }
 

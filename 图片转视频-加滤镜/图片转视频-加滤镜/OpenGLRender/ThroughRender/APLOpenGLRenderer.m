@@ -113,7 +113,30 @@ static const char kPassThroughFragmentShaderUV[] = {
         NSLog(@"No video texture cache");
         goto bail;
     }
-    
+
+
+//    // texture
+//    CVOpenGLESTextureRef luminanceTextureRef = nil;
+//
+//    CGSize textureSize = CGSizeMake(CVPixelBufferGetWidth(pixelBuffer),
+//                                 CVPixelBufferGetHeight(pixelBuffer));
+//    CVReturn status = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
+//                                                                  _videoTextureCache,
+//                                                                   pixelBuffer,
+//                                                                   nil,
+//                                                                   GL_TEXTURE_2D,
+//                                                                   GL_LUMINANCE,
+//                                                                   textureSize.width,
+//                                                                   textureSize.height,
+//                                                                   GL_LUMINANCE,
+//                                                                   GL_UNSIGNED_BYTE,
+//                                                                   0,
+//                                                                   &luminanceTextureRef);
+//    if (status != kCVReturnSuccess) {
+//        NSLog(@"Can't create luminanceTexture");
+//    }
+
+
     // Periodic texture cache flush every frame
     CVOpenGLESTextureCacheFlush(_videoTextureCache, 0);
     
