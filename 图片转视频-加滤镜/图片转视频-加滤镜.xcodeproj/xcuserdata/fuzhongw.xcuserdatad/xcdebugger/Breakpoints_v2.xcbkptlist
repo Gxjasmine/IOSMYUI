@@ -83,22 +83,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C7A44B05-D3CA-4823-8E40-6F2788915B04"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x56fe;&#x7247;&#x8f6c;&#x89c6;&#x9891;-&#x52a0;&#x6ee4;&#x955c;/OpenGLRender/SourceRender/Utils/MFPixelBufferHelper.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
-            landmarkName = "-convertRGBPixelBufferToTexture:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BD6E05F6-A416-4CEA-911E-EF86625AF863"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -125,6 +109,86 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "-startRendering"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C306AC3-9BEC-4A01-8F68-5A3323723D99"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x56fe;&#x7247;&#x8f6c;&#x89c6;&#x9891;-&#x52a0;&#x6ee4;&#x955c;/AVFounation/Template/Template05.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "-init"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A9835FE-3F35-4BA7-9E45-3E8B5C922A05"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x56fe;&#x7247;&#x8f6c;&#x89c6;&#x9891;-&#x52a0;&#x6ee4;&#x955c;/AVFounation/CustomCompositors/Source/CustomVideoCompositionInstruction.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-initWithPassthroughTrackID:timeRange:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70FB797E-967D-4A5A-8744-EFFC081CEB2E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x56fe;&#x7247;&#x8f6c;&#x89c6;&#x9891;-&#x52a0;&#x6ee4;&#x955c;/OpenGLRender/SourceRender/Utils/MFPixelBufferHelper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-convertYUVPixelBufferToTexture:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59BE6795-3B5C-4E42-8FA4-45DB2CB4ED03"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x56fe;&#x7247;&#x8f6c;&#x89c6;&#x9891;-&#x52a0;&#x6ee4;&#x955c;/OpenGLRender/SourceRender/Utils/MFPixelBufferHelper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "-convertYUVPixelBufferToTexture:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37174A0B-4635-4D92-B7F0-C1D97C83AC95"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x56fe;&#x7247;&#x8f6c;&#x89c6;&#x9891;-&#x52a0;&#x6ee4;&#x955c;/OpenGLRender/SourceRender/Utils/MFPixelBufferHelper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-textureCache"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

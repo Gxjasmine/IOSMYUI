@@ -95,6 +95,12 @@ typedef struct {
         [SourceEAGLContext useImageProcessingContext];
 
 
+        if (CVPixelBufferGetPlaneCount(pixelBuffer) > 0) {
+             NSLog(@"合格是YUV");
+         }else{
+             NSLog(@"合格不是YUV");
+
+         }
         GLuint textureID = [self.pixelBufferHelper convertYUVPixelBufferToTexture:pixelBuffer];
         CGSize size = CGSizeMake(CVPixelBufferGetWidth(pixelBuffer),
                                  CVPixelBufferGetHeight(pixelBuffer));

@@ -11,7 +11,7 @@
 #import "VideoViewController.h"
 #import "EffectsViewController.h"
 #import "TestViewController.h"
-
+#import "MFShaderHelper.h"
 @interface ViewController ()
 @property(nonatomic,strong)AudioToVideo *builder;
 
@@ -43,6 +43,7 @@
 }
 
 - (IBAction)onclIcktest:(id)sender {
+
     TestViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"TestViewController"];
          [self.navigationController pushViewController:vc animated:true];
 }

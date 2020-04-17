@@ -134,24 +134,37 @@
 }
 
 -(void)test09{
-    [self setupEditingAndPlayback8];
+    [self setupEditingAndPlayback10];
 
 }
 
 #pragma mark - Simple Editor
 
+- (void)setupEditingAndPlayback10
+{
+    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mp4"]]];
+
+    [self.clips addObject:asset1];
+    [self.clips addObject:asset1];
+    [self.clips addObject:asset1];
+    [self.clips addObject:asset1];
+    [self.clips addObject:asset1];
+
+//    [self.clips addObject:asset2];
+
+    [self synchronizeWithEditor];
+
+}
+
 - (void)setupEditingAndPlayback9
 {
-//    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mov"]]];
+//    AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"mov"]]];
     AVURLAsset *asset1 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"test2" ofType:@"mp4"]]];
 
 //    AVURLAsset *asset2 = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"透明1" ofType:@"mp4"]]];
 
     [self.clips addObject:asset1];
     [self.clips addObject:asset1];
-//    [self.clips addObject:asset1];
-//    [self.clips addObject:asset1];
-//    [self.clips addObject:asset1];
 
 //    [self.clips addObject:asset2];
 
@@ -168,9 +181,7 @@
 
     [self.clips addObject:asset1];
     [self.clips addObject:asset1];
-//    [self.clips addObject:asset1];
-//    [self.clips addObject:asset1];
-//    [self.clips addObject:asset1];
+
 
 //    [self.clips addObject:asset2];
 
@@ -328,6 +339,9 @@
 
     }else if (self.tag == 8){
         [self.editor buildCompositionObjectsModel06];
+
+    }else if (self.tag == 9){
+        [self.editor buildCompositionObjectsModel07];
 
     }
 

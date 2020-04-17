@@ -55,6 +55,7 @@
     self = [super init];
     if (self) {
         _context = context;
+        NSLog(@"initWithContext --------");
         [self setupYUVConversionProgram];
         [self setupNormalProgram];
         [self setupVBO];

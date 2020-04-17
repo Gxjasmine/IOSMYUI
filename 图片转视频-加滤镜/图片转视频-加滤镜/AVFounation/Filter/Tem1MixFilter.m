@@ -101,7 +101,6 @@ typedef struct {
     runSynchronouslyOnVideoProcessingQueue(^{
         [SourceEAGLContext useImageProcessingContext];
 
-
         GLuint textureID = [self.pixelBufferHelper convertYUVPixelBufferToTexture:pixelBuffer];
         CGSize size = CGSizeMake(CVPixelBufferGetWidth(pixelBuffer),
                                  CVPixelBufferGetHeight(pixelBuffer));

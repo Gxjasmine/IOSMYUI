@@ -214,13 +214,24 @@ static Float64 factorForTimeInRange(CMTime time, CMTimeRange range) /* 0.0 -> 1.
                 }
             }
         }
+        CMPersistentTrackID trackID = [request.sourceTrackIDs.firstObject intValue];
 
-        CMPersistentTrackID trackID = videoCompositionInstruction.foregroundTrackID;
+//        CMPersistentTrackID trackID = videoCompositionInstruction.foregroundTrackID;
         //当前帧的原始图像
         CVPixelBufferRef sourcePixelBuffer = [request sourceFrameByTrackID:trackID];
+
+
+        if (CVPixelBufferGetPlaneCount(sourcePixelBuffer) > 0) {
+                  NSLog(@"格式是YUV");
+              }else{
+                  NSLog(@"格式不是YUV");
+
+              }
+
         CVPixelBufferRef resultPixelBuffer = [videoCompositionInstruction applyPixelBuffer:sourcePixelBuffer];
         size_t num =  CVPixelBufferGetPlaneCount(sourcePixelBuffer);
         NSLog(@"--------------11111----------num：%zu",num);
+
 
         if (!resultPixelBuffer) {
             CVPixelBufferRef emptyPixelBuffer = [self createEmptyPixelBuffer];
