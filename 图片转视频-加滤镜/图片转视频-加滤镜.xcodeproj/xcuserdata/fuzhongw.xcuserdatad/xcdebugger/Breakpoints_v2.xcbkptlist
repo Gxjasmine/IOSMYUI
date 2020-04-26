@@ -35,22 +35,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "95DAC5B0-83F1-40C8-8167-E45A62218617"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x56fe;&#x7247;&#x8f6c;&#x89c6;&#x9891;-&#x52a0;&#x6ee4;&#x955c;/OpenGLRender/ThroughRender/APLOpenGLRenderer.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-lumaTextureForPixelBuffer:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AD86C95D-92E2-4771-8194-B4D6CD4FBC39"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

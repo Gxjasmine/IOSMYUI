@@ -296,6 +296,7 @@ enum
 bail:
     return sourceTexture;
 }
+
 - (void)dealloc
 {
     NSLog(@"render dealloc ========================================");

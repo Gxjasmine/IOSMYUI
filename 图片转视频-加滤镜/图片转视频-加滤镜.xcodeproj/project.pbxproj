@@ -21,6 +21,7 @@
 		AB44A6B62432E1BC00C6A183 /* APLSimpleEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB44A6B42432E1BC00C6A183 /* APLSimpleEditor.m */; };
 		AB44A6B92432E2DB00C6A183 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB44A6B82432E2DB00C6A183 /* test.mp4 */; };
 		AB44A6BB2432E2FF00C6A183 /* ping20s.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB44A6BA2432E2FF00C6A183 /* ping20s.mp4 */; };
+		AB4E2A2A24553C1000530B8D /* IOpenGLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2A2924553C1000530B8D /* IOpenGLRenderer.m */; };
 		AB5184B82433114500D466EC /* nature.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB5184B72433114500D466EC /* nature.mp4 */; };
 		AB5184BB2433136500D466EC /* MixFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5184BA2433136500D466EC /* MixFilter.m */; };
 		AB5184BE243313B000D466EC /* mixTexture.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AB5184BC243313B000D466EC /* mixTexture.vsh */; };
@@ -119,6 +120,8 @@
 		AB44A6B52432E1BC00C6A183 /* APLSimpleEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLSimpleEditor.h; sourceTree = "<group>"; };
 		AB44A6B82432E2DB00C6A183 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		AB44A6BA2432E2FF00C6A183 /* ping20s.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ping20s.mp4; sourceTree = "<group>"; };
+		AB4E2A2824553C0F00530B8D /* IOpenGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOpenGLRenderer.h; sourceTree = "<group>"; };
+		AB4E2A2924553C1000530B8D /* IOpenGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOpenGLRenderer.m; sourceTree = "<group>"; };
 		AB5184B72433114500D466EC /* nature.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nature.mp4; sourceTree = "<group>"; };
 		AB5184B92433136500D466EC /* MixFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixFilter.h; sourceTree = "<group>"; };
 		AB5184BA2433136500D466EC /* MixFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixFilter.m; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 				ABA40211242DD07C0028B408 /* APLDiagonalWipeRenderer.m */,
 				ABA4020D242DD07C0028B408 /* APLOpenGLRenderer.h */,
 				ABA4020E242DD07C0028B408 /* APLOpenGLRenderer.m */,
+				AB4E2A2824553C0F00530B8D /* IOpenGLRenderer.h */,
+				AB4E2A2924553C1000530B8D /* IOpenGLRenderer.m */,
 			);
 			path = ThroughRender;
 			sourceTree = "<group>";
@@ -680,6 +685,7 @@
 				ABA4021C242DD1BB0028B408 /* APLCustomVideoCompositor.m in Sources */,
 				ABA4023E242DE2B80028B408 /* FWCustomVideoCompositor.m in Sources */,
 				ABA40234242DDB530028B408 /* SourceEAGLContext.m in Sources */,
+				AB4E2A2A24553C1000530B8D /* IOpenGLRenderer.m in Sources */,
 				AB773FBB24403D2F00F31D28 /* Template04.m in Sources */,
 				ABE5DCFA2435E98B00516F65 /* TestViewController.m in Sources */,
 				ABA40231242DDA830028B408 /* MFPixelBufferHelper.m in Sources */,

@@ -36,6 +36,7 @@
 		AB5FA500241B6A3F00B7E51F /* MKGPUImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4EB241B6A3F00B7E51F /* MKGPUImageView.m */; };
 		AB5FA501241B6A3F00B7E51F /* MKGPUImageContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA4EC241B6A3F00B7E51F /* MKGPUImageContext.m */; };
 		AB5FA504241B757600B7E51F /* MultiVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5FA503241B757600B7E51F /* MultiVideoCamera.m */; };
+		AB872F822452E1C000F86BAD /* 中国风雪景桃花舞台背景视频.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB872F812452E1C000F86BAD /* 中国风雪景桃花舞台背景视频.mp4 */; };
 		ABA40002242B4F040028B408 /* MFShaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA4FFFE242B4F040028B408 /* MFShaderHelper.m */; };
 		ABA40003242B4F040028B408 /* MFPixelBufferHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA4FFFF242B4F040028B408 /* MFPixelBufferHelper.m */; };
 		ABA400B9242B4FEF0028B408 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA40006242B4FEF0028B408 /* libGPUImage.a */; };
@@ -110,6 +111,7 @@
 		AB5FA4EC241B6A3F00B7E51F /* MKGPUImageContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGPUImageContext.m; sourceTree = "<group>"; };
 		AB5FA502241B757600B7E51F /* MultiVideoCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiVideoCamera.h; sourceTree = "<group>"; };
 		AB5FA503241B757600B7E51F /* MultiVideoCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiVideoCamera.m; sourceTree = "<group>"; };
+		AB872F812452E1C000F86BAD /* 中国风雪景桃花舞台背景视频.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中国风雪景桃花舞台背景视频.mp4"; sourceTree = "<group>"; };
 		ABA40000242B4F040028B408 /* MFShaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFShaderHelper.h; sourceTree = "<group>"; };
 		ABA40001242B4F040028B408 /* MFPixelBufferHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPixelBufferHelper.h; sourceTree = "<group>"; };
 		ABA40006242B4FEF0028B408 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				ABA400BB242B519A0028B408 /* nature.mp4 */,
+				AB872F812452E1C000F86BAD /* 中国风雪景桃花舞台背景视频.mp4 */,
 				ABA40004242B4FEF0028B408 /* GPUImage */,
 				ABA4FFE7242B4EBF0028B408 /* AVFoundation */,
 				AB5FA4A7241B69B300B7E51F /* OpenGL */,
@@ -765,6 +768,7 @@
 				AB5FA49B241B69AE00B7E51F /* Assets.xcassets in Resources */,
 				ABA4FFFC242B4EEF0028B408 /* YUVConversion.vsh in Resources */,
 				ABA4FFF9242B4EEF0028B408 /* YUVConversion.fsh in Resources */,
+				AB872F822452E1C000F86BAD /* 中国风雪景桃花舞台背景视频.mp4 in Resources */,
 				AB5FA499241B69AC00B7E51F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -79,7 +79,7 @@
 
 - (void)setupPlayer {
     // asset
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"nature" withExtension:@"mp4"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"中国风雪景桃花舞台背景视频" withExtension:@"mp4"];
     self.asset = [AVURLAsset assetWithURL:url];
 
      NSArray *tracks = [self.asset tracksWithMediaType:AVMediaTypeVideo];
